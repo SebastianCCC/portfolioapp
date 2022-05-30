@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
 export const LogoIcon = () => {
-  const draw = {
+  /*   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: () => {
       const delay = 1 * 1.5
@@ -20,11 +20,9 @@ export const LogoIcon = () => {
         },
       }
     },
-  }
+  } */
   return (
     <motion.svg
-      initial="hidden"
-      animate="visible"
       width="30"
       height="45"
       viewBox="0 0 30 45"
@@ -32,7 +30,6 @@ export const LogoIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <motion.path
-        variants={draw}
         d="M22 8V1H1V38H8.5M22 8H8.5V14H28.5V8H22ZM8.5 38H22V30.5H8.5V24H28.5V44H8.5V38Z"
         stroke="#E5007F"
         strokeWidth="2"

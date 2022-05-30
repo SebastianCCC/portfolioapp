@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
       <header className="relative">
         <SideNavBar />
       </header>
-      <main>{children}</main>
+      <main className="min-w-full min-h-screen">{children}</main>
     </>
   )
 }
