@@ -28,7 +28,7 @@ const NavBarItems = ({ link, title, icon, socLink }) => {
         </Link>
       ) : (
         <div className="flex items-center">
-          <a href={socLink} target="_blank">
+          <a href={socLink} target="_blank" rel="noopener noreferrer">
             <div className="hover:bg-purple rounded p-1 text-2xl">{icon}</div>
           </a>
         </div>
