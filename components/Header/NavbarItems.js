@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { useState, useContext } from 'react'
-import { StateContext } from '../../hooks/StateContext'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const NavBarItems = ({ link, title, icon, socLink }) => {
