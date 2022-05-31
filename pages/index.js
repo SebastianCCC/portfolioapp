@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { BackHeroIcon } from '../components/Main/hero/background'
+import { BackHeroIcon } from '../components/Main/Hero/Background'
 
 export default function Home() {
   const name = "Hi, I'm Sebastian Christopher"
