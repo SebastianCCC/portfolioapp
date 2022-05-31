@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import HeroImage from '../components/Main/hero/background'
+import { BackHeroIcon } from '../components/Main/hero/background'
 
 export default function Home() {
   const name = "Hi, I'm Sebastian Christopher"
@@ -48,7 +48,9 @@ export default function Home() {
           ))}
         </motion.h2>
       </section>
-      <HeroImage />
+      <div className="absolute right-1/4 top-1/4 z-0">
+        <BackHeroIcon />
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export const HeroIcon = () => {
+export const BackHeroIcon = () => {
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: () => {
