@@ -1,6 +1,7 @@
 import SideNavBar from './Header/SideNavBar'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import NavBottom from './Footer/NavBottom'
 
 const Layout = ({ children }) => {
   const router = useRouter()
@@ -17,6 +18,9 @@ const Layout = ({ children }) => {
         <SideNavBar />
       </header>
       <main className="min-w-full min-h-screen">{children}</main>
+      <footer>
+        <NavBottom />
+      </footer>
     </>
   )
 }
