@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
           {path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
         </title>
       </Head>
-      <header className="relative z-[25]">
+      <header className="sticky top-0 left-0 z-[25]">
         <SideNavBar />
       </header>
       <main className="min-w-full min-h-screen">{children}</main>
