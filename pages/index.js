@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import ComStack from '../components/ComStack'
 import { BackHeroIcon } from '../components/Main/Hero/Background'
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
     show: { opacity: 1 },
   }
   return (
-    <div className="flex items-center min-h-screen relative">
+    <div className="flex flex-col items-center min-h-screen relative">
       <section className="text-white m-auto w-1/2 border-b border-pink p-4 z-[15]">
         <motion.h1
           variants={container}
@@ -48,9 +49,10 @@ export default function Home() {
           ))}
         </motion.h2>
       </section>
-      <div className="absolute right-1/4 top-1/4 z-0">
+      <div className="absolute right-1/4 top-[15%] z-0">
         <BackHeroIcon />
       </div>
+      <ComStack title="Prefered Stack" />
     </div>
   )
 }
