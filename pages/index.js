@@ -52,7 +52,7 @@ export default function Home() {
       <div className="absolute right-1/4 top-[15%] z-0">
         <BackHeroIcon />
       </div>
-      <ComStack title="Prefered Stack" />
+      <ComStack title="Preferred Stack" />
     </div>
   )
 }
