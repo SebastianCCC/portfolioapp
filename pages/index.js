@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import ComStack from '../components/ComStack'
+import About from '../components/Main/About'
 import { BackHeroIcon } from '../components/Main/Hero/Background'
 
 export default function Home() {
@@ -22,37 +23,40 @@ export default function Home() {
     show: { opacity: 1 },
   }
   return (
-    <div className="flex flex-col items-center min-h-screen relative">
-      <section className="text-white m-auto w-1/2 border-b border-pink p-4 z-[15]">
-        <motion.h1
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="text-5xl lg:text-7xl"
-        >
-          {namearr.map((letter, i) => (
-            <motion.span variants={item} key={i}>
-              {letter}
-            </motion.span>
-          ))}
-        </motion.h1>
-        <motion.h2
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="text-lg font-light pt-6"
-        >
-          {descarr.map((letter, i) => (
-            <motion.span variants={item} key={i}>
-              {letter}
-            </motion.span>
-          ))}
-        </motion.h2>
-      </section>
-      <div className="absolute right-1/4 top-[15%] z-0">
-        <BackHeroIcon />
+    <>
+      <div className="flex flex-col items-center min-h-screen relative">
+        <section className="text-white m-auto w-1/2 border-b border-pink p-4 z-[15]">
+          <motion.h1
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="text-5xl lg:text-7xl"
+          >
+            {namearr.map((letter, i) => (
+              <motion.span variants={item} key={i}>
+                {letter}
+              </motion.span>
+            ))}
+          </motion.h1>
+          <motion.h2
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="text-lg font-light pt-6"
+          >
+            {descarr.map((letter, i) => (
+              <motion.span variants={item} key={i}>
+                {letter}
+              </motion.span>
+            ))}
+          </motion.h2>
+        </section>
+        <div className="absolute right-1/4 top-[15%] z-0">
+          <BackHeroIcon />
+        </div>
+        <ComStack title="Preferred Stack" />
       </div>
-      <ComStack title="Preferred Stack" />
-    </div>
+      <About title="About Me" mail="offcccor@gmail.com" />
+    </>
   )
 }

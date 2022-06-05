@@ -4,6 +4,7 @@ import { RiStackLine } from 'react-icons/ri'
 import { SiTailwindcss, SiReact } from 'react-icons/si'
 import { TbBrandNextjs } from 'react-icons/tb'
 import { IoLogoElectron } from 'react-icons/io5'
+import AnimateTitles from '../Animate/Titles'
 
 const ComStack = ({ title }) => {
   const stacks = [
@@ -47,21 +48,12 @@ const ComStack = ({ title }) => {
   }
   return (
     <section className="text-white text-center p-4 w-full">
-      <motion.div
-        initial={{ x: 50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{
-          type: 'spring',
-          delay: 0.2,
-          duration: 1,
-        }}
-        className="flex justify-center text-2xl items-center"
-      >
+      <AnimateTitles>
         <span className="text-pink">
           <RiStackLine />
         </span>
         <h2 className="capitalize pl-2">{title}</h2>
-      </motion.div>
+      </AnimateTitles>
       <motion.div
         variants={container}
         initial="hidden"

@@ -13,7 +13,7 @@ const SideNavBar = () => {
         <ul>
           <NavBarItems icon={<HomeIcon />} title="Home" link="/" />
           <NavBarItems icon={<WorkIcon />} title="Work" link="/work" />
-          <NavBarItems icon={<UserIcon />} title="About Me" link="#" />
+          <NavBarItems icon={<UserIcon />} title="About Me" link="#about" />
         </ul>
       </div>
       <div className="border-t border-pink">
