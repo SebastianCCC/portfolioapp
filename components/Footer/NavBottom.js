@@ -6,7 +6,7 @@ import { RiSpotifyLine } from 'react-icons/ri'
 
 const NavBottom = () => {
   return (
-    <div className="bg-purple p-2 flex justify-evenly items-center">
+    <div className="bg-purple p-2 mt-20 flex justify-evenly items-center">
       <div className="flex items-center">
         <Link href="#">
           <div className="cursor-pointer">

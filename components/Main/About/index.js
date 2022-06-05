@@ -1,13 +1,13 @@
-import { AboutIcon } from './images'
-import { RiStarHalfLine } from 'react-icons/ri'
-import Image from 'next/image'
-import avatarImage from './/images/avatar.jpeg'
-import AnimateTitles from '../../Animate/Titles'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { RiStarHalfLine } from 'react-icons/ri'
+import AnimateTitles from '../../Animate/Titles'
+import avatarImage from './/images/avatar.jpeg'
+import { MailIcon } from './images'
 
 const About = ({ title, mail }) => {
   return (
-    <section id="about" className="text-white p-4 w-full">
+    <section id="about" className="text-white p-4 mt-20 w-full">
       <AnimateTitles>
         <span className="text-pink">
           <RiStarHalfLine />
@@ -35,34 +35,39 @@ const About = ({ title, mail }) => {
             />
           </div>
         </motion.div>
-        <motion.p
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            delay: 0.2,
-            duration: 1,
-          }}
-          className="max-w-prose pl-4 text-sm"
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fugit ipsum, quidem
-          commodi itaque asperiores dolores perferendis illo libero? Provident quasi unde
-          consequatur molestiae repellat ratione eligendi ab consectetur quos?
-        </motion.p>
+        <div className="flex flex-col pl-4 items-start">
+          <motion.p
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.2,
+              duration: 1,
+            }}
+            className="max-w-prose text-sm"
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fugit ipsum, quidem
+            commodi itaque asperiores dolores perferendis illo libero? Provident quasi unde
+            consequatur molestiae repellat ratione eligendi ab consectetur quos?
+          </motion.p>
+          <motion.div
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              type: 'spring',
+              delay: 0.8,
+              duration: 1.5,
+            }}
+            className="flex pt-2 justify-center items-center"
+          >
+            <div className="text-pink">
+              <MailIcon />
+            </div>
+            <p className="pl-2">{mail}</p>
+          </motion.div>
+        </div>
       </div>
-      <motion.p
-        initial={{ y: -50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          type: 'spring',
-          delay: 0.4,
-          duration: 1.5,
-        }}
-        className="text-center"
-      >
-        {mail}
-      </motion.p>
     </section>
   )
 }
