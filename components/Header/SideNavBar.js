@@ -2,11 +2,14 @@ import NavBarItems from './NavbarItems'
 import { LogoIcon, HomeIcon, WorkIcon, UserIcon, MenuIcon } from './images'
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import { RiSpotifyLine } from 'react-icons/ri'
+import { CgDarkMode } from 'react-icons/cg'
+import { useTheme } from 'next-themes'
 import { useState, useEffect, useContext } from 'react'
 import { StateContext } from '../../hooks/StateContext'
 import { motion } from 'framer-motion'
 
 const SideNavBar = () => {
+  const { theme, setTheme } = useTheme()
   const { isOpen, setIsOpen } = useContext(StateContext)
   const [navbar, setNavbar] = useState(false)
 
@@ -22,6 +25,11 @@ const SideNavBar = () => {
     changeBackground()
     window.addEventListener('scroll', changeBackground)
   })
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
   return (
     <>
       <div
@@ -53,17 +61,20 @@ const SideNavBar = () => {
             <NavBarItems icon={<UserIcon />} title="About Me" link="#about" />
           </ul>
         </div>
-        <div className={`m-4 border-t border-pink ${!isOpen && 'hidden'} lg:block`}>
+        <div className={`m-4 ${!isOpen && 'hidden'} lg:block`}>
           <ul>
-            <NavBarItems icon={<FiGithub />} socLink="https://github.com/SebastianCCC" />
-            <NavBarItems
-              icon={<FiLinkedin />}
-              socLink="https://www.linkedin.com/in/sebastian-christopher-489364238/"
-            />
-            <NavBarItems
-              icon={<RiSpotifyLine />}
-              socLink="https://open.spotify.com/artist/5kOQRo3IZFZe1TUhyqZZyN?si=q-9zOLxTRkqG9I4zHhDWCw"
-            />
+            <NavBarItems icon={<CgDarkMode />} socLink={toggleTheme} />
+            <div className={`border-t border-pink`}>
+              <NavBarItems icon={<FiGithub />} socLink="https://github.com/SebastianCCC" />
+              <NavBarItems
+                icon={<FiLinkedin />}
+                socLink="https://www.linkedin.com/in/sebastian-christopher-489364238/"
+              />
+              <NavBarItems
+                icon={<RiSpotifyLine />}
+                socLink="https://open.spotify.com/artist/5kOQRo3IZFZe1TUhyqZZyN?si=q-9zOLxTRkqG9I4zHhDWCw"
+              />
+            </div>
           </ul>
         </div>
       </div>

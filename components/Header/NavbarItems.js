@@ -2,12 +2,20 @@ import Link from 'next/link'
 import { useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { StateContext } from '../../hooks/StateContext'
+import { useTheme } from 'next-themes'
 
 const NavBarItems = ({ link, title, icon, socLink }) => {
+  const { theme } = useTheme()
   const { isOpen, setIsOpen } = useContext(StateContext)
   const [isHover, setIsHover] = useState(false)
+
+  const isFunction = () => {
+    return Boolean(typeof socLink === 'function')
+  }
+
   return (
     <li
+      {...(isFunction() && { onClick: socLink })}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className="text-pink cursor-pointer font-bold py-1"
@@ -29,10 +37,16 @@ const NavBarItems = ({ link, title, icon, socLink }) => {
           </div>
         </Link>
       ) : (
-        <div className="flex items-center">
-          <a href={socLink} target="_blank" rel="noopener noreferrer">
-            <div className="hover:bg-purple rounded p-1 text-2xl">{icon}</div>
-          </a>
+        <div className="hover:bg-purple rounded p-1 text-2xl flex items-center">
+          {isFunction() ? (
+            <motion.div initial={{ rotate: 0 }} animate={theme === 'dark' ? { rotate: 180 } : {}}>
+              {icon}
+            </motion.div>
+          ) : (
+            <a href={socLink} target="_blank" rel="noopener noreferrer">
+              {icon}
+            </a>
+          )}
         </div>
       )}
     </li>
