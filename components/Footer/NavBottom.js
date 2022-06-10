@@ -1,12 +1,12 @@
-import { FooterIcon } from './images'
 import Link from 'next/link'
-import NavBarItems from '../Header/NavbarItems'
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import { RiSpotifyLine } from 'react-icons/ri'
+import NavBarItems from '../Header/NavbarItems'
+import { FooterIcon } from './images'
 
 const NavBottom = () => {
   return (
-    <div className="bg-purple p-2 mt-20 flex justify-evenly items-center">
+    <div className={`bg-purple p-2 mt-20 flex justify-evenly items-center`}>
       <div className="flex items-center">
         <Link href="#">
           <div className="cursor-pointer">

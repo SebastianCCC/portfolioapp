@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import { StateProvider } from '../hooks/StateContext'
+import { ThemeProvider } from 'next-themes'
 import '../styles/globals.css'
 import Head from 'next/head'
 
@@ -10,9 +11,11 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <StateProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ThemeProvider themes={['dark', 'light']} attribute="class">
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
       </StateProvider>
     </>
   )

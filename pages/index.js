@@ -25,12 +25,12 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center min-h-screen relative">
-        <section className="text-white m-auto w-1/2 border-b border-pink p-4 z-[15]">
+        <section className="text-pink dark:text-white m-auto w-1/2 border-b border-pink p-4 z-[15]">
           <motion.h1
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-5xl lg:text-7xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl"
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -42,7 +42,7 @@ export default function Home() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-lg font-light pt-6"
+            className="text-sm lg:text-lg font-light pt-6"
           >
             {descarr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -51,7 +51,7 @@ export default function Home() {
             ))}
           </motion.h2>
         </section>
-        <div className="absolute right-1/4 top-[15%] z-0">
+        <div className="absolute sm:right-[21%] md:right-1/4 top-[6%] sm:top-[7%] md:top-[12%] lg:top-[15%] z-0">
           <BackHeroIcon />
         </div>
         <ComStack title="Preferred Stack" />
