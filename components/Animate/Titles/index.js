@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const AnimateTitles = ({ children }) => {
   return (
     <motion.div
-      initial={{ x: 25, opacity: 0 }}
+      initial={{ x: 50, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{
