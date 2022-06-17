@@ -51,27 +51,29 @@ export default function Work({ work }) {
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex flex-col gap-4 w-full sm:w-4/5 md:w-3/5 lg:w-1/2"
+          className="flex flex-col justify-center md:flex-row md:flex-wrap items-start w-full sm:w-4/5 md:w-fit gap-4"
         >
           {work.map(({ startDate, endDate, name, role, isgroup, deployed }, i) => (
             <motion.article
               variants={item}
-              className="p-2 rounded dark:bg-pink bg-purple w-full"
+              className="p-2 rounded dark:bg-pink bg-darkblue w-full md:w-2/5"
               key={i}
             >
               <a href={deployed} target="_blank" rel="noopener noreferrer">
-                <div className="pb-10 mb-2 border-b border-white">
+                <div className="pb-10 mb-2 border-b border-white select-none">
                   <div className="flex justify-between items-center">
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold">{name}</h2>
-                    <p className="text-sm md:text-base">{endDate}</p>
+                    <h2 className="text-base lg:text-2xl font-bold dark:text-white text-pink">
+                      {name}
+                    </h2>
+                    <p className="text-xs lg:text-base text-white">{endDate}</p>
                   </div>
-                  <p className="text-sm md:text-base">
+                  <p className="text-sm md:text-base text-white">
                     {isgroup ? 'Group Project' : 'Solo Project'}
                   </p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center text-white">
                   <p className="text-sm md:text-base">Role</p>
-                  <div className="mx-1 dark:bg-white rounded-full w-1 h-1"></div>
+                  <div className="mx-1 bg-white rounded-full w-1 h-1"></div>
                   <p className="uppercase text-sm md:text-base">{role}</p>
                 </div>
               </a>
