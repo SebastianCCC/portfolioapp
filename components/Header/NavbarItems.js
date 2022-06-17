@@ -26,9 +26,7 @@ const NavBarItems = ({ link, title, icon, socLink }) => {
                 initial={{ x: -20 }}
                 animate={{ x: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`dark:group-hover:text-white pl-1 ${
-                  !isOpen && 'absolute w-screen'
-                } left-[50px]`}
+                className={`dark:group-hover:text-white pl-1 absolute w-max left-[50px]`}
               >
                 {title}
               </motion.h2>
