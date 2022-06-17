@@ -58,7 +58,7 @@ const ComStack = ({ title }) => {
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex justify-evenly w-full m-auto p-4 overflow-y-hidden lg:w-1/2"
+        className="flex justify-evenly w-full m-auto overflow-y-hidden lg:w-1/2"
       >
         {stacks.map(({ name, icon }, i) => (
           <motion.div

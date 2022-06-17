@@ -14,7 +14,7 @@ const About = ({ title, mail }) => {
         </span>
         <h2 className="capitalize pl-2">{title}</h2>
       </AnimateTitles>
-      <div className="flex flex-col lg:flex-row justify-center items-center p-4">
+      <div className="flex flex-col lg:flex-row justify-center items-center">
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}

@@ -1,6 +1,8 @@
 import { collection, getDocs } from 'firebase/firestore'
 import db from '../../firebase'
 import { motion } from 'framer-motion'
+import { AiOutlineAppstore } from 'react-icons/ai'
+import AnimateTitles from '../../components/Animate/Titles'
 
 export async function getStaticProps() {
   const querySnapshot = await getDocs(collection(db, 'work'))
@@ -38,11 +40,17 @@ export default function Work({ work }) {
   return (
     <>
       <div className="flex flex-col items-center min-w-full min-h-screen pt-20">
+        <AnimateTitles>
+          <span className="text-pink -rotate-6">
+            <AiOutlineAppstore />
+          </span>
+          <h2 className="capitalize pl-2">Projects</h2>
+        </AnimateTitles>
         <motion.section
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-4/5 md:w-3/5 lg:w-1/2"
+          className="flex flex-col gap-4 w-full sm:w-4/5 md:w-3/5 lg:w-1/2"
         >
           {work.map(({ startDate, endDate, name, role, isgroup, deployed }, i) => (
             <motion.article
