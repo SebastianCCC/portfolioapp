@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export const LogoIcon = () => {
+export const LogoIcon = ({ FillRef }) => {
   /*   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: () => {
@@ -31,7 +31,7 @@ export const LogoIcon = () => {
     >
       <motion.path
         d="M22 8V1H1V38H8.5M22 8H8.5V14H28.5V8H22ZM8.5 38H22V30.5H8.5V24H28.5V44H8.5V38Z"
-        stroke="#E5007F"
+        stroke={FillRef === 'light' ? '#E5007F' : '#253269'}
         strokeWidth="2"
       />
     </motion.svg>

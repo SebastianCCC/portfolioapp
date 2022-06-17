@@ -5,12 +5,14 @@ import { RiSpotifyLine } from 'react-icons/ri'
 import { CgDarkMode } from 'react-icons/cg'
 import { useState, useEffect, useContext } from 'react'
 import { StateContext } from '../../hooks/StateContext'
+import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
 import ThemeSwitch from '../Theme'
 
 const SideNavBar = () => {
   const { isOpen, setIsOpen } = useContext(StateContext)
   const [navbar, setNavbar] = useState(false)
+  const { theme } = useTheme()
 
   const changeBackground = () => {
     if (window.scrollY >= 18) {
@@ -33,18 +35,18 @@ const SideNavBar = () => {
       ></div>
       <div
         className={`absolute left-0 ${
-          isOpen && 'w-[70%] md:w-[30%] bg-darkblue min-h-screen'
-        } lg:bg-darkblue lg:min-h-screen w-full lg:w-fit flex flex-col items-start justify-between`}
+          isOpen && 'w-[70%] md:w-[30%] dark:bg-pink bg-darkblue min-h-screen'
+        } dark:lg:bg-pink bg-darkblue lg:min-h-screen w-full lg:w-fit flex flex-col items-start justify-between`}
       >
         <div
           className={`flex justify-between p-4 w-full items-center cursor-pointer ${
-            navbar && 'bg-darkblue'
+            navbar && 'dark:bg-pink bg-darkblue'
           } transition duration-700 ease-out`}
         >
-          <div onClick={() => setIsOpen(!isOpen)} className="text-pink pr-2 lg:hidden">
+          <div onClick={() => setIsOpen(!isOpen)} className="text-white pr-2 lg:hidden">
             <MenuIcon />
           </div>
-          <LogoIcon />
+          <LogoIcon FillRef={theme} />
         </div>
         <div
           onClick={() => setIsOpen(false)}
@@ -59,7 +61,7 @@ const SideNavBar = () => {
         <div className={`m-4 ${!isOpen && 'hidden'} lg:block`}>
           <ThemeSwitch />
           <ul>
-            <div className={`border-t border-pink`}>
+            <div className={`border-t dark:border-darkblue border-pink`}>
               <NavBarItems icon={<FiGithub />} socLink="https://github.com/SebastianCCC" />
               <NavBarItems
                 icon={<FiLinkedin />}

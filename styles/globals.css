@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply dark:bg-black bg-white;
+  @apply dark:bg-darkblue bg-white;
 }
 
 @layer components {
