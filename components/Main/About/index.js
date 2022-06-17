@@ -7,16 +7,16 @@ import { MailIcon } from './images'
 
 const About = ({ title, mail }) => {
   return (
-    <section id="about" className="text-black dark:text-white p-4 mt-20 w-full">
+    <section id="about" className="text-black dark:text-white p-4 mt-20 w-full overflow-y-hidden">
       <AnimateTitles>
         <span className="text-pink">
           <RiStarHalfLine />
         </span>
         <h2 className="capitalize pl-2">{title}</h2>
       </AnimateTitles>
-      <div className="flex flex-col lg:flex-row justify-center items-center p-4">
+      <div className="flex flex-col lg:flex-row justify-center items-center">
         <motion.div
-          initial={{ x: -25, opacity: 0 }}
+          initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{
@@ -37,7 +37,7 @@ const About = ({ title, mail }) => {
         </motion.div>
         <div className="flex flex-col lg:pl-4 items-start">
           <motion.p
-            initial={{ x: 25, opacity: 0 }}
+            initial={{ x: 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{
@@ -51,7 +51,7 @@ const About = ({ title, mail }) => {
             consequatur molestiae repellat ratione eligendi ab consectetur quos?
           </motion.p>
           <motion.div
-            initial={{ x: 25, opacity: 0 }}
+            initial={{ x: 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{

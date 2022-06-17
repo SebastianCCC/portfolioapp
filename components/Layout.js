@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
       <header className="sticky top-0 left-0 z-[25]">
         <SideNavBar />
       </header>
-      <main className="min-w-full min-h-screen">{children}</main>
+      <main className="min-w-full min-h-screen p-4">{children}</main>
       <footer>
         <NavBottom />
       </footer>

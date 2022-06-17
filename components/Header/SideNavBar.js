@@ -53,7 +53,7 @@ const SideNavBar = () => {
           <ul>
             <NavBarItems icon={<HomeIcon />} title="Home" link="/" />
             <NavBarItems icon={<WorkIcon />} title="Work" link="/work" />
-            <NavBarItems icon={<UserIcon />} title="About Me" link="#about" />
+            <NavBarItems icon={<UserIcon />} title="About Me" link="/#about" />
           </ul>
         </div>
         <div className={`m-4 ${!isOpen && 'hidden'} lg:block`}>
