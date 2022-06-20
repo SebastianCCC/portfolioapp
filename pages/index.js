@@ -2,8 +2,18 @@ import { motion } from 'framer-motion'
 import ComStack from '../components/ComStack'
 import About from '../components/Main/About'
 import { BackHeroIcon } from '../components/Main/Hero/Background'
+import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
+  const { theme } = useTheme()
+
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const name = "Hi, I'm Sebastian Christopher"
   const desc = 'A passionate full time Web Developer.'
   const namearr = [...name]
@@ -25,7 +35,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center min-h-screen relative">
-        <section className="text-pink dark:text-white m-auto w-1/2 border-b border-pink p-4 z-[15]">
+        <section className="text-pink dark:text-white m-auto w-4/5 md:w-1/2 border-b border-pink p-4 z-[15]">
           <motion.h1
             variants={container}
             initial="hidden"
@@ -51,8 +61,8 @@ export default function Home() {
             ))}
           </motion.h2>
         </section>
-        <div className="absolute sm:right-[21%] md:right-1/4 top-[6%] sm:top-[7%] md:top-[12%] lg:top-[15%] z-0">
-          <BackHeroIcon />
+        <div className="absolute sm:right-[21%] md:right-1/4 top-[10%] sm:top-[7%] md:top-[22%] lg:top-[15%] z-0">
+          {mounted && <BackHeroIcon fillRef={theme} />}
         </div>
         <ComStack title="Preferred Stack" />
       </div>

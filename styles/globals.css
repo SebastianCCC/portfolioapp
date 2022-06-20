@@ -8,6 +8,10 @@
   @apply box-border font-poppins;
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
   @apply dark:bg-darkblue bg-white;
 }
