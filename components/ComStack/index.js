@@ -47,7 +47,7 @@ const ComStack = ({ title }) => {
     show: { y: 0 },
   }
   return (
-    <section className="text-black dark:text-white text-center p-4 w-full">
+    <section className="text-black dark:text-white text-center w-full">
       <AnimateTitles>
         <span className="text-pink">
           <RiStackLine />

@@ -3,6 +3,7 @@ import { StateProvider } from '../hooks/StateContext'
 import { ThemeProvider } from 'next-themes'
 import '../styles/globals.css'
 import Head from 'next/head'
+import ErrorBoundary from '../components/ErrorBoundary'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }) {
       <StateProvider>
         <ThemeProvider themes={['dark', 'light']} attribute="class">
           <Layout>
-            <Component {...pageProps} />
+            <ErrorBoundary>
+              <Component {...pageProps} />
+            </ErrorBoundary>
           </Layout>
         </ThemeProvider>
       </StateProvider>
