@@ -21,6 +21,7 @@ export async function getStaticProps() {
 }
 
 export default function Work({ work }) {
+  console.log(work)
   const container = {
     hidden: { x: '-100vw' },
     show: {
