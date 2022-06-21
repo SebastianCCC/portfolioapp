@@ -48,6 +48,14 @@ export default function Work({ work }) {
           </span>
           <h2 className="capitalize pl-2">Projects</h2>
         </AnimateTitles>
+        <button
+          type="button"
+          onClick={() => {
+            throw new Error('Sentry Frontend Error')
+          }}
+        >
+          Throw error
+        </button>
         <motion.section
           variants={container}
           initial="hidden"
