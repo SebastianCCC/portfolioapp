@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { AiOutlineAppstore } from 'react-icons/ai'
 import AnimateTitles from '../../components/Animate/Titles'
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const querySnapshot = await getDocs(collection(db, 'work'))
   const work = []
 
@@ -16,7 +16,6 @@ export async function getStaticProps() {
     props: {
       work,
     },
-    revalidate: 1,
   }
 }
 
