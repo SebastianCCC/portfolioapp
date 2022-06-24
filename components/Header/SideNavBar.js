@@ -10,7 +10,7 @@ const SideNavBar = () => {
   return (
     <div className="hidden lg:block">
       <div
-        className={`absolute left-0 dark:bg-pink bg-darkblue min-h-screen w-fit flex flex-col items-start justify-between`}
+        className={`absolute left-0 dark:bg-purple bg-darkblue min-h-screen w-fit flex flex-col items-start justify-between`}
       >
         <div className="m-4 cursor-pointer">
           <LogoIcon FillRef={theme} />
