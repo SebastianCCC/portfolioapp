@@ -7,7 +7,7 @@ import { MailIcon } from './images'
 
 const About = ({ title, mail }) => {
   return (
-    <section id="about" className="text-black dark:text-white p-4 mt-20 w-full overflow-y-hidden">
+    <section id="about" className="text-black dark:text-white p-4 mt-40 w-full overflow-y-hidden">
       <AnimateTitles>
         <span className="text-pink">
           <RiStarHalfLine />
