@@ -32,7 +32,7 @@ const SideNavBar = () => {
     <>
       <div
         onClick={() => setIsOpen(false)}
-        className={`absolute min-w-full bg-transparent min-h-screen`}
+        className={`absolute min-w-full bg-transp min-h-screen`}
       ></div>
       <motion.div
         initial="closed"
