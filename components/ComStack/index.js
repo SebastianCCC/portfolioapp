@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 import { IoLogoNodejs } from 'react-icons/io'
 import { RiStackLine } from 'react-icons/ri'
 import { SiTailwindcss, SiReact } from 'react-icons/si'
-import { TbBrandNextjs } from 'react-icons/tb'
+import { TbBrandNextjs, TbBrandFirebase } from 'react-icons/tb'
 import { IoLogoElectron } from 'react-icons/io5'
 import AnimateTitles from '../Animate/Titles'
+import Tech from './Tech'
 
 const ComStack = ({ title }) => {
   const stacks = [
@@ -15,6 +16,10 @@ const ComStack = ({ title }) => {
     {
       name: 'NextJs',
       icon: <TbBrandNextjs />,
+    },
+    {
+      name: 'Firebase',
+      icon: <TbBrandFirebase />,
     },
     {
       name: 'Tailwindcss',
@@ -29,23 +34,22 @@ const ComStack = ({ title }) => {
       icon: <IoLogoElectron />,
     },
   ]
-  const container = {
-    hidden: { y: 200 },
+
+  const horizontalScroll = {
+    hidden: { x: '0' },
     show: {
-      y: 0,
+      x: '-50%',
       transition: {
-        type: 'spring',
-        delay: 0.2,
-        duration: 1,
-        staggerChildren: 0.7,
+        x: {
+          ease: 'linear',
+          duration: 30,
+          repeat: Infinity,
+          repeatType: 'loop',
+        },
       },
     },
   }
 
-  const item = {
-    hidden: { y: 200 },
-    show: { y: 0 },
-  }
   return (
     <section className="text-black dark:text-white text-center w-full">
       <AnimateTitles>
@@ -54,23 +58,18 @@ const ComStack = ({ title }) => {
         </span>
         <h2 className="capitalize pl-2">{title}</h2>
       </AnimateTitles>
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="flex justify-evenly w-full m-auto overflow-y-hidden lg:w-1/2"
-      >
-        {stacks.map(({ name, icon }, i) => (
-          <motion.div
-            variants={item}
-            className="flex flex-col items-center justify-center p-2"
-            key={i}
-          >
-            <div className="text-3xl">{icon}</div>
-            <p>{name}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="w-full sm:w-1/2 m-auto overflow-hidden relative">
+        <div className="w-full h-full dark:bg-gradient-d-r bg-gradient-light-r absolute z-20"></div>
+        <motion.div
+          variants={horizontalScroll}
+          initial="hidden"
+          animate="show"
+          className="flex w-[200%]"
+        >
+          <Tech stack={stacks} />
+          <Tech stack={stacks} />
+        </motion.div>
+      </div>
     </section>
   )
 }
