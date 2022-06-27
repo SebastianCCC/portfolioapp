@@ -34,7 +34,7 @@ export const BackHeroIcon = ({ fillRef }) => {
       <motion.path
         variants={draw}
         d="M22 8V1H1V38H8.5M22 8H8.5V14H28.5V8H22ZM8.5 38H22V30.5H8.5V24H28.5V44H8.5V38Z"
-        stroke={fillRef === 'light' ? '#253269' : 'url(#paint0_linear_7_22)'}
+        stroke={fillRef === 'light' ? '#311D3F' : 'url(#paint0_linear_7_22)'}
         strokeWidth="2"
       />
       <defs>

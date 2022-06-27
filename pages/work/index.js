@@ -41,7 +41,7 @@ export default function Work({ work }) {
     <>
       <div className="flex flex-col items-center min-w-full min-h-screen pt-20">
         <AnimateTitles>
-          <span className="text-pink -rotate-6">
+          <span className="text-secondary -rotate-6">
             <AiOutlineAppstore />
           </span>
           <h2 className="capitalize pl-2">Projects</h2>
@@ -55,13 +55,13 @@ export default function Work({ work }) {
           {work.map(({ startDate, endDate, name, role, isgroup, deployed }, i) => (
             <motion.article
               variants={item}
-              className="p-2 rounded dark:bg-pink bg-darkblue w-full md:w-2/5"
+              className="p-2 rounded dark:bg-primary bg-tertiary w-full md:w-2/5"
               key={i}
             >
               <a href={deployed} target="_blank" rel="noopener noreferrer">
                 <div className="pb-10 mb-2 border-b border-white select-none">
                   <div className="flex justify-between items-center">
-                    <h2 className="text-base lg:text-2xl font-bold dark:text-white text-pink">
+                    <h2 className="text-base lg:text-2xl font-bold dark:text-white text-primary">
                       {name}
                     </h2>
                     <p className="text-xs lg:text-base text-white">{endDate}</p>
