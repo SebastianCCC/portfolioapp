@@ -1,4 +1,5 @@
 import { useTheme } from 'next-themes'
+import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../../hooks/StateContext'
 import { LogoIcon, MenuIcon } from './images'
@@ -31,7 +32,11 @@ const SideNavBar = () => {
         <div onClick={() => setIsOpen(true)} className="dark:text-white text-secondary pr-2">
           <MenuIcon />
         </div>
-        <LogoIcon FillRef={theme} />
+        <Link href="/">
+          <div>
+            <LogoIcon FillRef={theme} />
+          </div>
+        </Link>
       </div>
     </>
   )

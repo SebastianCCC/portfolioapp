@@ -1,4 +1,5 @@
 import { useTheme } from 'next-themes'
+import Link from 'next/link'
 import { NavLinks, SocialLinks } from '../Links'
 import ThemeSwitch from '../Theme'
 import { LogoIcon } from './images'
@@ -12,9 +13,11 @@ const SideNavBar = () => {
       <div
         className={`absolute left-0 dark:bg-primary bg-tertiary min-h-screen w-fit flex flex-col items-start justify-between`}
       >
-        <div className="m-4 cursor-pointer">
-          <LogoIcon FillRef={theme} />
-        </div>
+        <Link href="/">
+          <div className="m-4 cursor-pointer">
+            <LogoIcon FillRef={theme} />
+          </div>
+        </Link>
         <div className={`m-4 my-2`}>
           <ul>
             {NavLinks.map(({ icon, title, link }, i) => (
