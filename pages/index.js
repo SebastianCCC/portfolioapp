@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center min-h-screen relative">
-        <section className="text-pink dark:text-white m-auto w-4/5 md:w-1/2 border-b border-pink p-4 z-[15]">
+        <section className="text-primary dark:text-white m-auto w-4/5 md:w-1/2 border-b border-secondary p-4 z-[15]">
           <motion.h1
             variants={container}
             initial="hidden"

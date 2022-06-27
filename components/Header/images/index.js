@@ -31,7 +31,7 @@ export const LogoIcon = ({ FillRef }) => {
     >
       <motion.path
         d="M22 8V1H1V38H8.5M22 8H8.5V14H28.5V8H22ZM8.5 38H22V30.5H8.5V24H28.5V44H8.5V38Z"
-        stroke={FillRef === 'light' ? '#E5007F' : '#253269'}
+        stroke={FillRef === 'light' ? '#88304E' : 'white'}
         strokeWidth="2"
       />
     </motion.svg>

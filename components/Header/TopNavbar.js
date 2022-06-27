@@ -1,4 +1,5 @@
 import { useTheme } from 'next-themes'
+import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../../hooks/StateContext'
 import { LogoIcon, MenuIcon } from './images'
@@ -25,13 +26,17 @@ const SideNavBar = () => {
     <>
       <div
         className={`absolute flex justify-between p-4 w-full items-center cursor-pointer ${
-          navbar && 'dark:bg-purple bg-darkblue drop-shadow-md'
+          navbar && 'dark:bg-primary bg-tertiary drop-shadow-md'
         } transition duration-700 ease-out lg:hidden`}
       >
-        <div onClick={() => setIsOpen(true)} className="dark:text-white text-pink pr-2">
+        <div onClick={() => setIsOpen(true)} className="dark:text-white text-secondary pr-2">
           <MenuIcon />
         </div>
-        <LogoIcon FillRef={theme} />
+        <Link href="/">
+          <div>
+            <LogoIcon FillRef={theme} />
+          </div>
+        </Link>
       </div>
     </>
   )
