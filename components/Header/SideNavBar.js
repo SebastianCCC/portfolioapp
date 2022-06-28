@@ -14,7 +14,7 @@ const SideNavBar = () => {
         className={`absolute left-0 dark:bg-primary bg-tertiary min-h-screen w-fit flex flex-col items-start justify-between`}
       >
         <Link href="/">
-          <div className="m-4 cursor-pointer">
+          <div className="w-full p-4 cursor-pointer">
             <LogoIcon FillRef={theme} />
           </div>
         </Link>
