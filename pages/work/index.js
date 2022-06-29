@@ -3,19 +3,21 @@ import db from '../../firebase'
 import { motion } from 'framer-motion'
 import { AiOutlineAppstore } from 'react-icons/ai'
 import AnimateTitles from '../../components/Animate/Titles'
+import Link from 'next/link'
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const querySnapshot = await getDocs(collection(db, 'work'))
   const work = []
 
   querySnapshot.forEach((doc) => {
-    work.push(doc.data())
+    work.push({ id: doc.id, ...doc.data() })
   })
 
   return {
     props: {
       work,
     },
+    revalidate: 10,
   }
 }
 
@@ -52,13 +54,12 @@ export default function Work({ work }) {
           animate="show"
           className="flex flex-col justify-center md:flex-row md:flex-wrap items-start w-full sm:w-4/5 md:w-fit gap-4"
         >
-          {work.map(({ startDate, endDate, name, role, isgroup, deployed }, i) => (
-            <motion.article
-              variants={item}
-              className="p-2 rounded dark:bg-primary bg-tertiary w-full md:w-2/5"
-              key={i}
-            >
-              <a href={deployed} target="_blank" rel="noopener noreferrer">
+          {work.map(({ endDate, name, role, isgroup, id }, i) => (
+            <Link href={'work/' + id} key={i}>
+              <motion.article
+                variants={item}
+                className="p-2 rounded cursor-pointer dark:bg-primary bg-tertiary w-full md:w-2/5"
+              >
                 <div className="pb-10 mb-2 border-b border-white select-none">
                   <div className="flex justify-between items-center">
                     <h2 className="text-base lg:text-2xl font-bold dark:text-white text-primary">
@@ -70,13 +71,9 @@ export default function Work({ work }) {
                     {isgroup ? 'Group Project' : 'Solo Project'}
                   </p>
                 </div>
-                <div className="flex items-center text-white">
-                  <p className="text-sm md:text-base">Role</p>
-                  <div className="mx-1 bg-white rounded-full w-1 h-1"></div>
-                  <p className="uppercase text-sm md:text-base">{role}</p>
-                </div>
-              </a>
-            </motion.article>
+                <p className="capitalize text-sm text-white md:text-base">{role}</p>
+              </motion.article>
+            </Link>
           ))}
         </motion.section>
       </div>
