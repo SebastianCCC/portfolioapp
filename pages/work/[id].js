@@ -32,8 +32,6 @@ export async function getStaticPaths() {
 }
 
 const WId = ({ currentpage }) => {
-  console.log(currentpage)
-
   const router = useRouter()
   const path = router.query.id
 
