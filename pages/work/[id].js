@@ -16,7 +16,6 @@ export async function getStaticProps({ params }) {
     props: {
       currentpage: page,
     },
-    revalidate: 10,
   }
 }
 
