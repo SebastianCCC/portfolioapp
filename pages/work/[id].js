@@ -145,10 +145,12 @@ const WId = ({ currentpage }) => {
               <p className="font-bold">{endDate}</p>
             </div>
           </section>
-          <div className="flex justify-center items-center w-fit m-auto p-2 dark:text-tertiary text-white dark:bg-primary bg-tertiary rounded dark:hover:text-white hover:text-primary">
-            <FiGithub />
-            <p className="pl-2">{sorcecode ? 'Github Repo' : 'No Public Repo'}</p>
-          </div>
+          <a href={sorcecode} target="_blank" rel="noopener noreferrer">
+            <div className="flex justify-center items-center w-fit m-auto p-2 dark:text-tertiary text-white dark:bg-primary bg-tertiary rounded dark:hover:text-white hover:text-primary">
+              <FiGithub />
+              <p className="pl-2">{sorcecode ? 'Github Repo' : 'No Public Repo'}</p>
+            </div>
+          </a>
         </motion.div>
       </div>
     </>
