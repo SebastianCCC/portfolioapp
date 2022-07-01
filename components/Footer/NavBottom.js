@@ -19,7 +19,7 @@ const NavBottom = () => {
           © {new Date().getFullYear()} EvenMoreSeb
         </h3>
       </div>
-      <ul className="flex px-2 rounded dark:bg-pink">
+      <ul className="flex px-2 rounded dark:bg-secondary">
         {SocialLinks.map(({ icon, soclink }, i) => (
           <NavBarItems key={i} icon={icon} socLink={soclink} />
         ))}

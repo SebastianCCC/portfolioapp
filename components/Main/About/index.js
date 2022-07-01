@@ -9,7 +9,7 @@ const About = ({ title, mail }) => {
   return (
     <section id="about" className="text-black dark:text-white p-4 mt-40 w-full overflow-y-hidden">
       <AnimateTitles>
-        <span className="text-pink">
+        <span className="text-secondary">
           <RiStarHalfLine />
         </span>
         <h2 className="capitalize pl-2">{title}</h2>
@@ -23,7 +23,7 @@ const About = ({ title, mail }) => {
             delay: 0.2,
             duration: 1,
           }}
-          className="rounded-full border border-pink p-2 w-fit"
+          className="rounded-full border border-secondary p-2 w-fit"
         >
           <div className="relative select-none pointer-events-none rounded-full overflow-hidden w-[150px] h-[150px]">
             <Image
@@ -61,7 +61,7 @@ const About = ({ title, mail }) => {
             }}
             className="flex pt-2 justify-center items-center"
           >
-            <div className="text-pink">
+            <div className="text-secondary">
               <MailIcon />
             </div>
             <p className="pl-2">{mail}</p>

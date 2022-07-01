@@ -53,7 +53,7 @@ const ComStack = ({ title }) => {
   return (
     <section className="text-black dark:text-white text-center w-full">
       <AnimateTitles>
-        <span className="text-pink">
+        <span className="text-secondary">
           <RiStackLine />
         </span>
         <h2 className="capitalize pl-2">{title}</h2>
