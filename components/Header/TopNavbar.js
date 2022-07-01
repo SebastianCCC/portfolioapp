@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../../hooks/StateContext'
-import { LogoIcon, MenuIcon } from './images'
+import { LogoIconDark, MenuIcon } from './images'
 
 const SideNavBar = () => {
   const { isOpen, setIsOpen } = useContext(StateContext)
@@ -34,7 +34,7 @@ const SideNavBar = () => {
         </div>
         <Link href="/">
           <div>
-            <LogoIcon FillRef={theme} />
+            <LogoIconDark FillRef={theme} />
           </div>
         </Link>
       </div>
