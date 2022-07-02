@@ -16,7 +16,7 @@ const NavBottom = () => {
           </div>
         </Link>
         <h3 className="dark:text-white text-black text-center pl-4">
-          © {new Date().getFullYear()} EvenMoreSeb
+          © {new Date().getFullYear()} Seechris
         </h3>
       </div>
       <ul className="flex px-2 rounded dark:bg-secondary">

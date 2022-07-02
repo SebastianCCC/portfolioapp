@@ -42,7 +42,7 @@ const WId = ({ currentpage }) => {
   return (
     <>
       <Head>
-        <title>EvenMoreSeb - {path.slice(0).charAt(0).toUpperCase() + path.slice(1)}</title>
+        <title>Seechris - {path.slice(0).charAt(0).toUpperCase() + path.slice(1)}</title>
       </Head>
       <div className="w-full md:w-4/5 m-auto mt-20">
         <div className="w-full flex flex-col md:justify-between md:flex-row">

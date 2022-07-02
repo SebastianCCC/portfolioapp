@@ -40,7 +40,7 @@ export default function Home() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl 2xl:text-center font-bold"
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -52,7 +52,7 @@ export default function Home() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-sm lg:text-lg font-light pt-6"
+            className="text-sm lg:text-lg pt-6 font-bold 2xl:text-center"
           >
             {descarr.map((letter, i) => (
               <motion.span variants={item} key={i}>
