@@ -15,7 +15,7 @@ const NavBarItems = ({ link, title, icon, socLink }) => {
     <li
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className="group dark:hover:text-white hover:text-primary dark:text-tertiary text-secondary cursor-pointer font-bold py-1"
+      className="group dark:hover:text-white hover:text-primary dark:text-tertiary text-secondary cursor-pointer font-bold px-1 lg:px-0 py-1"
     >
       {!socLink ? (
         <Link href={link}>

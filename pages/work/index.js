@@ -48,6 +48,18 @@ export default function Work({ work }) {
           </span>
           <h2 className="capitalize pl-2">Projects</h2>
         </AnimateTitles>
+        <motion.p
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 0.7 }}
+          transition={{
+            type: 'spring',
+            delay: 0.2,
+            duration: 1,
+          }}
+          className="mb-20 text-lg text-center"
+        >
+          Here you will find all of my projects in detail, click any project to view it.
+        </motion.p>
         <motion.section
           variants={container}
           initial="hidden"

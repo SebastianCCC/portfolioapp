@@ -27,13 +27,6 @@ const SideNavBar = () => {
         </div>
         <div className={`m-4`}>
           <ThemeSwitch />
-          <ul>
-            <div className={`border-t dark:border-tertiary border-secondary`}>
-              {SocialLinks.map(({ icon, soclink }, i) => (
-                <NavBarItems key={i} icon={icon} socLink={soclink} />
-              ))}
-            </div>
-          </ul>
         </div>
       </div>
     </div>
