@@ -38,7 +38,7 @@ const SideNavBar = () => {
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
         variants={variants}
-        className={`absolute left-0 w-[80%] md:w-[30%] dark:bg-primary bg-tertiary min-h-screen lg:w-[15%] flex flex-col items-start justify-between`}
+        className={`absolute left-0 w-[80%] sm:w-[30%] dark:bg-primary bg-tertiary min-h-screen lg:w-[15%] flex flex-col items-start justify-between`}
       >
         <div className={`flex justify-between p-4 w-full items-center`}>
           <div onClick={() => setIsOpen(false)} className="dark:text-tertiary text-secondary pr-2">
