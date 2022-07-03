@@ -1,6 +1,5 @@
 import { HomeIcon, WorkIcon, UserIcon } from './images'
-import { FiGithub, FiLinkedin } from 'react-icons/fi'
-import { RiSpotifyLine } from 'react-icons/ri'
+import { RiGithubFill, RiLinkedinBoxFill, RiSpotifyFill } from 'react-icons/ri'
 
 export const NavLinks = [
   {
@@ -22,15 +21,15 @@ export const NavLinks = [
 
 export const SocialLinks = [
   {
-    icon: <FiGithub />,
+    icon: <RiGithubFill />,
     soclink: 'https://github.com/SebastianCCC',
   },
   {
-    icon: <FiLinkedin />,
+    icon: <RiLinkedinBoxFill />,
     soclink: 'https://www.linkedin.com/in/sebastian-christopher-489364238/',
   },
   {
-    icon: <RiSpotifyLine />,
+    icon: <RiSpotifyFill />,
     soclink: 'https://open.spotify.com/artist/5kOQRo3IZFZe1TUhyqZZyN?si=q-9zOLxTRkqG9I4zHhDWCw',
   },
 ]
