@@ -1,9 +1,8 @@
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { FiGithub } from 'react-icons/fi'
 import { HiOutlineGlobe } from 'react-icons/hi'
-import { RiStackLine, RiTimeLine } from 'react-icons/ri'
+import { RiStackLine, RiTimeLine, RiGithubFill } from 'react-icons/ri'
 import AnimateTitles from '../../components/Animate/Titles'
 import db from '../../firebase'
 import { motion } from 'framer-motion'
@@ -100,7 +99,7 @@ const WId = ({ currentpage }) => {
         >
           <h2 className="text-xl font-bold">Description</h2>
           <p className="w-full lg:w-1/2">{decs ? decs : 'No description available for now!'}</p>
-          <p className="capitalize text-lg font-bold">{role}</p>
+          <p className="capitalize font-bold pt-1 opacity-70">{role}</p>
         </motion.div>
         <motion.div
           initial={{ y: 100, opacity: 0 }}
@@ -147,9 +146,9 @@ const WId = ({ currentpage }) => {
             </div>
           </section>
           <a href={sorcecode} target="_blank" rel="noopener noreferrer">
-            <div className="flex justify-center items-center w-fit m-auto p-2 dark:text-tertiary text-white dark:bg-primary bg-tertiary rounded dark:hover:text-white hover:text-primary">
-              <FiGithub />
-              <p className="pl-2">{sorcecode ? 'Github Repo' : 'No Public Repo'}</p>
+            <div className="flex justify-center items-center text-xl w-fit m-auto p-2 dark:text-tertiary text-white dark:bg-primary bg-tertiary rounded dark:hover:text-white hover:text-primary">
+              <RiGithubFill />
+              <p className="pl-2 text-base">{sorcecode ? 'Github Repo' : 'No Public Repo'}</p>
             </div>
           </a>
         </motion.div>
