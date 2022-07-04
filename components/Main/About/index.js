@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useContext } from 'react'
 import { RiStarHalfLine } from 'react-icons/ri'
 import AnimateTitles from '../../Animate/Titles'
+import { StateContext } from '../../../hooks/StateContext'
 import avatarImage from './/images/avatar.jpeg'
 import { MailIcon } from './images'
 
 const About = ({ title, mail }) => {
+  const { setIsContactOpen } = useContext(StateContext)
   return (
     <section id="about" className="text-black dark:text-white p-4 mt-40 w-full overflow-y-hidden">
       <AnimateTitles>
@@ -59,12 +62,13 @@ const About = ({ title, mail }) => {
               delay: 0.8,
               duration: 1.5,
             }}
-            className="flex pt-2 justify-center items-center"
+            className="group flex pt-2 justify-center items-center cursor-pointer"
+            onClick={() => setIsContactOpen(true)}
           >
             <div className="text-secondary">
               <MailIcon />
             </div>
-            <p className="pl-2">{mail}</p>
+            <p className="group-hover:text-primary pl-2 font-bold">{mail}</p>
           </motion.div>
         </div>
       </div>

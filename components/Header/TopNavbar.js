@@ -10,7 +10,7 @@ const SideNavBar = () => {
   const { theme } = useTheme()
 
   const changeBackground = () => {
-    if (window.scrollY >= 18) {
+    if (window.scrollY >= 72) {
       setNavbar(true)
     } else {
       setNavbar(false)
@@ -27,7 +27,7 @@ const SideNavBar = () => {
       <div
         className={`absolute flex justify-between p-4 w-full items-center cursor-pointer ${
           navbar && 'dark:bg-primary bg-tertiary drop-shadow-md'
-        } transition duration-700 ease-out lg:hidden`}
+        } transition duration-700 ease-out xl:hidden`}
       >
         <div onClick={() => setIsOpen(true)} className="dark:text-white text-secondary pr-2">
           <MenuIcon />

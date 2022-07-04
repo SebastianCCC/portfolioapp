@@ -52,11 +52,13 @@ const SideNavBar = () => {
             {NavLinks.map(({ icon, title, link }, i) => (
               <NavBarItems key={i} icon={icon} title={title} link={link} />
             ))}
-            <ContactSwitch />
           </ul>
         </div>
         <div className={`p-4 w-full`}>
-          <ThemeSwitch />
+          <div onClick={() => setIsOpen(false)}>
+            <ContactSwitch />
+            <ThemeSwitch />
+          </div>
           <ul>
             <div className={`flex justify-center border-t dark:border-tertiary border-secondary`}>
               {SocialLinks.map(({ icon, soclink }, i) => (

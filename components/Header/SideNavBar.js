@@ -10,7 +10,7 @@ const SideNavBar = () => {
   const { theme } = useTheme()
 
   return (
-    <div className="hidden lg:block">
+    <div className="hidden xl:block">
       <div
         className={`absolute left-0 dark:bg-primary bg-tertiary min-h-screen w-fit flex flex-col items-start justify-between`}
       >
