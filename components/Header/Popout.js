@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { useContext } from 'react'
 import { StateContext } from '../../hooks/StateContext'
+import ContactSwitch from '../Contact/ContactSwitch'
 import { NavLinks, SocialLinks } from '../Links'
 import ThemeSwitch from '../Theme'
 import { ExitIcon, LogoIcon } from './images'
@@ -51,6 +52,7 @@ const SideNavBar = () => {
             {NavLinks.map(({ icon, title, link }, i) => (
               <NavBarItems key={i} icon={icon} title={title} link={link} />
             ))}
+            <ContactSwitch />
           </ul>
         </div>
         <div className={`p-4 w-full`}>
