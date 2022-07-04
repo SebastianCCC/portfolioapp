@@ -25,7 +25,7 @@ const SideNavBar = () => {
             ))}
           </ul>
         </div>
-        <div className={`m-4`}>
+        <div className={`m-4 border-t dark:border-tertiary border-secondary`}>
           <ThemeSwitch />
         </div>
       </div>
