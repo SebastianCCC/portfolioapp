@@ -2,13 +2,14 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../hooks/StateContext'
+import ContactForm from './Contact/ContactForm'
 import NavBottom from './Footer/NavBottom'
 import Popout from './Header/Popout'
 import SideNavBar from './Header/SideNavBar'
 import TopNavbar from './Header/TopNavbar'
 
 const Layout = ({ children }) => {
-  const { isOpen } = useContext(StateContext)
+  const { isOpen, isContactOpen } = useContext(StateContext)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const path = router.pathname
@@ -31,7 +32,10 @@ const Layout = ({ children }) => {
           </>
         )}
       </header>
-      <main className="min-w-full min-h-screen p-4">{children}</main>
+      <main className="min-w-full min-h-screen p-4">
+        {children}
+        {isContactOpen && <ContactForm />}
+      </main>
       <footer>{mounted && <NavBottom />}</footer>
     </>
   )

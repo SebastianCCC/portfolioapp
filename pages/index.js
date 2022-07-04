@@ -66,7 +66,7 @@ export default function Home() {
         </div>
         <ComStack title="Preferred Stack" />
       </div>
-      <About title="About Me" mail="offcccor@gmail.com" />
+      <About title="About Me" mail="Contact Me" />
     </>
   )
 }
