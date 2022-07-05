@@ -1,14 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import axios from 'axios'
 import { motion } from 'framer-motion'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { HiArrowSmRight } from 'react-icons/hi'
-import { schema } from '../../schema/Contact'
-import { StateContext } from '../../hooks/StateContext'
+import { schema } from '../schema/Contact'
 
-const ContactForm = () => {
-  const { setIsContactOpen } = useContext(StateContext)
+const Contact = () => {
   const [isSend, setIsSend] = useState(false)
   const container = {
     hidden: { x: '100vw' },
@@ -82,7 +80,6 @@ const ContactForm = () => {
     setIsSend(true)
     setTimeout(() => {
       setIsSend(false)
-      setIsContactOpen(false)
     }, 5000)
   }
 
@@ -157,4 +154,4 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm
+export default Contact
