@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { HiArrowSmRight } from 'react-icons/hi'
-import { schema } from '../schema/Contact'
+import { schema } from '../schema/ContactSchema'
 
 const Contact = () => {
   const [isSend, setIsSend] = useState(false)
@@ -26,9 +26,12 @@ const Contact = () => {
     show: { x: 0 },
   }
 
+  const maxMsgTxtLength = 400
+
   const {
     register,
     handleSubmit,
+    watch,
     reset,
     formState: { errors },
   } = useForm({
@@ -75,7 +78,7 @@ const Contact = () => {
         'Content-Type': 'application/json',
       },
     }
-    axios.post('api/contact', JSON.stringify(data), config)
+    axios.post('api/submit', JSON.stringify(data), config)
     reset()
     setIsSend(true)
     setTimeout(() => {
@@ -84,23 +87,34 @@ const Contact = () => {
   }
 
   return (
-    <div className="dark:bg-tertiary bg-white p-4 text-sm lg:text-base text-white w-full fixed bottom-0 right-0 z-20">
-      <div className="flex flex-col justify-center min-h-screen w-full sm:w-[90%] md:w-[70%] lg:w-1/2 m-auto">
-        <motion.div
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{
-            type: 'spring',
-            delay: 0.2,
-            duration: 1,
-          }}
-          className="dark:bg-additional bg-primary my-2 p-2"
-        >
-          <h2 className="font-bold text-white">Send me a quick message</h2>
-          <p className="text-sm">
-            Any cool projects in mind please share. Or just for a quick chat, go ahead.
-          </p>
-        </motion.div>
+    <div className="overflow-hidden">
+      <div className="flex flex-col justify-center min-h-screen text-sm lg:text-base w-full sm:w-[90%] md:w-[70%] lg:w-1/2 m-auto">
+        <div className="text-center my-2 p-2">
+          <motion.h2
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              delay: 0.2,
+              duration: 1,
+            }}
+            className="text-2xl font-bold"
+          >
+            Send me a quick message
+          </motion.h2>
+          <motion.p
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 0.7 }}
+            transition={{
+              type: 'spring',
+              delay: 0.2,
+              duration: 1,
+            }}
+            className="text-lg"
+          >
+            Any cool projects in mind please share. Or if it's for a chat that's cool too.
+          </motion.p>
+        </div>
         <motion.form
           variants={container}
           initial="hidden"
@@ -108,10 +122,14 @@ const Contact = () => {
           id="form"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {data.map(({ type, placeholder, registerid, errormsg }, i) => {
+          {data.map(({ type, placeholder, registerid }, i) => {
             return (
-              <motion.div variants={item} key={i}>
-                <div className="my-2 dark:bg-primary bg-tertiary relative">
+              <motion.div
+                className="my-2 dark:bg-primary bg-tertiary relative text-white"
+                variants={item}
+                key={i}
+              >
+                <div className="w-full">
                   {type === 'text' ? (
                     <input
                       className={`w-full p-3 bg-transparent outline-none dark:placeholder-tertiary`}
@@ -120,20 +138,32 @@ const Contact = () => {
                       {...register(registerid)}
                     />
                   ) : (
-                    <textarea
-                      className="w-full p-3 bg-transparent outline-none resize-none dark:placeholder-tertiary"
-                      placeholder={placeholder}
-                      {...register(registerid)}
-                    />
+                    <div className="relative">
+                      <textarea
+                        maxLength={maxMsgTxtLength}
+                        className="w-full p-3 bg-transparent outline-none resize-none dark:placeholder-tertiary"
+                        placeholder={placeholder}
+                        {...register(registerid)}
+                      />
+                      <p className="p-1 font-light select-none absolute bottom-0 right-0">
+                        {watch('message')?.length || 0}/{maxMsgTxtLength}
+                      </p>
+                    </div>
                   )}
                 </div>
-                <p className="px-3 w-full dark:text-white text-black text-sm select-none">
-                  {errormsg}
-                </p>
               </motion.div>
             )
           })}
         </motion.form>
+        {Boolean(Object.keys(errors).length) && (
+          <p className="w-full select-none">
+            {errors.firstName?.message ||
+              errors.phoneNumber?.message ||
+              errors.email?.message ||
+              errors.emailConfirm?.message ||
+              errors.message?.message}
+          </p>
+        )}
         <motion.button
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -144,7 +174,7 @@ const Contact = () => {
           }}
           type="submit"
           form="form"
-          className="dark:bg-primary bg-tertiary w-full flex justify-end items-center text-xl mt-2 p-2"
+          className="text-white dark:bg-primary bg-tertiary w-full flex justify-end items-center text-xl mt-2 p-2"
         >
           <span className="text-lg">{isSend ? 'Message was send' : 'Send'}</span>
           <HiArrowSmRight />
