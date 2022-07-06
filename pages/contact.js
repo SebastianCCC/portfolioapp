@@ -112,7 +112,7 @@ const Contact = () => {
             }}
             className="text-lg"
           >
-            Any cool projects in mind please share. Or if it's for a chat that's cool too.
+            Any cool projects in mind please share. Or if it&apos;s for a chat that&apos;s cool too.
           </motion.p>
         </div>
         <motion.form
