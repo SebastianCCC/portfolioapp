@@ -34,9 +34,9 @@ export default function Home() {
   }
   return (
     <>
-      <div className="flex justify-center items-center pt-20">
+      <div className="flex justify-center items-center py-20">
         {mounted && <BackHeroIcon fillRef={theme} />}
-        <div className="pl-2 dark:text-white text-primary">
+        <div className="pl-2">
           <motion.p
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -57,13 +57,14 @@ export default function Home() {
               delay: 0.7,
               duration: 1,
             }}
+            className="text-lg font-medium"
           >
             Seechris
           </motion.p>
         </div>
       </div>
-      <div className="flex flex-col items-center min-h-screen relative overflow-hidden">
-        <section className="text-primary dark:text-white m-auto w-4/5 md:w-1/2 border-b border-secondary pb-4 z-[15]">
+      <div className="flex flex-col items-center relative overflow-hidden">
+        <section className="text-primary dark:text-white m-auto w-4/5 md:w-1/2 border-b border-secondary pb-4 z-[15] xl:mt-20 mb-20">
           <motion.h1
             variants={container}
             initial="hidden"
