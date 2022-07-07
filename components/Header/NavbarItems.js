@@ -34,7 +34,7 @@ const NavBarItems = ({ link, title, icon, socLink }) => {
           </div>
         </Link>
       ) : (
-        <div className="dark:hover:text-white rounded p-1 text-2xl flex items-center">
+        <div className="dark:hover:text-white rounded py-1 xl:p-1 text-2xl flex items-center">
           <a href={socLink} target="_blank" rel="noopener noreferrer">
             {icon}
           </a>
