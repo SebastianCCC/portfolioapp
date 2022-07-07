@@ -4,7 +4,7 @@ export const BackHeroIcon = ({ fillRef }) => {
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: () => {
-      const delay = 1 * 1.5
+      const delay = 0.2
       return {
         pathLength: 1.1,
         opacity: 1,
@@ -25,8 +25,8 @@ export const BackHeroIcon = ({ fillRef }) => {
     <motion.svg
       initial="hidden"
       animate="visible"
-      width="270"
-      height="300"
+      width="50"
+      height="65"
       viewBox="0 0 30 45"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ export const BackHeroIcon = ({ fillRef }) => {
       <motion.path
         variants={draw}
         d="M22 8V1H1V38H8.5M22 8H8.5V14H28.5V8H22ZM8.5 38H22V30.5H8.5V24H28.5V44H8.5V38Z"
-        stroke={fillRef === 'light' ? '#311D3F' : 'url(#paint0_linear_7_22)'}
+        stroke="#E23E67"
         strokeWidth="2"
       />
       <defs>

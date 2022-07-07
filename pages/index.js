@@ -34,13 +34,41 @@ export default function Home() {
   }
   return (
     <>
-      <div className="flex flex-col items-center min-h-screen relative">
-        <section className="text-primary dark:text-white m-auto w-4/5 md:w-1/2 border-b border-secondary p-4 z-[15]">
+      <div className="flex justify-center items-center pt-20">
+        {mounted && <BackHeroIcon fillRef={theme} />}
+        <div className="pl-2 dark:text-white text-primary">
+          <motion.p
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              delay: 0.2,
+              duration: 1,
+            }}
+            className="text-3xl font-medium"
+          >
+            Portfolio
+          </motion.p>
+          <motion.p
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              delay: 0.7,
+              duration: 1,
+            }}
+          >
+            Seechris
+          </motion.p>
+        </div>
+      </div>
+      <div className="flex flex-col items-center min-h-screen relative overflow-hidden">
+        <section className="text-primary dark:text-white m-auto w-4/5 md:w-1/2 border-b border-secondary pb-4 z-[15]">
           <motion.h1
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl 2xl:text-center font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-center font-bold"
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -52,7 +80,7 @@ export default function Home() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-sm lg:text-lg pt-6 font-bold 2xl:text-center"
+            className="text-sm lg:text-lg pt-6 font-bold xl:text-center"
           >
             {descarr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -61,9 +89,6 @@ export default function Home() {
             ))}
           </motion.h2>
         </section>
-        <div className="absolute sm:right-[21%] md:right-1/4 top-[10%] sm:top-[7%] md:top-[22%] lg:top-[15%] z-0">
-          {mounted && <BackHeroIcon fillRef={theme} />}
-        </div>
         <ComStack title="Preferred Stack" />
       </div>
       <About title="About Me" mail="Contact Me" />
