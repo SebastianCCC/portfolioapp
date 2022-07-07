@@ -64,13 +64,13 @@ export default function Work({ work }) {
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex flex-col justify-center md:flex-row md:flex-wrap items-start w-full sm:w-4/5 md:w-fit gap-4"
+          className="grid md:grid-cols-2 w-full sm:w-4/5 lg:w-[90%] xl:w-[60%] gap-4"
         >
           {work.map(({ endDate, name, role, isgroup, id }, i) => (
             <Link href={'work/' + id} key={i}>
               <motion.article
                 variants={item}
-                className="p-2 rounded cursor-pointer dark:bg-primary bg-tertiary w-full md:w-2/5"
+                className="p-2 rounded cursor-pointer dark:bg-primary bg-tertiary w-full"
               >
                 <div className="pb-10 mb-2 border-b border-white select-none">
                   <div className="flex justify-between items-center">
