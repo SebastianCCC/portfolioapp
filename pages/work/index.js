@@ -64,15 +64,15 @@ export default function Work({ work }) {
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid md:grid-cols-2 w-full sm:w-4/5 lg:w-[90%] xl:w-[60%] gap-4"
+          className="grid md:grid-cols-2 2xl:grid-cols-3 w-full sm:w-4/5 lg:w-[90%] xl:w-[60%] 2xl:w-[70%] gap-4"
         >
           {work.map(({ endDate, name, role, isgroup, id }, i) => (
             <Link href={'work/' + id} key={i}>
               <motion.article
                 variants={item}
-                className="p-2 rounded cursor-pointer dark:bg-primary bg-tertiary w-full"
+                className="flex flex-col justify-between p-2 rounded cursor-pointer dark:bg-primary bg-tertiary w-full"
               >
-                <div className="pb-10 mb-2 border-b border-white select-none">
+                <div className="pb-10 mb-2 select-none">
                   <div className="flex justify-between items-center">
                     <h2 className="text-base lg:text-2xl font-bold dark:text-white text-primary">
                       {name}
@@ -83,7 +83,9 @@ export default function Work({ work }) {
                     {isgroup ? 'Group Project' : 'Solo Project'}
                   </p>
                 </div>
-                <p className="capitalize text-sm text-white md:text-base">{role}</p>
+                <p className="capitalize pt-2 text-sm text-white border-t border-white md:text-base">
+                  {role}
+                </p>
               </motion.article>
             </Link>
           ))}
