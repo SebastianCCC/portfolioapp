@@ -72,7 +72,7 @@ export default function Work({ work }) {
                 variants={item}
                 className="flex flex-col justify-between p-2 rounded cursor-pointer dark:bg-primary bg-tertiary w-full"
               >
-                <div className="pb-10 mb-2 select-none">
+                <div className="pb-10 select-none">
                   <div className="flex justify-between items-center">
                     <h2 className="text-base lg:text-2xl font-bold dark:text-white text-primary">
                       {name}
