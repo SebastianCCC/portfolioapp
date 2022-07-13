@@ -73,9 +73,9 @@ const About = ({ title, mail }) => {
             }}
             className="max-w-prose text-sm pt-2 lg:p-0"
           >
-            I've always enjoyed creating stuff, and clearly remember all the drawings, I think one
-            of them was a mickey mouse one. And at the age of thirteen I got my first computer and I
-            remember it could do anything, and of course I had to play all the cool games.
+            I&apos;ve always enjoyed creating stuff, and clearly remember all the drawings, I think
+            one of them was a mickey mouse one. And at the age of thirteen I got my first computer
+            and I remember it could do anything, and of course I had to play all the cool games.
             {isShown && (
               <>
                 <motion.span
@@ -104,10 +104,10 @@ const About = ({ title, mail }) => {
                 >
                   A few years later I started doing game design and 3d in the more popular program
                   ZBrush, and realized the visual aspects of development was the thing for me. And
-                  that's where my passion for Web dev started. During Corona I started an education
-                  in front-end, and I can only say that has been one of my best decisions ever.
-                  Meeting so many clever people was overwhelming but at the same time just what I
-                  needed, and I knew this was it.
+                  that&apos;s where my passion for Web dev started. During Corona I started an
+                  education in front-end, and I can only say that has been one of my best decisions
+                  ever. Meeting so many clever people was overwhelming but at the same time just
+                  what I needed, and I knew this was it.
                 </motion.span>
               </>
             )}
