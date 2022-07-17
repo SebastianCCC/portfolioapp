@@ -11,7 +11,7 @@ const AnimateTitles = ({ children }) => {
         delay: 0.2,
         duration: 1,
       }}
-      className="flex justify-center text-2xl items-center p-4 font-bold"
+      className="text-base tracking-[2px] dark:text-tertiary"
     >
       {children}
     </motion.div>

@@ -7,7 +7,7 @@ const SideNavBar = () => {
   const { isOpen, setIsOpen } = useContext(StateContext)
   return (
     <>
-      <div className="flex justify-between p-4 w-full items-center cursor-pointer xl:hidden bg-additional">
+      <div className="absolute flex justify-between p-4 w-full items-center cursor-pointer xl:hidden bg-additional ">
         <div onClick={() => setIsOpen(true)} className="dark:text-white text-secondary pr-2">
           <MenuIcon />
         </div>

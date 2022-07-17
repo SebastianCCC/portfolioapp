@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
           </>
         )}
       </header>
-      <main className="min-w-full min-h-screen p-4">{children}</main>
+      <main className="container min-w-full min-h-screen p-4">{children}</main>
       <footer>{mounted && <NavBottom />}</footer>
     </>
   )

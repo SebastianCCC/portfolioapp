@@ -44,8 +44,8 @@ const SideNavBar = () => {
             <LogoIcon />
           </div>
         </div>
-        <div onClick={() => setIsOpen(false)} className="flex flex-col items-center">
-          <ul>
+        <div className="flex flex-col items-center">
+          <ul onClick={() => setIsOpen(false)}>
             {NavLinks.map(({ title, link }, i) => (
               <NavBarItems key={i} title={title} link={link} />
             ))}

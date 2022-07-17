@@ -51,12 +51,9 @@ const ComStack = ({ title }) => {
   }
 
   return (
-    <section className="text-black dark:text-white text-center w-full">
+    <section className="text-black dark:text-white w-full mt-6">
       <AnimateTitles>
-        <span className="text-secondary">
-          <RiStackLine />
-        </span>
-        <h2 className="capitalize pl-2">{title}</h2>
+        <h2 className="uppercase">{title}</h2>
       </AnimateTitles>
       <div className="w-full sm:w-1/2 m-auto overflow-hidden relative">
         <div className="w-full h-full dark:bg-gradient-d-r bg-gradient-light-r absolute z-20"></div>
