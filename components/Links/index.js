@@ -1,4 +1,4 @@
-import { HomeIcon, WorkIcon, UserIcon } from './images'
+import { HomeIcon, WorkIcon, UserIcon, MailIcon } from './images'
 import { RiGithubFill, RiLinkedinBoxFill, RiSpotifyFill } from 'react-icons/ri'
 
 export const NavLinks = [
@@ -8,28 +8,30 @@ export const NavLinks = [
     link: '/',
   },
   {
+    icon: <UserIcon />,
+    title: 'About Me',
+    link: '/#about',
+  },
+  {
     icon: <WorkIcon />,
     title: 'Work',
     link: '/work',
   },
   {
-    icon: <UserIcon />,
-    title: 'About Me',
-    link: '/#about',
+    icon: <MailIcon />,
+    title: 'Contact',
+    link: '/contact',
   },
 ]
 
 export const SocialLinks = [
   {
-    icon: <RiGithubFill />,
     soclink: 'https://github.com/SebastianCCC',
   },
   {
-    icon: <RiLinkedinBoxFill />,
     soclink: 'https://www.linkedin.com/in/sebastian-christopher-489364238/',
   },
   {
-    icon: <RiSpotifyFill />,
     soclink: 'https://open.spotify.com/artist/5kOQRo3IZFZe1TUhyqZZyN?si=q-9zOLxTRkqG9I4zHhDWCw',
   },
 ]

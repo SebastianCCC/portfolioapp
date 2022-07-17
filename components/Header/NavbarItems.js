@@ -15,18 +15,18 @@ const NavBarItems = ({ link, title, icon, socLink }) => {
     <li
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className="group dark:hover:text-white hover:text-primary dark:text-tertiary text-secondary cursor-pointer font-bold px-1 lg:px-0 py-1"
+      className="group dark:hover:text-white dark:text-additional text-secondary cursor-pointer my-[30px] text-md uppercase"
     >
       {!socLink ? (
         <Link href={link}>
-          <div className="flex items-center relative">
-            <div className="rounded p-1">{icon}</div>
+          <div className="">
+            {icon && <div className="rounded p-1">{icon}</div>}
             {(isHover || isOpen) && (
               <motion.h2
                 initial={{ x: -20 }}
                 animate={{ x: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`dark:group-hover:text-white pl-1 absolute w-max left-[50px]`}
+                className={`dark:group-hover:text-white text-center`}
               >
                 {title}
               </motion.h2>

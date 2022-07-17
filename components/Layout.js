@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
           Seechris - {path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
         </title>
       </Head>
-      <header className="sticky top-0 left-0 z-[25]">
+      <header className="fixed w-full top-0 left-0 z-[25]">
         {mounted && (
           <>
             <TopNavbar />

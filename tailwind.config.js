@@ -12,6 +12,13 @@ module.exports = {
         tertiary: '#434040',
         additional: '#171717',
       },
+      fontSize: {
+        base: '15px',
+        md: '20px',
+        lg: '32px',
+        xl: '36px',
+        '2xl': '48px',
+      },
     },
   },
   plugins: [],
