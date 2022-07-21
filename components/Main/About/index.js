@@ -22,8 +22,8 @@ const About = ({ title, mail }) => {
   }
 
   return (
-    <section id="about" className="text-black dark:text-white p-4 mt-40 w-full overflow-y-hidden">
-      <div className="md:flex">
+    <section id="about" className="text-black dark:text-white p-4 mt-40 w-full">
+      <div className="">
         <AnimateTitles>
           <h2 className="uppercase">{title}</h2>
         </AnimateTitles>

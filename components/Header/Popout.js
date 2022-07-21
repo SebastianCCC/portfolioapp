@@ -34,13 +34,13 @@ const SideNavBar = () => {
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
         variants={variants}
-        className="bg-secondary/90 min-h-screen p-4 backdrop-blur-[8px]"
+        className="fixed w-full dark:bg-additional/90 bg-secondary/90 min-h-screen p-4 backdrop-blur-[8px]"
       >
         <div className={`flex justify-between w-full items-center`}>
-          <div onClick={() => setIsOpen(false)} className="text-additional">
+          <div onClick={() => setIsOpen(false)} className="dark:text-secondary text-additional">
             <ExitIcon />
           </div>
-          <div className="text-additional">
+          <div className="dark:text-secondary text-additional">
             <LogoIcon />
           </div>
         </div>

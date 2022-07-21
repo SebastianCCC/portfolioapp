@@ -33,7 +33,4 @@ body {
   .bg-gradient-b {
     @apply bg-gradient-to-b from-[#8F1560] to-[#253269];
   }
-  .container {
-    @apply pc:max-w-screen-pc mr-0;
-  }
 }

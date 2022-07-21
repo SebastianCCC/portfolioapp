@@ -36,9 +36,14 @@ export default function Home() {
   }
   return (
     <>
-      <div className="flex flex-col items-center relative overflow-hidden">
+      <div className="flex flex-col relative overflow-hidden">
         <section className="mt-20 mx-6">
-          <motion.h1 variants={container} initial="hidden" animate="show" className="text-lg">
+          <motion.h1
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="text-lg xl:text-2xl xl:font-bold"
+          >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
                 {letter}

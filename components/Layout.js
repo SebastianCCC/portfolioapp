@@ -23,16 +23,18 @@ const Layout = ({ children }) => {
           Seechris - {path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
         </title>
       </Head>
-      <header className="fixed w-full top-0 left-0 z-[25]">
-        {mounted && (
-          <>
-            <TopNavbar />
-            {isOpen ? <Popout /> : <SideNavBar />}
-          </>
-        )}
-      </header>
-      <main className="container min-w-full min-h-screen p-4">{children}</main>
-      <footer>{mounted && <NavBottom />}</footer>
+      <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap">
+        <header className="relative w-full xl:w-fit xl:min-w-[288px] top-0 z-[25]">
+          {mounted && (
+            <>
+              <TopNavbar />
+              {isOpen ? <Popout /> : <SideNavBar />}
+            </>
+          )}
+        </header>
+        <main className="flex-1 p-4">{children}</main>
+        <footer className="flex-1">{mounted && <NavBottom />}</footer>
+      </div>
     </>
   )
 }
