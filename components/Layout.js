@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           )}
         </header>
         <main className="flex-1 p-4">{children}</main>
-        <footer className="flex-1">{mounted && <NavBottom />}</footer>
+        <footer className="min-w-full">{mounted && <NavBottom />}</footer>
       </div>
     </>
   )

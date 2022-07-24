@@ -75,6 +75,7 @@ export default function Home() {
         </section>
       </div>
       <About title="About Me" mail="Contact Me" />
+      <ComStack title="Tech i enjoy" />
     </>
   )
 }
