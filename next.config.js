@@ -3,6 +3,9 @@ const { withSentryConfig } = require('@sentry/nextjs')
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['firebasestorage.googleapis.com'],
+  },
 }
 
 const sentryWebpackPluginOptions = {

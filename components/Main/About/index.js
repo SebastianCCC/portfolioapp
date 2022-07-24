@@ -25,7 +25,17 @@ const About = ({ title, mail }) => {
       <HeaderTitles title={title} />
       <div className="w-full">
         <div className="flex flex-col mt-4 md:flex-row-reverse justify-center items-start">
-          <div className="relative select-none pointer-events-none w-full xl:w-4/5 h-[190px] xl:h-[357px]">
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: '100%' }}
+            viewport={{ once: true }}
+            transition={{
+              type: 'spring',
+              delay: 0.2,
+              duration: 1.5,
+            }}
+            className="relative select-none pointer-events-none w-full xl:w-4/5 h-[190px] xl:h-[357px]"
+          >
             <Image
               lazyBoundary="0px"
               layout="fill"
@@ -33,20 +43,21 @@ const About = ({ title, mail }) => {
               src={avatarImage}
               alt={'A Photo of me'}
             />
-          </div>
+          </motion.div>
           <div className="w-full">
             <h3 className="uppercase text-base dark:text-tertiary mt-7 xl:mt-0 mb-3">
               Stuff about me
             </h3>
             <motion.p
-              initial={{ x: 50, opacity: 0 }}
+              initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{
+                type: 'spring',
                 delay: 0.2,
-                duration: 1,
+                duration: 2,
               }}
-              className="mr-4 text-sm lg:p-0"
+              className="mr-4 text-sm lg:p-0 leading-relaxed"
             >
               I&apos;ve always enjoyed creating stuff, and clearly remember all the drawings, I
               think one of them was a mickey mouse one. And at the age of thirteen I got my first
