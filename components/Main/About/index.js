@@ -21,7 +21,7 @@ const About = ({ title, mail }) => {
   }
 
   return (
-    <section id="about" className="text-black dark:text-white p-4 mt-40 w-full">
+    <section id="about" className="text-black dark:text-white xl:p-4 mt-40 w-full">
       <HeaderTitles title={title} />
       <div className="w-full">
         <div className="flex flex-col mt-4 md:flex-row-reverse justify-center items-start">

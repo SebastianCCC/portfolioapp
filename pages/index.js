@@ -103,7 +103,7 @@ export default function Home({ work }) {
           </motion.div>
         </section>
       </div>
-      <section id="projects" className="my-80 pt-8 p-4">
+      <section id="projects" className="my-80 pt-8 xl:p-4">
         <HeaderTitles title="Projects" />
         <p className="mt-4 mb-2">
           Here you will find a list of my projects in detail, click any project to view it.
