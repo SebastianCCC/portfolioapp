@@ -99,28 +99,34 @@ const WId = ({ currentpage }) => {
             </motion.div>
           )}
         </div>
-        <div className="flex flex-col items-center md:items-end uppercase dark:text-tertiary py-5">
-          <h2 className="tracking-[2px] mb-5">Links</h2>
-          <a
-            className="dark:hover:text-white"
-            href={sorcecode}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {sorcecode ? 'sorcecode' : 'No Github Repo'}
-          </a>
-          <a
-            className="dark:hover:text-white"
-            href={deployed}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {deployed ? 'Demo' : 'Not Deployed'}
-          </a>
-          <h2 className="tracking-[2px] mt-10 mb-5">Tech Used</h2>
-          {stack.map((tech) => (
-            <p className="dark:text-white capitalize">{tech}</p>
-          ))}
+        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center lg:justify-end uppercase dark:text-tertiary py-5">
+          <div className="flex flex-col text-center sm:text-left sm:mr-40">
+            <h2 className="tracking-[2px] mb-5">Links</h2>
+            <a
+              className="dark:hover:text-white"
+              href={sorcecode}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {sorcecode ? 'sorcecode' : 'No Github Repo'}
+            </a>
+            <a
+              className="dark:hover:text-white"
+              href={deployed}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {deployed ? 'Demo' : 'Not Deployed'}
+            </a>
+          </div>
+          <div className="text-center sm:text-left mt-10 sm:mt-0">
+            <h2 className="tracking-[2px] mb-5">Tech Used</h2>
+            {stack.map((tech, i) => (
+              <p className="dark:text-white capitalize" key={i}>
+                {tech}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </>
