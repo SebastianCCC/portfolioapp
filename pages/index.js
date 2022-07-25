@@ -37,7 +37,8 @@ export default function Home({ work }) {
   }, [])
 
   const name = 'Software engineer with a passion.'
-  const desc = 'I’m a full time Front-end developer that always gives it 100%'
+  const desc =
+    "Hi, i'm Sebastian Christopther, a full time Front-end developer that always gives it 100%"
   const namearr = [...name]
   const descarr = [...desc]
   const container = {
@@ -57,7 +58,7 @@ export default function Home({ work }) {
   return (
     <>
       <div className="flex flex-col relative overflow-hidden">
-        <section className="mt-40 xl:mt-80 mx-6">
+        <section className="mt-40 xl:mt-80 xl:p-4">
           <motion.h1
             variants={container}
             initial="hidden"

@@ -6,6 +6,8 @@ import { RiStackLine, RiTimeLine, RiGithubFill } from 'react-icons/ri'
 import AnimateTitles from '../../components/Animate/Titles'
 import db from '../../firebase'
 import { motion } from 'framer-motion'
+import HeaderTitles from '../../components/Animate/Titles'
+import Image from 'next/image'
 
 export async function getStaticProps({ params }) {
   const currentpage = doc(db, `work/${params?.id}`)
@@ -36,122 +38,90 @@ const WId = ({ currentpage }) => {
   const router = useRouter()
   const path = router.query.id
 
-  const { name, deployed, sorcecode, role, startDate, endDate, decs, stack, isgroup } = currentpage
+  const {
+    name,
+    deployed,
+    sorcecode,
+    role,
+    startDate,
+    endDate,
+    decs,
+    stack,
+    isgroup,
+    previewImage,
+  } = currentpage
 
   return (
     <>
       <Head>
         <title>Seechris - {path.slice(0).charAt(0).toUpperCase() + path.slice(1)}</title>
       </Head>
-      <div className="w-full md:w-4/5 m-auto mt-20">
-        <div className="w-full flex flex-col md:justify-between md:flex-row">
-          <div className="text-center md:text-left">
-            <motion.h1
-              initial={{ x: 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
+      <div className="mt-10 xl:mt-0 xl:p-4">
+        <HeaderTitles title={`${name} ${endDate}`} />
+        <div className="flex flex-col-reverse xl:flex-row mt-3 xl:mt-[65px]">
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              type: 'spring',
+              delay: 0.2,
+              duration: 2,
+            }}
+            className="mt-9 xl:mt-0 xl:mr-4"
+          >
+            <h1 className="text-lg font-bold">{name}</h1>
+            <p className="text-base dark:text-tertiary capitalize">{role}</p>
+            <p className="mt-9 leading-relaxed">
+              {decs ? decs : 'No description available for now!'}
+            </p>
+            <p className="mt-1 dark:text-tertiary">{isgroup ? 'Group' : 'Solo'} Project</p>
+          </motion.div>
+          {previewImage && (
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              viewport={{ once: true }}
               transition={{
                 type: 'spring',
                 delay: 0.2,
-                duration: 1,
+                duration: 1.5,
               }}
-              className="text-3xl lg:text-3xl font-bold"
+              className="relative select-none pointer-events-none w-full h-[190px] xl:h-[357px]"
             >
-              {name}
-            </motion.h1>
-            <motion.h2
-              initial={{ x: 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{
-                type: 'spring',
-                delay: 0.6,
-                duration: 1,
-              }}
-              className="text-lg"
-            >
-              {isgroup ? 'Group Project' : 'Solo Project'}
-            </motion.h2>
-          </div>
-          <a href={deployed} target="_blank" rel="noopener noreferrer">
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                type: 'spring',
-                delay: 0.7,
-                duration: 1,
-              }}
-              className="flex items-center w-fit m-auto text-xl dark:text-tertiary text-white dark:bg-primary bg-tertiary mt-2 md:mt-0 p-2 rounded dark:hover:text-white hover:text-primary"
-            >
-              <HiOutlineGlobe />
-              <p className="pl-2 text-base">{deployed ? name + ' Demo' : 'Not Deployed'}</p>
+              <Image
+                lazyBoundary="0px"
+                layout="fill"
+                objectFit="cover"
+                src={previewImage}
+                alt={'A Photo of me'}
+              />
             </motion.div>
-          </a>
+          )}
         </div>
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            type: 'spring',
-            delay: 1,
-            duration: 1,
-          }}
-          className="py-20"
-        >
-          <h2 className="text-xl font-bold">Description</h2>
-          <p className="w-full lg:w-1/2">{decs ? decs : 'No description available for now!'}</p>
-          <p className="capitalize font-bold pt-1 opacity-70">{role}</p>
-        </motion.div>
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            type: 'spring',
-            delay: 1.5,
-            duration: 1,
-          }}
-        >
-          <section className="mt-20 overflow-hidden">
-            <AnimateTitles>
-              <span className="text-secondary">
-                <RiStackLine />
-              </span>
-              <h2 className="capitalize pl-2">Stack</h2>
-            </AnimateTitles>
-            <div className="flex flex-col md:flex-row justify-center items-center pt-2">
-              {stack.map((item, i) => (
-                <article
-                  className="w-full md:w-fit even:my-2 md:even:mx-2 p-2 dark:bg-primary bg-tertiary text-center text-white"
-                  key={i}
-                >
-                  <p className="">{item}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-          <section className="flex justify-center items-center py-10">
-            <div className="pr-2 text-lg">
-              <div className="flex items-center">
-                <RiTimeLine />
-                <p className="pl-2">Started</p>
-              </div>
-              <p className="font-bold">{startDate}</p>
-            </div>
-            <div className="pl-2 text-lg">
-              <div className="flex items-center">
-                <RiTimeLine />
-                <p className="pl-2">Ended</p>
-              </div>
-              <p className="font-bold">{endDate}</p>
-            </div>
-          </section>
-          <a href={sorcecode} target="_blank" rel="noopener noreferrer">
-            <div className="flex justify-center items-center text-xl w-fit m-auto p-2 dark:text-tertiary text-white dark:bg-primary bg-tertiary rounded dark:hover:text-white hover:text-primary">
-              <RiGithubFill />
-              <p className="pl-2 text-base">{sorcecode ? 'Github Repo' : 'No Public Repo'}</p>
-            </div>
+        <div className="flex flex-col items-center md:items-end uppercase dark:text-tertiary py-5">
+          <h2 className="tracking-[2px] mb-5">Links</h2>
+          <a
+            className="dark:hover:text-white"
+            href={sorcecode}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {sorcecode ? 'sorcecode' : 'No Github Repo'}
           </a>
-        </motion.div>
+          <a
+            className="dark:hover:text-white"
+            href={deployed}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {deployed ? 'Demo' : 'Not Deployed'}
+          </a>
+          <h2 className="tracking-[2px] mt-10 mb-5">Tech Used</h2>
+          {stack.map((tech) => (
+            <p className="dark:text-white capitalize">{tech}</p>
+          ))}
+        </div>
       </div>
     </>
   )
