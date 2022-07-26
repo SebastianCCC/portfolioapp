@@ -101,7 +101,7 @@ const Contact = () => {
           }}
           className="text-base mr-20"
         >
-          Any cool projects in mind please share. Or if it's for a chat that's cool too.
+          Any cool projects in mind please share. Or if it&apos;s for a chat that&apos;s cool too.
         </motion.h1>
         <motion.form
           variants={container}
