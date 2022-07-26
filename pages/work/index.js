@@ -60,7 +60,7 @@ export default function Work({ work }) {
         <motion.section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
           {work.map(({ name, role, previewImage, id }, i) => (
             <Link href={'work/' + id} key={i}>
-              <motion.article className="flex flex-col justify-between rounded cursor-pointer w-full">
+              <motion.article className="group flex flex-col justify-between rounded cursor-pointer w-full">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: '100%' }}
@@ -70,7 +70,7 @@ export default function Work({ work }) {
                     delay: 0.2,
                     duration: 3.5,
                   }}
-                  className="relative select-none pointer-events-none w-full h-[200px] xl:h-[300px]"
+                  className="group-hover:scale-105 relative select-none pointer-events-none w-full h-[200px] xl:h-[300px]"
                 >
                   {previewImage ? (
                     <Image
