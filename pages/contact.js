@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { HiArrowSmRight } from 'react-icons/hi'
 import { schema } from '../schema/ContactSchema'
+import HeaderTitles from '../components/Animate/Titles'
+import { Sendicon } from '../assets'
 
 const Contact = () => {
   const [isSend, setIsSend] = useState(false)
@@ -41,33 +43,31 @@ const Contact = () => {
   const data = [
     {
       type: 'text',
-      placeholder: 'Enter your first name',
+      placeholder: 'Simon Sinek',
+      name: 'What’s your name?',
       registerid: 'firstName',
-      errormsg: errors.firstName?.message,
+      error: errors.firstName,
     },
     {
       type: 'text',
-      placeholder: 'Enter your phone number',
-      registerid: 'phoneNumber',
-      errormsg: errors.phoneNumber?.message,
-    },
-    {
-      type: 'text',
-      placeholder: 'Enter your email',
+      placeholder: 'Simon@Sinek.com',
+      name: 'What’s your email address?',
       registerid: 'email',
-      errormsg: errors.email?.message,
+      error: errors.email,
     },
     {
       type: 'text',
-      placeholder: 'Confirm your email',
-      registerid: 'emailConfirm',
-      errormsg: errors.emailConfirm?.message,
+      placeholder: 'Subject',
+      name: 'What’s the subject?',
+      registerid: 'subject',
+      error: errors.subject,
     },
     {
       type: 'textarea',
-      placeholder: "What's on your mind?",
+      placeholder: 'Hello Sebastian...',
+      name: 'What’s your message?',
       registerid: 'message',
-      errormsg: errors.message?.message,
+      error: errors.message,
     },
   ]
 
@@ -87,53 +87,48 @@ const Contact = () => {
   }
 
   return (
-    <div className="overflow-hidden">
-      <div className="flex flex-col justify-center min-h-screen text-sm lg:text-base w-full sm:w-[90%] md:w-[70%] lg:w-1/2 m-auto">
-        <div className="text-center my-2 p-2">
-          <motion.h2
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              type: 'spring',
-              delay: 0.2,
-              duration: 1,
-            }}
-            className="text-2xl font-bold"
-          >
-            Send me a quick message
-          </motion.h2>
-          <motion.p
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 0.7 }}
-            transition={{
-              type: 'spring',
-              delay: 0.2,
-              duration: 1,
-            }}
-            className="text-lg"
-          >
-            Any cool projects in mind please share. Or if it&apos;s for a chat that&apos;s cool too.
-          </motion.p>
-        </div>
+    <div className="mt-10 xl:mt-0 xl:p-4">
+      <HeaderTitles title="Contact" />
+      <div className="flex flex-col lg:flex-row mt-[26px]">
+        <motion.h1
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            type: 'spring',
+            delay: 0.2,
+            duration: 2,
+          }}
+          className="text-base mr-20"
+        >
+          Any cool projects in mind please share. Or if it's for a chat that's cool too.
+        </motion.h1>
         <motion.form
           variants={container}
           initial="hidden"
           animate="show"
           id="form"
+          className="w-full"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {data.map(({ type, placeholder, registerid }, i) => {
+          {data.map(({ type, placeholder, name, registerid, error }, i) => {
             return (
               <motion.div
-                className="my-2 dark:bg-primary bg-tertiary relative text-white"
+                className={`even:my-[30px] border-b ${
+                  error ? 'border-primary' : 'dark:border-tertiary'
+                } relative`}
                 variants={item}
                 key={i}
               >
                 <div className="w-full">
+                  <label htmlFor={registerid} className="uppercase dark:text-secondary">
+                    {name}
+                  </label>
                   {type === 'text' ? (
                     <input
-                      className={`w-full p-3 bg-transparent outline-none dark:placeholder-tertiary`}
+                      className={`w-full pt-3 pb-1 bg-transparent outline-none dark:placeholder-tertiary`}
                       type={type}
+                      name={registerid}
                       placeholder={placeholder}
                       {...register(registerid)}
                     />
@@ -141,12 +136,13 @@ const Contact = () => {
                     <div className="relative">
                       <textarea
                         maxLength={maxMsgTxtLength}
-                        className="w-full p-3 bg-transparent outline-none resize-none dark:placeholder-tertiary"
+                        className="w-full pt-3 pb-1 bg-transparent outline-none resize-none dark:placeholder-tertiary"
                         placeholder={placeholder}
+                        name={registerid}
                         {...register(registerid)}
                       />
-                      <p className="p-1 font-light select-none absolute bottom-0 right-0">
-                        {watch('message')?.length || 0}/{maxMsgTxtLength}
+                      <p className="dark:text-tertiary p-1 font-light select-none absolute bottom-0 right-0">
+                        {maxMsgTxtLength - watch('message')?.length || ''}
                       </p>
                     </div>
                   )}
@@ -154,31 +150,32 @@ const Contact = () => {
               </motion.div>
             )
           })}
+          {Boolean(Object.keys(errors).length) && (
+            <p className="dark:text-primary w-full select-none">
+              {errors.firstName?.message ||
+                errors.email?.message ||
+                errors.subject?.message ||
+                errors.message?.message}
+            </p>
+          )}
+          <motion.button
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              delay: 3.9,
+              duration: 1,
+            }}
+            type="submit"
+            form="form"
+            className="flex items-center mt-2 text-md"
+          >
+            <span className="mr-1">{isSend ? 'Message was send' : 'Send it'}</span>
+            <div className="dark:text-tertiary -rotate-45">
+              <Sendicon />
+            </div>
+          </motion.button>
         </motion.form>
-        {Boolean(Object.keys(errors).length) && (
-          <p className="w-full select-none">
-            {errors.firstName?.message ||
-              errors.phoneNumber?.message ||
-              errors.email?.message ||
-              errors.emailConfirm?.message ||
-              errors.message?.message}
-          </p>
-        )}
-        <motion.button
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{
-            type: 'spring',
-            delay: 4.5,
-            duration: 1,
-          }}
-          type="submit"
-          form="form"
-          className="text-white dark:bg-primary bg-tertiary w-full flex justify-end items-center text-xl mt-2 p-2"
-        >
-          <span className="text-lg">{isSend ? 'Message was send' : 'Send'}</span>
-          <HiArrowSmRight />
-        </motion.button>
       </div>
     </div>
   )
