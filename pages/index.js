@@ -95,7 +95,7 @@ export default function Home({ work }) {
           >
             <Link href="/#projects">
               <div className="flex dark:text-tertiary cursor-pointer">
-                <p>Projects in close vicinity</p>
+                <p className="mr-1">Projects in close vicinity</p>
                 <div className="-rotate-45">
                   <ExternalLink />
                 </div>
@@ -112,7 +112,7 @@ export default function Home({ work }) {
         <Link href="/work">
           <button className="dark:text-tertiary">View all projects</button>
         </Link>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 w-full py-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 w-full py-4">
           {work.map(
             ({ name, role, previewImage, id }, i) =>
               i <= 2 && <PreviewCard key={i} name={name} role={role} img={previewImage} id={id} />
