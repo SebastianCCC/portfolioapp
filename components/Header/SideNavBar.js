@@ -3,31 +3,38 @@ import Link from 'next/link'
 import ContactSwitch from '../Contact/ContactSwitch'
 import { NavLinks, SocialLinks } from '../Links'
 import ThemeSwitch from '../Theme'
-import { LogoIcon } from './images'
+import { LogoIconDark } from './images'
 import NavBarItems from './NavbarItems'
 
 const SideNavBar = () => {
   const { theme } = useTheme()
 
   return (
+    /*     <nav className="flex flex-col items-center"></nav> */
     <div className="hidden xl:block">
-      <div
-        className={`absolute left-0 dark:bg-primary bg-tertiary min-h-screen w-fit flex flex-col items-start justify-between`}
-      >
+      <div className={`top-0 left-0 dark:bg-additional bg-secondary min-h-screen fixed w-[288px]`}>
         <Link href="/">
-          <div className="w-full p-4 cursor-pointer">
-            <LogoIcon FillRef={theme} />
+          <div className="w-full flex justify-center p-4 py-11 cursor-pointer">
+            <LogoIconDark />
           </div>
         </Link>
-        <div className={`m-4 my-2`}>
+        <nav className={`py-8`}>
           <ul>
-            {NavLinks.map(({ icon, title, link }, i) => (
-              <NavBarItems key={i} icon={icon} title={title} link={link} />
-            ))}
+            {NavLinks.map(({ icon, title, link, pc }, i) => {
+              return (
+                !pc && (
+                  <div
+                    key={i}
+                    className="first:border-t first:pt-8 last:border-y last:py-8 last:mt-8 dark:border-tertiary border-white"
+                  >
+                    <NavBarItems icon={icon} title={title} link={link} />
+                  </div>
+                )
+              )
+            })}
           </ul>
-        </div>
-        <div className={`m-4 border-t dark:border-tertiary border-secondary`}>
-          <ContactSwitch />
+        </nav>
+        <div className={`m-4`}>
           <ThemeSwitch />
         </div>
       </div>

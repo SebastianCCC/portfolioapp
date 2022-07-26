@@ -1,11 +1,33 @@
+import { collection, getDocs } from 'firebase/firestore'
+import db from '../firebase'
 import { motion } from 'framer-motion'
 import ComStack from '../components/ComStack'
 import About from '../components/Main/About'
 import { BackHeroIcon } from '../components/Main/Hero/Background'
 import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { ExternalLink } from '../assets'
+import HeaderTitles from '../components/Animate/Titles'
+import PreviewCard from '../components/Work/PreviewCard'
 
-export default function Home() {
+export async function getStaticProps() {
+  const querySnapshot = await getDocs(collection(db, 'work'))
+  const work = []
+
+  querySnapshot.forEach((doc) => {
+    work.push({ id: doc.id, ...doc.data() })
+  })
+
+  return {
+    props: {
+      work,
+    },
+    revalidate: 10,
+  }
+}
+
+export default function Home({ work }) {
   const { theme } = useTheme()
 
   const [mounted, setMounted] = useState(false)
@@ -14,8 +36,9 @@ export default function Home() {
     setMounted(true)
   }, [])
 
-  const name = "Hi, I'm Sebastian Christopher"
-  const desc = 'A passionate full time Web Developer.'
+  const name = 'Software engineer with a passion.'
+  const desc =
+    "Hi, i'm Sebastian Christopther, a full time Front-end developer that always gives it 100%"
   const namearr = [...name]
   const descarr = [...desc]
   const container = {
@@ -34,42 +57,13 @@ export default function Home() {
   }
   return (
     <>
-      <div className="flex justify-center items-center py-20">
-        {mounted && <BackHeroIcon fillRef={theme} />}
-        <div className="pl-2">
-          <motion.p
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              type: 'spring',
-              delay: 0.2,
-              duration: 1,
-            }}
-            className="text-3xl font-medium"
-          >
-            Portfolio
-          </motion.p>
-          <motion.p
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              type: 'spring',
-              delay: 0.7,
-              duration: 1,
-            }}
-            className="text-lg font-medium"
-          >
-            Seechris
-          </motion.p>
-        </div>
-      </div>
-      <div className="flex flex-col items-center relative overflow-hidden">
-        <section className="text-primary dark:text-white m-auto w-4/5 md:w-1/2 border-b border-secondary pb-4 z-[15] xl:mt-20 mb-20">
+      <div className="flex flex-col relative overflow-hidden">
+        <section className="mt-40 xl:mt-80 xl:p-4">
           <motion.h1
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-center font-bold"
+            className="text-lg md:text-2xl xl:text-3xl xl:font-bold"
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -81,7 +75,7 @@ export default function Home() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-sm lg:text-lg pt-6 font-bold xl:text-center"
+            className="text-base xl:text-md py-6"
           >
             {descarr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -89,10 +83,44 @@ export default function Home() {
               </motion.span>
             ))}
           </motion.h2>
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              type: 'spring',
+              delay: 0.8,
+              duration: 2,
+            }}
+          >
+            <Link href="/#projects">
+              <div className="flex dark:text-tertiary cursor-pointer">
+                <p>Projects in close vicinity</p>
+                <div className="-rotate-45">
+                  <ExternalLink />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         </section>
-        <ComStack title="Preferred Stack" />
       </div>
+      <section id="projects" className="my-80 pt-8 xl:p-4">
+        <HeaderTitles title="Projects" />
+        <p className="mt-4 mb-2">
+          Here you will find a list of my projects in detail, click any project to view it.
+        </p>
+        <Link href="/work">
+          <button className="dark:text-tertiary">View all projects</button>
+        </Link>
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 w-full py-4">
+          {work.map(
+            ({ name, role, previewImage, id }, i) =>
+              i <= 2 && <PreviewCard key={i} name={name} role={role} img={previewImage} id={id} />
+          )}
+        </div>
+      </section>
       <About title="About Me" mail="Contact Me" />
+      <ComStack title="Tech i enjoy" />
     </>
   )
 }

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { AiOutlineAppstore } from 'react-icons/ai'
 import AnimateTitles from '../../components/Animate/Titles'
 import Link from 'next/link'
+import HeaderTitles from '../../components/Animate/Titles'
+import Image from 'next/image'
 
 export async function getStaticProps() {
   const querySnapshot = await getDocs(collection(db, 'work'))
@@ -23,12 +25,12 @@ export async function getStaticProps() {
 
 export default function Work({ work }) {
   const container = {
-    hidden: { x: '-100vw' },
+    hidden: { width: 0 },
     show: {
-      x: 0,
+      width: '100%',
       transition: {
         delay: 0.2,
-        duration: 1.2,
+        duration: 3.5,
         delayChildren: 1,
         staggerChildren: 0.7,
       },
@@ -36,56 +38,78 @@ export default function Work({ work }) {
   }
 
   const item = {
-    hidden: { x: '-100vw' },
-    show: { x: 0 },
+    hidden: { width: 0 },
+    show: { width: '100%' },
   }
   return (
     <>
-      <div className="flex flex-col items-center min-w-full min-h-screen pt-20">
-        <AnimateTitles>
-          <span className="text-secondary -rotate-6">
-            <AiOutlineAppstore />
-          </span>
-          <h2 className="capitalize pl-2">Projects</h2>
-        </AnimateTitles>
+      <div className="pt-20 xl:p-4">
+        <HeaderTitles title="Projects" />
         <motion.p
           initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 0.7 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{
             type: 'spring',
             delay: 0.2,
             duration: 1,
           }}
-          className="mb-20 text-lg text-center"
+          className="mt-4 mb-20 text-base"
         >
           Here you will find all of my projects in detail, click any project to view it.
         </motion.p>
-        <motion.section
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="grid md:grid-cols-2 2xl:grid-cols-3 w-full sm:w-4/5 lg:w-[90%] xl:w-[60%] 2xl:w-[70%] gap-4"
-        >
-          {work.map(({ endDate, name, role, isgroup, id }, i) => (
+        <motion.section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
+          {work.map(({ name, role, previewImage, id }, i) => (
             <Link href={'work/' + id} key={i}>
-              <motion.article
-                variants={item}
-                className="flex flex-col justify-between p-2 rounded cursor-pointer dark:bg-primary bg-tertiary w-full"
-              >
-                <div className="pb-10 select-none">
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-base lg:text-2xl font-bold dark:text-white text-primary">
-                      {name}
-                    </h2>
-                    <p className="text-xs lg:text-base text-white">{endDate}</p>
-                  </div>
-                  <p className="text-sm md:text-base text-white">
-                    {isgroup ? 'Group Project' : 'Solo Project'}
-                  </p>
-                </div>
-                <p className="capitalize pt-2 text-sm text-white border-t border-white md:text-base">
+              <motion.article className="flex flex-col justify-between rounded cursor-pointer w-full">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '100%' }}
+                  viewport={{ once: true }}
+                  transition={{
+                    type: 'spring',
+                    delay: 0.2,
+                    duration: 3.5,
+                  }}
+                  className="relative select-none pointer-events-none w-full h-[200px] xl:h-[300px]"
+                >
+                  {previewImage ? (
+                    <Image
+                      lazyBoundary="0px"
+                      layout="fill"
+                      objectFit="cover"
+                      src={previewImage}
+                      alt={'A Photo of me'}
+                    />
+                  ) : (
+                    <div className="bg-secondary w-full h-full"></div>
+                  )}
+                </motion.div>
+                <motion.p
+                  initial={{ x: -50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    type: 'spring',
+                    delay: 0.8,
+                    duration: 2,
+                  }}
+                  className="text-base dark:text-tertiary mt-[10px] mb-1"
+                >
                   {role}
-                </p>
+                </motion.p>
+                <motion.h3
+                  initial={{ x: -50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    type: 'spring',
+                    delay: 1.5,
+                    duration: 2,
+                  }}
+                  className="text-md tracking-[2px]"
+                >
+                  {name}
+                </motion.h3>
               </motion.article>
             </Link>
           ))}
