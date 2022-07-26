@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const PreviewCard = ({ name, role, img, id }) => {
   return (
     <Link href={'work/' + id}>
-      <article className="min-w-fit xl:min-w-[350px] cursor-pointer">
+      <article className="group min-w-fit xl:min-w-[350px] cursor-pointer">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: '100%' }}
@@ -15,7 +15,7 @@ const PreviewCard = ({ name, role, img, id }) => {
             delay: 0.2,
             duration: 3.5,
           }}
-          className="relative select-none pointer-events-none w-full h-[200px] xl:h-[300px]"
+          className="group-hover:scale-105 relative select-none pointer-events-none w-full h-[200px] xl:h-[300px]"
         >
           {img ? (
             <Image
