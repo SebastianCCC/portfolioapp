@@ -3,9 +3,8 @@ import { useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { StateContext } from '../../hooks/StateContext'
 
-const NavBarItems = ({ link, title, icon, socLink }) => {
+const NavBarItems = ({ link, title, icon }) => {
   const { isOpen, setIsOpen } = useContext(StateContext)
-  const [isHover, setIsHover] = useState(false)
 
   const isFunction = () => {
     return Boolean(typeof socLink === 'function')
@@ -13,33 +12,21 @@ const NavBarItems = ({ link, title, icon, socLink }) => {
 
   return (
     <li
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-      className="group dark:hover:text-white hover:text-primary dark:text-tertiary text-secondary cursor-pointer font-bold px-1 lg:px-0 py-1"
+      className={`group dark:hover:text-white dark:text-tertiary text-additional cursor-pointer py-[15px] xl:py-0 tracking-[2px] text-md xl:text-base uppercase xl:capitalize px-4`}
     >
-      {!socLink ? (
-        <Link href={link}>
-          <div className="flex items-center relative">
-            <div className="rounded p-1">{icon}</div>
-            {(isHover || isOpen) && (
-              <motion.h2
-                initial={{ x: -20 }}
-                animate={{ x: 0 }}
-                transition={{ duration: 0.5 }}
-                className={`dark:group-hover:text-white pl-1 absolute w-max left-[50px]`}
-              >
-                {title}
-              </motion.h2>
-            )}
-          </div>
-        </Link>
-      ) : (
-        <div className="dark:hover:text-white rounded py-1 xl:p-1 text-2xl flex items-center">
-          <a href={socLink} target="_blank" rel="noopener noreferrer">
-            {icon}
-          </a>
+      <Link href={link}>
+        <div className="xl:flex items-center">
+          {icon && <div className="rounded p-1">{icon}</div>}
+          <motion.h2
+            initial={{ x: -20 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.5 }}
+            className={`dark:group-hover:text-white text-center xl:ml-2`}
+          >
+            {title}
+          </motion.h2>
         </div>
-      )}
+      </Link>
     </li>
   )
 }

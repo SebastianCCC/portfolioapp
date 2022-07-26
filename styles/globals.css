@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply dark:bg-tertiary bg-white;
+  @apply dark:bg-additional bg-white;
 }
 
 @layer components {
@@ -25,7 +25,7 @@ body {
     text-fill-color: transparent;
   }
   .bg-gradient-d-r {
-    @apply bg-gradient-to-r from-tertiary via-transparent to-tertiary;
+    @apply bg-gradient-to-r from-additional via-transparent to-additional;
   }
   .bg-gradient-light-r {
     @apply bg-gradient-to-r from-white via-transparent to-white;
