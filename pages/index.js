@@ -94,8 +94,8 @@ export default function Home({ work }) {
             }}
           >
             <Link href="/#projects">
-              <div className="flex dark:text-tertiary cursor-pointer">
-                <p className="mr-1">Projects in close vicinity</p>
+              <div className="flex items-center dark:text-tertiary cursor-pointer">
+                <p className="xl:text-md mr-1">Projects in close vicinity</p>
                 <div className="-rotate-45">
                   <ExternalLink />
                 </div>

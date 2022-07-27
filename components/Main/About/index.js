@@ -110,7 +110,7 @@ const About = ({ title, mail }) => {
                   duration: 1.5,
                 }}
                 onClick={() => setIsShown(!isShown)}
-                className="dark:text-tertiary text-white mt-2 rounded dark:hover:text-white hover:text-primary"
+                className="dark:text-tertiary mt-2 rounded dark:hover:text-white"
               >
                 {isShown ? 'Read Less' : 'Read More'}
               </motion.button>
