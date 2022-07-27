@@ -12,7 +12,9 @@ const SideNavBar = () => {
   return (
     /*     <nav className="flex flex-col items-center"></nav> */
     <div className="hidden xl:block">
-      <div className={`top-0 left-0 dark:bg-additional bg-secondary min-h-screen fixed w-[288px]`}>
+      <div
+        className={`top-0 bottom-0 left-0 dark:bg-additional bg-secondary min-h-screen fixed w-[288px]`}
+      >
         <Link href="/">
           <div className="w-full flex justify-center p-4 py-11 cursor-pointer">
             <LogoIconDark />
