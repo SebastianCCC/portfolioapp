@@ -45,7 +45,7 @@ const About = ({ title, mail }) => {
             />
           </motion.div>
           <div className="w-full">
-            <h3 className="uppercase text-base dark:text-tertiary mt-7 xl:mt-0 mb-3">
+            <h3 className="uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3">
               Stuff about me
             </h3>
             <motion.p
@@ -72,7 +72,7 @@ const About = ({ title, mail }) => {
                     delay: 0.2,
                     duration: 1,
                   }}
-                  className={`pt-2 md:block ${isShown ? 'block' : 'hidden'}`}
+                  className={`pt-2 lg:block ${isShown ? 'block' : 'hidden'}`}
                 >
                   But quickly realized I enjoyed the development aspect of games, and jumped to
                   developing plugins, extensions and addons for popular games like Minecraft, GTA V
@@ -88,7 +88,7 @@ const About = ({ title, mail }) => {
                     delay: 0.8,
                     duration: 1,
                   }}
-                  className={`pt-2 md:block ${isShown ? 'block' : 'hidden'} -z-10`}
+                  className={`pt-2 lg:block ${isShown ? 'block' : 'hidden'} -z-10`}
                 >
                   A few years later I started doing game design and 3d in the more popular program
                   ZBrush, and realized the visual aspects of development was the thing for me. And
@@ -99,7 +99,7 @@ const About = ({ title, mail }) => {
                 </motion.span>
               </>
             </motion.p>
-            <motion.div layout className="z-10 md:hidden">
+            <motion.div layout className="z-10 lg:hidden">
               <motion.button
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}

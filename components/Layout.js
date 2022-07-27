@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
             </>
           )}
         </header>
-        <main className="flex-1 p-4">{children}</main>
+        <main className="container m-auto flex-1 p-4">{children}</main>
         <footer className="min-w-full">{mounted && <NavBottom />}</footer>
       </div>
     </>

@@ -11,9 +11,10 @@ import { Sendicon } from '../assets'
 const Contact = () => {
   const [isSend, setIsSend] = useState(false)
   const container = {
-    hidden: { x: '100vw' },
+    hidden: { x: -50, opacity: 0 },
     show: {
       x: 0,
+      opacity: 1,
       transition: {
         delay: 0.2,
         duration: 1.2,
@@ -24,8 +25,8 @@ const Contact = () => {
   }
 
   const item = {
-    hidden: { x: '100vw' },
-    show: { x: 0 },
+    hidden: { x: -50, opacity: 0 },
+    show: { x: 0, opacity: 1 },
   }
 
   const maxMsgTxtLength = 400
@@ -99,7 +100,7 @@ const Contact = () => {
             delay: 0.2,
             duration: 2,
           }}
-          className="text-base mr-20"
+          className="text-base lg:mr-20"
         >
           Any cool projects in mind please share. Or if it&apos;s for a chat that&apos;s cool too.
         </motion.h1>
@@ -108,7 +109,7 @@ const Contact = () => {
           initial="hidden"
           animate="show"
           id="form"
-          className="w-full"
+          className="w-full mt-20 lg:mt-0"
           onSubmit={handleSubmit(onSubmit)}
         >
           {data.map(({ type, placeholder, name, registerid, error }, i) => {
