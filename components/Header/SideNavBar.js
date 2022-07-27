@@ -20,7 +20,7 @@ const SideNavBar = () => {
             <LogoIconDark />
           </div>
         </Link>
-        <nav className={`py-8`}>
+        <nav className={`pb-8`}>
           <ul>
             {NavLinks.map(({ icon, title, link, pc }, i) => {
               return (
