@@ -11,15 +11,20 @@ const NavBottom = () => {
     <div className={`p-5 mt-20 flex flex-col-reverse xl:flex-row justify-evenly items-center`}>
       <ul className="flex items-center px-2">
         {SocialLinks.map(({ soclink, title }, i) => (
-          <div key={i} className="py-1 text-tertiary text-base uppercase px-4">
-            <a href={soclink} target="_blank" rel="noopener noreferrer">
+          <div key={i} className="py-1 text-sec_addition text-base uppercase px-4">
+            <a
+              href={soclink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white hover:underline underline-offset-1"
+            >
               {title}
             </a>
           </div>
         ))}
       </ul>
       <div className="flex flex-col-reverse xl:flex-row items-center">
-        <h3 className="text-center pt-4 xl:pr-4 xl:pt-0 text-tertiary uppercase">
+        <h3 className="text-center pt-4 xl:pr-4 xl:pt-0 text-sec_addition uppercase">
           © {new Date().getFullYear()} Seechris
         </h3>
         <Link href="#">

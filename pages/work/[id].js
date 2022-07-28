@@ -60,8 +60,8 @@ const WId = ({ currentpage }) => {
         <HeaderTitles title={`${name} ${endDate}`} />
         <div className="flex flex-col-reverse xl:flex-row mt-3 xl:mt-[65px]">
           <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{
               type: 'spring',
@@ -71,11 +71,13 @@ const WId = ({ currentpage }) => {
             className="mt-9 xl:mt-0 xl:mr-4"
           >
             <h1 className="text-lg font-bold">{name}</h1>
-            <p className="text-base dark:text-tertiary capitalize">{role}</p>
-            <p className="mt-9 leading-relaxed">
+            <p className="xl:text-[16px] dark:text-tertiary capitalize">{role}</p>
+            <p className="mt-9 xl:text-[18px] dark:text-sec_addition leading-loose">
               {decs ? decs : 'No description available for now!'}
             </p>
-            <p className="mt-1 dark:text-tertiary">{isgroup ? 'Group' : 'Solo'} Project</p>
+            <p className="mt-1 dark:text-tertiary xl:text-[16px]">
+              {isgroup ? 'Group' : 'Solo'} Project
+            </p>
           </motion.div>
           {previewImage && (
             <motion.div
