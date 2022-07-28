@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { ExternalLink } from '../assets'
 import HeaderTitles from '../components/Animate/Titles'
 import PreviewCard from '../components/Work/PreviewCard'
+import { Sendicon } from '../assets'
 
 export async function getStaticProps() {
   const querySnapshot = await getDocs(collection(db, 'work'))
@@ -58,7 +59,7 @@ export default function Home({ work }) {
   return (
     <>
       <div className="flex flex-col relative overflow-hidden">
-        <section className="mt-40 xl:mt-80 xl:p-4">
+        <section className="mt-40 xl:mt-72 xl:p-4">
           <motion.h1
             variants={container}
             initial="hidden"
@@ -75,7 +76,7 @@ export default function Home({ work }) {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-base xl:text-md py-6"
+            className="dark:text-tertiary text-base xl:text-md py-6"
           >
             {descarr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -94,9 +95,9 @@ export default function Home({ work }) {
             }}
           >
             <Link href="/#projects">
-              <div className="flex items-center dark:text-tertiary cursor-pointer">
+              <div className="flex items-center mt-10 dark:text-sec_addition dark:hover:underline underline-offset-2 cursor-pointer">
                 <p className="xl:text-md mr-1">Projects in close vicinity</p>
-                <div className="-rotate-45">
+                <div className="dark:text-tertiary -rotate-45">
                   <ExternalLink />
                 </div>
               </div>
@@ -106,12 +107,21 @@ export default function Home({ work }) {
       </div>
       <section id="projects" className="my-80 pt-8 xl:p-4">
         <HeaderTitles title="Projects" />
-        <p className="mt-4 mb-2">
-          Here you will find a list of my projects in detail, click any project to view it.
-        </p>
-        <Link href="/work">
-          <button className="dark:text-tertiary">View all projects</button>
-        </Link>
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center">
+          <p className="xl:text-md mt-4 mb-2">
+            Here you will find a list of my projects in detail, click any project to view it.
+          </p>
+          <Link href="/work">
+            <div className="flex items-center">
+              <button className="xl:text-md capitalize dark:text-sec_addition dark:hover:underline underline-offset-2 mr-1">
+                View all projects
+              </button>
+              <div className="dark:text-tertiary -rotate-45">
+                <Sendicon />
+              </div>
+            </div>
+          </Link>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 w-full py-4">
           {work.map(
             ({ name, role, previewImage, id }, i) =>

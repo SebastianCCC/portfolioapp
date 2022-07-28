@@ -12,7 +12,7 @@ const NavBarItems = ({ link, title, icon }) => {
 
   return (
     <li
-      className={`group dark:hover:text-white dark:text-tertiary text-additional cursor-pointer py-[15px] xl:py-0 tracking-[2px] text-md xl:text-base uppercase xl:capitalize px-4`}
+      className={`group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer py-[15px] xl:py-0 tracking-[2px] text-md xl:text-base uppercase xl:capitalize px-4`}
     >
       <Link href={link}>
         <div className="xl:flex items-center">

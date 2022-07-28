@@ -11,6 +11,7 @@ module.exports = {
         secondary: '#EDEDED',
         tertiary: '#434040',
         additional: '#171717',
+        sec_addition: '#b5b5b5',
       },
       fontSize: {
         base: '15px',

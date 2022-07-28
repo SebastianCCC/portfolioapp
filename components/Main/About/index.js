@@ -21,7 +21,7 @@ const About = ({ title, mail }) => {
   }
 
   return (
-    <section id="about" className="text-black dark:text-white xl:p-4 mt-40 w-full">
+    <section id="about" className="text-black dark:text-sec_addition xl:p-4 mt-40 w-full">
       <HeaderTitles title={title} />
       <div className="w-full">
         <div className="flex flex-col mt-4 md:flex-row-reverse justify-center items-start">
@@ -49,15 +49,15 @@ const About = ({ title, mail }) => {
               Stuff about me
             </h3>
             <motion.p
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{
                 type: 'spring',
                 delay: 0.2,
-                duration: 2,
+                duration: 3,
               }}
-              className="mr-4 text-sm lg:p-0 leading-relaxed"
+              className="mr-4 text-base lg:p-0 leading-loose"
             >
               I&apos;ve always enjoyed creating stuff, and clearly remember all the drawings, I
               think one of them was a mickey mouse one. And at the age of thirteen I got my first

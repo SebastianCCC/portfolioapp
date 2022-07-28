@@ -38,7 +38,7 @@ const PreviewCard = ({ name, role, img, id }) => {
             delay: 0.8,
             duration: 2,
           }}
-          className="text-base dark:text-tertiary mt-[10px] mb-1"
+          className="text-[16px] dark:text-tertiary mt-[20px] mb-2"
         >
           {role}
         </motion.p>
