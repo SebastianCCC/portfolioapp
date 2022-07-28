@@ -9,7 +9,7 @@ const ThemeSwitch = () => {
     <>
       <motion.button
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="dark:text-tertiary dark:hover:text-white text-additional text-2xl"
+        className="dark:text-sec_addition dark:hover:text-white text-additional text-2xl"
       >
         <motion.div animate={theme === 'dark' ? { rotate: 360 } : { rotate: 0 }}>
           {theme !== 'dark' ? <MoonIcon /> : <SunIcon />}
