@@ -95,7 +95,7 @@ export default function Home({ work }) {
             }}
           >
             <Link href="/#projects">
-              <div className="flex items-center mt-10 dark:text-sec_addition dark:hover:underline underline-offset-2 cursor-pointer">
+              <div className="flex items-center mt-10 dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
                 <p className="xl:text-md mr-1">Projects in close vicinity</p>
                 <div className="dark:text-tertiary -rotate-45">
                   <ExternalLink />
@@ -112,10 +112,8 @@ export default function Home({ work }) {
             Here you will find a list of my projects in detail, click any project to view it.
           </p>
           <Link href="/work">
-            <div className="flex items-center">
-              <button className="xl:text-md capitalize dark:text-sec_addition dark:hover:underline underline-offset-2 mr-1">
-                View all projects
-              </button>
+            <div className="flex items-center dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
+              <button className="xl:text-md capitalize mr-1">View all projects</button>
               <div className="dark:text-tertiary -rotate-45">
                 <Sendicon />
               </div>
