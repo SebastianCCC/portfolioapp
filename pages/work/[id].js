@@ -78,6 +78,40 @@ const WId = ({ currentpage }) => {
             <p className="mt-1 dark:text-tertiary xl:text-[16px]">
               {isgroup ? 'Group' : 'Solo'} Project
             </p>
+            <div className="text-center sm:text-left mt-8">
+              <h2 className="dark:text-tertiary tracking-[2px] mb-1 uppercase">Tech Used</h2>
+              <div className="flex items-center overflow-auto">
+                {stack.map((tech, i) => (
+                  <p
+                    className="my-4 min-w-fit capitalize first:pl-0 px-4 even:border-x last:border-r-transparent border-sec_addition"
+                    key={i}
+                  >
+                    {tech}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <h2 className="text-center sm:text-left dark:text-tertiary tracking-[2px] mt-5 mb-1 uppercase">
+              Links
+            </h2>
+            <div className="flex justify-center sm:justify-start py-4 dark:text-sec_addition uppercase">
+              <a
+                className="dark:hover:text-white hover:underline underline-offset-1 mr-4"
+                href={sorcecode}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {sorcecode ? 'sorcecode' : 'No Github Repo'}
+              </a>
+              <a
+                className="dark:hover:text-white hover:underline underline-offset-1"
+                href={deployed}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {deployed ? 'Demo' : 'Not Deployed'}
+              </a>
+            </div>
           </motion.div>
           {previewImage && (
             <motion.div
@@ -89,7 +123,7 @@ const WId = ({ currentpage }) => {
                 delay: 0.2,
                 duration: 1.5,
               }}
-              className="relative select-none pointer-events-none w-full h-[190px] xl:h-[357px]"
+              className="relative select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
             >
               <Image
                 lazyBoundary="0px"
@@ -100,35 +134,6 @@ const WId = ({ currentpage }) => {
               />
             </motion.div>
           )}
-        </div>
-        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center lg:justify-end uppercase dark:text-tertiary py-5">
-          <div className="flex flex-col text-center sm:text-left sm:mr-40">
-            <h2 className="tracking-[2px] mb-5">Links</h2>
-            <a
-              className="dark:hover:text-white"
-              href={sorcecode}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {sorcecode ? 'sorcecode' : 'No Github Repo'}
-            </a>
-            <a
-              className="dark:hover:text-white"
-              href={deployed}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {deployed ? 'Demo' : 'Not Deployed'}
-            </a>
-          </div>
-          <div className="text-center sm:text-left mt-10 sm:mt-0">
-            <h2 className="tracking-[2px] mb-5">Tech Used</h2>
-            {stack.map((tech, i) => (
-              <p className="dark:text-white capitalize" key={i}>
-                {tech}
-              </p>
-            ))}
-          </div>
         </div>
       </div>
     </>
