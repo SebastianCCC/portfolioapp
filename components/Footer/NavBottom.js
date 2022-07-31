@@ -8,7 +8,7 @@ const NavBottom = () => {
   const { theme } = useTheme()
 
   return (
-    <div className={`p-5 mt-20 flex flex-col-reverse xl:flex-row justify-evenly items-center`}>
+    <div className={`p-5 mt-40 flex flex-col-reverse xl:flex-row justify-evenly items-center`}>
       <ul className="flex items-center px-2">
         {SocialLinks.map(({ soclink, title }, i) => (
           <div key={i} className="py-1 dark:text-sec_addition text-base uppercase px-4">

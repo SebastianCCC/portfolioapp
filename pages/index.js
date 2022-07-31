@@ -95,8 +95,8 @@ export default function Home({ work }) {
             }}
           >
             <Link href="/#projects">
-              <div className="flex items-center mt-10 dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
-                <p className="xl:text-md mr-1">Projects in close vicinity</p>
+              <div className="flex items-center mt-[60px] dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
+                <p className="xl:text-[23px] mr-1">Projects in close vicinity</p>
                 <div className="dark:text-tertiary -rotate-45">
                   <ExternalLink />
                 </div>
