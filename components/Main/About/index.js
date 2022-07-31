@@ -25,26 +25,28 @@ const About = ({ title, mail }) => {
       <HeaderTitles title={title} />
       <div className="w-full">
         <div className="flex flex-col mt-4 md:flex-row-reverse justify-center items-start">
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: '100%' }}
-            viewport={{ once: true }}
-            transition={{
-              type: 'spring',
-              delay: 0.2,
-              duration: 1.5,
-            }}
-            className="relative select-none pointer-events-none w-full xl:w-4/5 h-[190px] xl:h-[357px]"
-          >
-            <Image
-              lazyBoundary="0px"
-              layout="fill"
-              objectFit="cover"
-              src={avatarImage}
-              alt={'A Photo of me'}
-            />
-          </motion.div>
-          <div className="w-full">
+          <div className="w-full md:w-1/2">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              viewport={{ once: true }}
+              transition={{
+                type: 'spring',
+                delay: 0.2,
+                duration: 1.5,
+              }}
+              className="relative select-none pointer-events-none h-[190px] lg:h-[357px]"
+            >
+              <Image
+                lazyBoundary="0px"
+                layout="fill"
+                objectFit="cover"
+                src={avatarImage}
+                alt={'A Photo of me'}
+              />
+            </motion.div>
+          </div>
+          <div className="w-full mr-10 lg:p-0">
             <h3 className="uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3">
               Stuff about me
             </h3>
@@ -57,7 +59,7 @@ const About = ({ title, mail }) => {
                 delay: 0.2,
                 duration: 3,
               }}
-              className="mr-4 text-base lg:p-0 leading-loose"
+              className="text-base lg:text-[18px] leading-loose"
             >
               I&apos;ve always enjoyed creating stuff, and clearly remember all the drawings, I
               think one of them was a mickey mouse one. And at the age of thirteen I got my first
