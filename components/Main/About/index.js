@@ -47,9 +47,7 @@ const About = ({ title, mail }) => {
             </motion.div>
           </div>
           <div className="w-full mr-10 lg:p-0">
-            <h3 className="uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3">
-              Stuff about me
-            </h3>
+            <h3 className="uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3">Who am I?</h3>
             <motion.p
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -61,10 +59,10 @@ const About = ({ title, mail }) => {
               }}
               className="text-base lg:text-[18px] leading-loose"
             >
-              I&apos;ve always enjoyed creating stuff, and clearly remember all the drawings, I
-              think one of them was a mickey mouse one. And at the age of thirteen I got my first
-              computer and I remember it could do anything, and of course I had to play all the cool
-              games.
+              I am Sebastian Christopher, I&apos;m the guy that gets excited over new tech, and the
+              guy who enjoys every step of the way. I&apos;ve always enjoyed being creative, and at
+              the age of thirteen I was lucky enough to get my first computer and before I knew it,
+              I was hooked on developing.
               <>
                 <motion.span
                   initial="closed"
@@ -76,11 +74,11 @@ const About = ({ title, mail }) => {
                   }}
                   className={`pt-2 lg:block ${isShown ? 'block' : 'hidden'}`}
                 >
-                  But quickly realized I enjoyed the development aspect of games, and jumped to
-                  developing plugins, extensions and addons for popular games like Minecraft, GTA V
-                  and Counterstrike. A few months later Discord became a thing and just a year after
-                  Discords initial release I joined and discovered robots. And the kid I was didn’t
-                  expect the mind-blowing experience of interacting with an API on that scale.
+                  And quickly began to enjoy the development aspect of games, and jumped to
+                  developing plugins, extensions and addons for popular games. A few years later I
+                  started designing games and 3d in programs like ZBrush, and realized the visual
+                  aspects of development was my passion. And that&apos;s where my passion for Web
+                  development started.
                 </motion.span>
                 <motion.span
                   initial="closed"
@@ -92,12 +90,9 @@ const About = ({ title, mail }) => {
                   }}
                   className={`pt-2 lg:block ${isShown ? 'block' : 'hidden'} -z-10`}
                 >
-                  A few years later I started doing game design and 3d in the more popular program
-                  ZBrush, and realized the visual aspects of development was the thing for me. And
-                  that&apos;s where my passion for Web dev started. During Corona I started an
-                  education in front-end, and I can only say that has been one of my best decisions
-                  ever. Meeting so many clever people was overwhelming but at the same time just
-                  what I needed, and I knew this was it.
+                  During Corona I started an education in front-end, and I can only say is has been
+                  one of my best decisions ever. Meeting so many clever people was overwhelming but
+                  at the same time just what I needed, and I knew this was it.
                 </motion.span>
               </>
             </motion.p>

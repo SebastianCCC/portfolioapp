@@ -93,6 +93,7 @@ export default function Home({ work }) {
               delay: 0.8,
               duration: 2,
             }}
+            className="w-fit"
           >
             <Link href="/#projects">
               <div className="flex items-center mt-[60px] dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
