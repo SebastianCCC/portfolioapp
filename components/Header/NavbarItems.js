@@ -21,7 +21,7 @@ const NavBarItems = ({ link, title, icon }) => {
             initial={{ x: -20 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.5 }}
-            className={`dark:group-hover:text-white text-center xl:ml-2`}
+            className={`dark:group-hover:text-white text-center xl:ml-2 font-medium`}
           >
             {title}
           </motion.h2>
