@@ -106,9 +106,19 @@ export default function Home({ work }) {
           </motion.div>
         </section>
       </div>
-      <section id="projects" className="my-80 pt-8 xl:p-4">
+      <section id="projects" className="my-80 pt-8 xl:p-4 2xl:my-96">
         <HeaderTitles title="Projects" />
-        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center">
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            type: 'spring',
+            delay: 0.2,
+            duration: 2,
+          }}
+          className="flex flex-col xl:flex-row justify-between items-start xl:items-center"
+        >
           <p className="xl:text-md mt-4 mb-2">
             Here you will find a list of my projects in detail, click any project to view it.
           </p>
@@ -120,7 +130,7 @@ export default function Home({ work }) {
               </div>
             </div>
           </Link>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 2xl:gap-20 w-full py-4">
           {work.map(
             ({ name, role, previewImage, id }, i) =>
