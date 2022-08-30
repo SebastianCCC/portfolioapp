@@ -16,7 +16,7 @@ const About = ({ title, mail }) => {
       y: 0,
     },
     closed: {
-      y: 50,
+      y: typeof window !== 'undefined' && window.innerWidth >= 1024 ? 0 : 50,
     },
   }
 
