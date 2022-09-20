@@ -33,4 +33,7 @@ body {
   .bg-gradient-b {
     @apply bg-gradient-to-b from-[#8F1560] to-[#253269];
   }
+  .bg-gradient-video {
+    @apply bg-gradient-to-br from-[#301A30] to-[#EA376A];
+  }
 }

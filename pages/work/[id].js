@@ -49,6 +49,7 @@ const WId = ({ currentpage }) => {
     stack,
     isgroup,
     previewImage,
+    walkthrough,
   } = currentpage
 
   return (
@@ -58,7 +59,7 @@ const WId = ({ currentpage }) => {
       </Head>
       <div className="mt-10 xl:mt-0 xl:p-4">
         <HeaderTitles title={`${name} ${endDate}`} />
-        <div className="flex flex-col-reverse xl:flex-row mt-3 xl:mt-[65px]">
+        <div className="flex flex-col-reverse lg:flex-row mt-3 lg:mt-[65px]">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -68,7 +69,7 @@ const WId = ({ currentpage }) => {
               delay: 0.2,
               duration: 2,
             }}
-            className="mt-9 xl:mt-0 xl:mr-4"
+            className="mt-9 lg:mt-0 lg:mr-4 w-[100%]"
           >
             <h1 className="text-lg font-bold">{name}</h1>
             <p className="xl:text-[16px] dark:text-tertiary capitalize">{role}</p>
@@ -113,26 +114,45 @@ const WId = ({ currentpage }) => {
               </a>
             </div>
           </motion.div>
-          {previewImage && (
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: '100%' }}
-              viewport={{ once: true }}
-              transition={{
-                type: 'spring',
-                delay: 0.2,
-                duration: 1.5,
-              }}
-              className="relative select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
-            >
-              <Image
-                lazyBoundary="0px"
-                layout="fill"
-                objectFit="cover"
-                src={previewImage}
-                alt={'A Photo of me'}
-              />
-            </motion.div>
+          {walkthrough ? (
+            <div className="w-full lg:w-[70%] relative h-[300px] xl:h-[500px]">
+              <div className="min-w-full min-h-full bg-gradient-video absolute lg:hidden"></div>
+              <video
+                className="absolute w-full h-[300px] lg:h-[450px] xl:h-[600px]"
+                loop
+                muted
+                autoPlay
+              >
+                <source src={walkthrough} />
+              </video>
+            </div>
+          ) : (
+            <>
+              {previewImage && (
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{
+                    width:
+                      typeof window !== 'undefined' && window.innerWidth >= 1024 ? '70%' : '100%',
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    type: 'spring',
+                    delay: 0.2,
+                    duration: 1.5,
+                  }}
+                  className="relative select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
+                >
+                  <Image
+                    lazyBoundary="0px"
+                    layout="fill"
+                    objectFit="cover"
+                    src={previewImage}
+                    alt={'A Photo of the project'}
+                  />
+                </motion.div>
+              )}
+            </>
           )}
         </div>
       </div>
