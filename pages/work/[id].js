@@ -114,8 +114,8 @@ const WId = ({ currentpage }) => {
               </a>
             </div>
           </motion.div>
-          {walkthrough && (
-            <div className="w-full hidden lg:block lg:w-[70%] relative h-[300px] xl:h-[500px]">
+          {walkthrough && typeof window !== 'undefined' && window.innerWidth >= 1024 ? (
+            <div className="w-full lg:w-[70%] relative h-[300px] xl:h-[500px]">
               <video
                 className="absolute w-full h-[300px] lg:h-[450px] xl:h-[600px]"
                 loop
@@ -125,29 +125,33 @@ const WId = ({ currentpage }) => {
                 <source src={walkthrough} />
               </video>
             </div>
-          )}
-          {previewImage && (
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{
-                width: typeof window !== 'undefined' && window.innerWidth >= 1024 ? '70%' : '100%',
-              }}
-              viewport={{ once: true }}
-              transition={{
-                type: 'spring',
-                delay: 0.2,
-                duration: 1.5,
-              }}
-              className="relative lg:hidden select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
-            >
-              <Image
-                lazyBoundary="0px"
-                layout="fill"
-                objectFit="cover"
-                src={previewImage}
-                alt={'A Photo of the project'}
-              />
-            </motion.div>
+          ) : (
+            <>
+              {previewImage && (
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{
+                    width:
+                      typeof window !== 'undefined' && window.innerWidth >= 1024 ? '70%' : '100%',
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    type: 'spring',
+                    delay: 0.2,
+                    duration: 1.5,
+                  }}
+                  className="relative select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
+                >
+                  <Image
+                    lazyBoundary="0px"
+                    layout="fill"
+                    objectFit="cover"
+                    src={previewImage}
+                    alt={'A Photo of the project'}
+                  />
+                </motion.div>
+              )}
+            </>
           )}
         </div>
       </div>
