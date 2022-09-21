@@ -114,9 +114,8 @@ const WId = ({ currentpage }) => {
               </a>
             </div>
           </motion.div>
-          {walkthrough ? (
+          {walkthrough && typeof window !== 'undefined' && window.innerWidth >= 1024 ? (
             <div className="w-full lg:w-[70%] relative h-[300px] xl:h-[500px]">
-              <div className="min-w-full min-h-full bg-gradient-video absolute lg:hidden"></div>
               <video
                 className="absolute w-full h-[300px] lg:h-[450px] xl:h-[600px]"
                 loop
