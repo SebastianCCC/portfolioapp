@@ -3,16 +3,16 @@ import { motion } from 'framer-motion'
 import { SunIcon, MoonIcon } from './images'
 
 const ThemeSwitch = () => {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   return (
     <>
       <motion.button
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
         className="dark:text-sec_addition dark:hover:text-white text-additional text-2xl"
       >
-        <motion.div animate={theme === 'dark' ? { rotate: 360 } : { rotate: 0 }}>
-          {theme !== 'dark' ? <MoonIcon /> : <SunIcon />}
+        <motion.div animate={resolvedTheme === 'dark' ? { rotate: 360 } : { rotate: 0 }}>
+          {resolvedTheme !== 'dark' ? <MoonIcon /> : <SunIcon />}
         </motion.div>
       </motion.button>
     </>
