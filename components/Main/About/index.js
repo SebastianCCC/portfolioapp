@@ -38,11 +38,11 @@ const About = ({ title, mail }) => {
               className="relative select-none pointer-events-none h-[190px] lg:h-[357px]"
             >
               <Image
-                lazyBoundary="0px"
-                layout="fill"
-                objectFit="cover"
+                sizes="100vw"
+                fill
                 src={avatarImage}
                 alt={'A Photo of me'}
+                className="object-cover"
               />
             </motion.div>
           </div>

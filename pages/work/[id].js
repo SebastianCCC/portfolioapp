@@ -143,11 +143,11 @@ const WId = ({ currentpage }) => {
                   className="relative select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
                 >
                   <Image
-                    lazyBoundary="0px"
-                    layout="fill"
-                    objectFit="cover"
+                    sizes="100vw"
+                    fill
                     src={previewImage}
                     alt={'A Photo of the project'}
+                    className="object-cover"
                   />
                 </motion.div>
               )}
