@@ -74,11 +74,11 @@ export default function Work({ work }) {
                 >
                   {previewImage ? (
                     <Image
-                      lazyBoundary="0px"
-                      layout="fill"
-                      objectFit="cover"
+                      sizes="100vw"
+                      fill
                       src={previewImage}
                       alt={'A Photo of me'}
+                      className="object-cover"
                     />
                   ) : (
                     <div className="bg-secondary w-full h-full"></div>

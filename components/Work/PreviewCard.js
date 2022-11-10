@@ -18,13 +18,7 @@ const PreviewCard = ({ name, role, img, id }) => {
           className="group-hover:scale-105 relative select-none pointer-events-none w-full h-[200px] xl:h-[300px]"
         >
           {img ? (
-            <Image
-              lazyBoundary="0px"
-              layout="fill"
-              objectFit="cover"
-              src={img}
-              alt={'A Photo of me'}
-            />
+            <Image sizes="100vw" fill src={img} alt={'A Photo of me'} className="object-cover" />
           ) : (
             <div className="bg-secondary w-full h-full"></div>
           )}
