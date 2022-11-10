@@ -55,7 +55,7 @@ const WId = ({ currentpage }) => {
   return (
     <>
       <Head>
-        <title>Seechris - {path.slice(0).charAt(0).toUpperCase() + path.slice(1)}</title>
+        <title>{`Seechris - ${path.slice(0).charAt(0).toUpperCase() + path.slice(1)}`}</title>
       </Head>
       <div className="mt-10 xl:mt-0 xl:p-4">
         <HeaderTitles title={`${name} ${endDate}`} />

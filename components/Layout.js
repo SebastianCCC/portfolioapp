@@ -20,7 +20,9 @@ const Layout = ({ children }) => {
     <>
       <Head>
         <title>
-          Seechris - {path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+          {`Seechris - ${
+            path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2)
+          }`}
         </title>
       </Head>
       <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap">
