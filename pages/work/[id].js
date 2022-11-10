@@ -55,7 +55,7 @@ const WId = ({ currentpage }) => {
   return (
     <>
       <Head>
-        <title>Seechris - {path.slice(0).charAt(0).toUpperCase() + path.slice(1)}</title>
+        <title>{`Seechris - ${path.slice(0).charAt(0).toUpperCase() + path.slice(1)}`}</title>
       </Head>
       <div className="mt-10 xl:mt-0 xl:p-4">
         <HeaderTitles title={`${name} ${endDate}`} />
@@ -143,11 +143,11 @@ const WId = ({ currentpage }) => {
                   className="relative select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
                 >
                   <Image
-                    lazyBoundary="0px"
-                    layout="fill"
-                    objectFit="cover"
+                    sizes="100vw"
+                    fill
                     src={previewImage}
                     alt={'A Photo of the project'}
+                    className="object-cover"
                   />
                 </motion.div>
               )}
