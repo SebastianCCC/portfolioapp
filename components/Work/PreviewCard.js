@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
-const PreviewCard = ({ name, role, img, id, icon }) => {
+const PreviewCard = ({ name, title, role, img, id, icon }) => {
   const { pathname } = useRouter()
   return (
     <article className="group min-w-fit xl:min-w-[350px] cursor-pointer">
@@ -21,7 +21,9 @@ const PreviewCard = ({ name, role, img, id, icon }) => {
         {img ? (
           <Image sizes="100vw" fill src={img} alt={'Project: ' + name} className="object-cover" />
         ) : icon ? (
-          <div className="w-full h-full flex justify-center items-center">{icon}</div>
+          <div className="w-full h-full dark:text-sec_addition dark:bg-tertiary bg-secondary overflow-hidden flex flex-col justify-center items-center">
+            {icon} <h2 className="font-medium tracking-[2px]">{title}</h2>
+          </div>
         ) : (
           <div className="bg-secondary w-full h-full"></div>
         )}
@@ -48,7 +50,7 @@ const PreviewCard = ({ name, role, img, id, icon }) => {
           delay: 1.5,
           duration: 2,
         }}
-        className={`text-md tracking-[2px] ${icon && 'text-center'}`}
+        className="text-md tracking-[2px]"
       >
         {name}
       </motion.h3>
