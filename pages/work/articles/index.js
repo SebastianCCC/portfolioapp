@@ -37,7 +37,7 @@ export default function Articles({ articles }) {
         >
           Here you will find all of my articles in detail, click any article to view it.
         </motion.p>
-        <motion.section className="grid grid-cols-1 xl:grid-cols-2 gap-5 w-full">
+        <motion.section className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-5 w-full">
           {articles.map(({ title, tags, cover_image, url }, i) => (
             <a href={url} target="_blank" rel="noopener noreferrer" key={i}>
               <PreviewCard name={title} role={tags} img={cover_image} />

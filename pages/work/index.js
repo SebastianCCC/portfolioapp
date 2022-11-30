@@ -11,8 +11,8 @@ import { StarIcon, NewsPaper } from '../../assets'
 
 export default function Work({ work }) {
   const Projects = [
-    { name: 'Applications', path: 'work/apps', icon: <StarIcon /> },
-    { name: 'Articles', path: '/work/articles', icon: <NewsPaper /> },
+    { name: 'Applications', title: 'Starred', path: 'work/apps', icon: <StarIcon /> },
+    { name: 'Articles', title: 'Posts', path: '/work/articles', icon: <NewsPaper /> },
   ]
   return (
     <>
@@ -31,9 +31,9 @@ export default function Work({ work }) {
           Here you will find all of my projects in detail, click any category.
         </motion.p>
         <motion.section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
-          {Projects.map(({ name, path, icon }, i) => (
+          {Projects.map(({ name, title, path, icon }, i) => (
             <Link href={path} key={i}>
-              <PreviewCard name={name} icon={icon} />
+              <PreviewCard name={name} title={title} icon={icon} />
             </Link>
           ))}
         </motion.section>
