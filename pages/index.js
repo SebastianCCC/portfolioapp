@@ -134,7 +134,11 @@ export default function Home({ work }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 2xl:gap-20 w-full py-4">
           {work.map(
             ({ name, role, previewImage, id }, i) =>
-              i <= 2 && <PreviewCard key={i} name={name} role={role} img={previewImage} id={id} />
+              i <= 2 && (
+                <Link href={'work/apps/' + id} key={i}>
+                  <PreviewCard name={name} role={role} img={previewImage} id={id} />
+                </Link>
+              )
           )}
         </div>
       </section>
