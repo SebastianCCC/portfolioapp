@@ -15,7 +15,7 @@
     "classnames": "^2.3.1",
     "firebase": "^9.13.0",
     "framer-motion": "^7.6.5",
-    "next": "13.0.2",
+    "next": "13.0.5",
     "next-themes": "^0.2.0",
     "nodemailer": "^6.8.0",
     "react": "18.2.0",
