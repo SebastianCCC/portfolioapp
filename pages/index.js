@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'
 import db from '../firebase'
 import { motion } from 'framer-motion'
 import ComStack from '../components/ComStack'
@@ -13,11 +13,14 @@ import PreviewCard from '../components/Work/PreviewCard'
 import { Sendicon } from '../assets'
 
 export async function getStaticProps() {
-  const querySnapshot = await getDocs(collection(db, 'work'))
+  const collectionRef = collection(db, 'work')
+  const q = await query(collectionRef, orderBy('id', 'desc'), limit(3))
+
+  const workDocs = await getDocs(q)
   const work = []
 
-  querySnapshot.forEach((doc) => {
-    work.push({ id: doc.id, ...doc.data() })
+  workDocs.forEach((doc) => {
+    work.push({ dId: doc.id, ...doc.data() })
   })
 
   return {
@@ -132,14 +135,11 @@ export default function Home({ work }) {
           </Link>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 2xl:gap-20 w-full py-4">
-          {work.map(
-            ({ name, role, previewImage, id }, i) =>
-              i <= 2 && (
-                <Link href={'work/apps/' + id} key={i}>
-                  <PreviewCard name={name} role={role} img={previewImage} id={id} />
-                </Link>
-              )
-          )}
+          {work.map(({ name, role, previewImage, dId }, i) => (
+            <Link href={'work/apps/' + dId} key={i}>
+              <PreviewCard name={name} role={role} img={previewImage} id={dId} />
+            </Link>
+          ))}
         </div>
       </section>
       <About title="About Me" mail="Contact Me" />
