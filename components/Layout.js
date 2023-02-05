@@ -30,7 +30,8 @@ const Layout = ({ children }) => {
           {mounted && (
             <>
               <TopNavbar />
-              {isOpen ? <Popout /> : <SideNavBar />}
+              <Popout />
+              {!isOpen && <SideNavBar />}
             </>
           )}
         </header>
