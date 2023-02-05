@@ -68,7 +68,7 @@ export default function Home({ work }) {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-lg md:text-2xl xl:text-3xl xl:font-bold"
+            className="text-lg md:text-2xl xl:text-3xl font-bold"
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -80,7 +80,7 @@ export default function Home({ work }) {
             variants={container}
             initial="hidden"
             animate="show"
-            className="dark:text-tertiary text-base xl:text-md py-6"
+            className="dark:text-sec_addition text-base xl:text-md py-6"
           >
             {descarr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -101,7 +101,7 @@ export default function Home({ work }) {
           >
             <Link href="/#projects">
               <div className="flex items-center mt-[60px] dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
-                <p className="xl:text-[23px] mr-1">Projects in close vicinity</p>
+                <p className="text-[23px] mr-1">Projects in close vicinity</p>
                 <div className="dark:text-tertiary -rotate-45">
                   <ExternalLink />
                 </div>
