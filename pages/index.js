@@ -11,6 +11,7 @@ import { ExternalLink } from '../assets'
 import HeaderTitles from '../components/Animate/Titles'
 import PreviewCard from '../components/Work/PreviewCard'
 import { Sendicon } from '../assets'
+import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
 
 export async function getStaticProps() {
   const collectionRef = collection(db, 'work')
@@ -67,7 +68,7 @@ export default function Home({ work }) {
             variants={container}
             initial="hidden"
             animate="show"
-            className="text-lg md:text-2xl xl:text-3xl xl:font-bold"
+            className="text-lg md:text-2xl xl:text-3xl font-bold"
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -79,7 +80,7 @@ export default function Home({ work }) {
             variants={container}
             initial="hidden"
             animate="show"
-            className="dark:text-tertiary text-base xl:text-md py-6"
+            className="dark:text-sec_addition text-base xl:text-md py-6"
           >
             {descarr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -100,7 +101,7 @@ export default function Home({ work }) {
           >
             <Link href="/#projects">
               <div className="flex items-center mt-[60px] dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
-                <p className="xl:text-[23px] mr-1">Projects in close vicinity</p>
+                <p className="text-[23px] mr-1">Projects in close vicinity</p>
                 <div className="dark:text-tertiary -rotate-45">
                   <ExternalLink />
                 </div>
@@ -134,13 +135,13 @@ export default function Home({ work }) {
             </div>
           </Link>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 2xl:gap-20 w-full py-4">
+        <AnimatePreviewCard>
           {work.map(({ name, role, previewImage, dId }, i) => (
             <Link href={'work/apps/' + dId} key={i}>
-              <PreviewCard name={name} role={role} img={previewImage} id={dId} />
+              <PreviewCard name={name} role={role} img={previewImage} id={dId} increaseDelay={i} />
             </Link>
           ))}
-        </div>
+        </AnimatePreviewCard>
       </section>
       <About title="About Me" mail="Contact Me" />
       <ComStack title="Tech i enjoy" />

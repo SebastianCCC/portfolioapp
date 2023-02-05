@@ -8,6 +8,7 @@ import HeaderTitles from '../../components/Animate/Titles'
 import Image from 'next/image'
 import PreviewCard from '../../components/Work/PreviewCard'
 import { StarIcon, NewsPaper } from '../../assets'
+import AnimatePreviewCard from '../../components/Animate/AnimatePreviewCard'
 
 export default function Work({ work }) {
   const Projects = [
@@ -30,13 +31,13 @@ export default function Work({ work }) {
         >
           Here you will find all of my projects in detail, click any category.
         </motion.p>
-        <motion.section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
+        <AnimatePreviewCard>
           {Projects.map(({ name, title, path, icon }, i) => (
             <Link href={path} key={i}>
-              <PreviewCard name={name} title={title} icon={icon} />
+              <PreviewCard name={name} title={title} icon={icon} increaseDelay={i} />
             </Link>
           ))}
-        </motion.section>
+        </AnimatePreviewCard>
       </div>
     </>
   )
