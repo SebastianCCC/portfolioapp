@@ -7,6 +7,7 @@ import Link from 'next/link'
 import HeaderTitles from '../../../components/Animate/Titles'
 import Image from 'next/image'
 import PreviewCard from '../../../components/Work/PreviewCard'
+import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 
 export async function getStaticProps() {
   const collectionRef = collection(db, 'work')
@@ -61,13 +62,13 @@ export default function Apps({ work }) {
         >
           Here you will find all of my apps in detail, click any project to view it.
         </motion.p>
-        <motion.section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
+        <AnimatePreviewCard>
           {work.map(({ name, role, previewImage, dId }, i) => (
             <Link href={'apps/' + dId} key={i}>
-              <PreviewCard name={name} role={role} img={previewImage} id={dId} />
+              <PreviewCard name={name} role={role} img={previewImage} id={dId} increaseDelay={i} />
             </Link>
           ))}
-        </motion.section>
+        </AnimatePreviewCard>
       </div>
     </>
   )
