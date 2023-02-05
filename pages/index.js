@@ -11,6 +11,7 @@ import { ExternalLink } from '../assets'
 import HeaderTitles from '../components/Animate/Titles'
 import PreviewCard from '../components/Work/PreviewCard'
 import { Sendicon } from '../assets'
+import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
 
 export async function getStaticProps() {
   const collectionRef = collection(db, 'work')
@@ -134,13 +135,13 @@ export default function Home({ work }) {
             </div>
           </Link>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 2xl:gap-20 w-full py-4">
+        <AnimatePreviewCard>
           {work.map(({ name, role, previewImage, dId }, i) => (
             <Link href={'work/apps/' + dId} key={i}>
-              <PreviewCard name={name} role={role} img={previewImage} id={dId} />
+              <PreviewCard name={name} role={role} img={previewImage} id={dId} increaseDelay={i} />
             </Link>
           ))}
-        </div>
+        </AnimatePreviewCard>
       </section>
       <About title="About Me" mail="Contact Me" />
       <ComStack title="Tech i enjoy" />
