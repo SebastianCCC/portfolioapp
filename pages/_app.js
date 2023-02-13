@@ -5,6 +5,7 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import ErrorBoundary from '../components/ErrorBoundary'
 import { useState, useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
   const [isdark, setIsDark] = useState()
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         </ThemeProvider>
       </StateProvider>
+      <Analytics />
     </>
   )
 }
