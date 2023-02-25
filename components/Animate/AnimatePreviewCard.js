@@ -23,9 +23,9 @@ export default function AnimatePreviewCard({ children }) {
       whileInView="show"
       variants={container}
       viewport={{ once: true }}
-      className={`grid grid-cols-1 gap-10 2xl:gap-20 ${path != '/' && '2xl:grid-cols-4'} ${
+      className={`grid grid-cols-1 gap-10 ${path != '/' && '2xl:grid-cols-4'} ${
         path != '/work/articles'
-          ? 'sm:grid-cols-2 xl:grid-cols-3'
+          ? 'sm:grid-cols-2 xl:grid-cols-3 2xl:gap-20'
           : 'xl:grid-cols-2 2xl:grid-cols-3'
       } w-full py-4`}
     >
