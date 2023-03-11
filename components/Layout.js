@@ -26,17 +26,19 @@ const Layout = ({ children }) => {
         </title>
       </Head>
       <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap">
-        <header className="relative w-full xl:w-fit xl:min-w-[288px] top-0 z-[25]">
-          {mounted && (
-            <>
-              <TopNavbar />
-              <Popout />
-              {!isOpen && <SideNavBar />}
-            </>
-          )}
-        </header>
-        <main className="container m-auto flex-1 p-4">{children}</main>
-        <footer className="min-w-full">{mounted && <NavBottom />}</footer>
+        {mounted && (
+          <>
+            <header className="relative w-full xl:w-fit xl:min-w-[288px] top-0 z-[25]">
+              <>
+                <TopNavbar />
+                <Popout />
+                {!isOpen && <SideNavBar />}
+              </>
+            </header>
+            <main className="container m-auto flex-1 p-4">{children}</main>
+            <footer className="min-w-full">{<NavBottom />}</footer>
+          </>
+        )}
       </div>
     </>
   )
