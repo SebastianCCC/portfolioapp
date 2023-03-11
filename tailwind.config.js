@@ -10,6 +10,7 @@ module.exports = {
         primary: '#DA0037',
         secondary: '#EDEDED',
         tertiary: '#434040',
+        sec_tertiary: '#222121',
         additional: '#171717',
         sec_addition: '#b5b5b5',
       },

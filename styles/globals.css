@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 * {
-  @apply box-border font-poppins;
+  @apply box-border font-poppins dark:outline-white outline-additional;
 }
 
 html {
