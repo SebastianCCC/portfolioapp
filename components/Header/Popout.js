@@ -53,7 +53,6 @@ const SideNavBar = () => {
                   <NavBarItems key={i} title={title} link={link} />
                 ))}
               </ul>
-              <ThemeSwitch />
             </div>
           </motion.div>
         )}
