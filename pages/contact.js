@@ -127,7 +127,7 @@ const Contact = () => {
                   </label>
                   {type === 'text' ? (
                     <input
-                      className={`w-full pt-3 pb-1 bg-transparent outline-none dark:placeholder-tertiary`}
+                      className={`w-full pt-3 pb-1 bg-transparent dark:placeholder-tertiary`}
                       type={type}
                       name={registerid}
                       placeholder={placeholder}
@@ -137,7 +137,7 @@ const Contact = () => {
                     <div className="relative">
                       <textarea
                         maxLength={maxMsgTxtLength}
-                        className="w-full pt-3 pb-1 bg-transparent outline-none resize-none dark:placeholder-tertiary"
+                        className="w-full pt-3 pb-1 bg-transparent resize-none dark:placeholder-tertiary"
                         placeholder={placeholder}
                         name={registerid}
                         {...register(registerid)}

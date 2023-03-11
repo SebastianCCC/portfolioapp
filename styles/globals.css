@@ -16,6 +16,11 @@ body {
   @apply dark:bg-additional bg-white;
 }
 
+input[type='text'],
+.relative textarea {
+  @apply outline-none;
+}
+
 @layer components {
   .text-gradient-b {
     @apply bg-gradient-to-b from-[#8F1560] to-[#253269];
