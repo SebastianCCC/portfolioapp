@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href={`${isdark ? '/logo.svg' : '/dark-logo.svg'}`} />
-        <link rel="apple-touch-icon" href={`${isdark ? '/logo.png' : '/dark-logo.png'}`} />
+        <link rel="apple-touch-icon" href="/apple-icon-180.png" />
       </Head>
       <StateProvider>
         <ThemeProvider themes={['dark', 'light']} attribute="class">
