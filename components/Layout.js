@@ -21,7 +21,11 @@ const Layout = ({ children }) => {
       <Head>
         <title>
           {`Seechris - ${
-            path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2)
+            path === '/'
+              ? 'Home'
+              : path === '/work'
+              ? 'Work'
+              : path.slice(6).charAt(0).toUpperCase() + path.slice(7)
           }`}
         </title>
       </Head>
