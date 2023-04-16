@@ -9,7 +9,7 @@ const NavBottom = () => {
 
   return (
     <div
-      className={`p-5 mt-20 xl:mt-40 flex flex-col-reverse xl:flex-row justify-evenly items-center`}
+      className={`p-5 mt-20 xl:mt-40 flex flex-col-reverse lg:flex-row justify-evenly items-center`}
     >
       <ul className="flex items-center px-2">
         {SocialLinks.map(({ soclink, title }, i) => (
@@ -25,8 +25,8 @@ const NavBottom = () => {
           </div>
         ))}
       </ul>
-      <div className="flex flex-col-reverse xl:flex-row items-center">
-        <h3 className="text-center pt-4 xl:pr-4 xl:pt-0 dark:text-sec_addition uppercase">
+      <div className="flex flex-col-reverse lg:flex-row items-center">
+        <h3 className="text-center pt-4 lg:pr-4 lg:pt-0 dark:text-sec_addition uppercase">
           © {new Date().getFullYear()} Seechris
         </h3>
         <Link href="#">
