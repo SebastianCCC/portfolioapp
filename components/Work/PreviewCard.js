@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 const PreviewCard = ({ name, title, role, img, id, icon, increaseDelay }) => {
   const BreakPointWidth = typeof window !== 'undefined' && window.innerWidth >= 1024
+  const router = useRouter()
+  const path = router.pathname
   const itemImg = {
     hidden: { width: 0 },
     show: { width: '100%', transition: { duration: 1 } },
@@ -15,7 +18,11 @@ const PreviewCard = ({ name, title, role, img, id, icon, increaseDelay }) => {
   }
 
   return (
-    <motion.article className="group min-w-fit xl:min-w-[350px] cursor-pointer">
+    <motion.article
+      className={`group min-w-fit ${
+        path == '/' && 'sm:min-w-[300px]'
+      } xl:min-w-[350px] cursor-pointer`}
+    >
       <motion.div
         className="max-w-full"
         initial={{ width: 0 }}
