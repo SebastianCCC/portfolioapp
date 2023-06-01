@@ -21,7 +21,7 @@
     "nodemailer": "^6.9.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.40.0",
+    "react-hook-form": "^7.44.2",
     "react-icons": "^4.7.1",
     "yup": "^1.1.1"
   },
