@@ -147,7 +147,7 @@ const WId = ({ currentpage }) => {
                     fill
                     src={previewImage}
                     alt={'A Photo of the project'}
-                    className="object-cover"
+                    className="object-cover rounded-md"
                   />
                 </motion.div>
               )}

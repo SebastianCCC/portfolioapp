@@ -34,13 +34,19 @@ const PreviewCard = ({ name, title, role, img, id, icon, increaseDelay }) => {
           className="group-hover:scale-105 relative select-none pointer-events-none w-full h-[200px] xl:h-[300px]"
         >
           {img ? (
-            <Image sizes="100vw" fill src={img} alt={'Project: ' + name} className="object-cover" />
+            <Image
+              sizes="100vw"
+              fill
+              src={img}
+              alt={'Project: ' + name}
+              className="object-cover rounded-md"
+            />
           ) : icon ? (
-            <div className="w-full h-full dark:text-sec_addition dark:bg-tertiary bg-secondary overflow-hidden flex flex-col justify-center items-center">
+            <div className="w-full h-full dark:text-sec_addition dark:bg-tertiary bg-secondary overflow-hidden flex flex-col justify-center items-center rounded-md">
               {icon} <h2 className="font-medium tracking-[2px]">{title}</h2>
             </div>
           ) : (
-            <div className="bg-secondary w-full h-full"></div>
+            <div className="bg-secondary w-full h-full rounded-md"></div>
           )}
         </motion.div>
       </motion.div>
