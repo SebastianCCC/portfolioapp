@@ -30,9 +30,15 @@ export default function Work({ work }) {
         </motion.p>
         <AnimatePreviewCard>
           {Projects.map(({ name, title, path, icon }, i) => (
-            <Link href={path} key={i}>
-              <PreviewCard name={name} title={title} icon={icon} increaseDelay={i} />
-            </Link>
+            <PreviewCard
+              name={name}
+              title={title}
+              icon={icon}
+              increaseDelay={i}
+              key={i}
+              href={path}
+              disableLoading={true}
+            />
           ))}
         </AnimatePreviewCard>
       </div>

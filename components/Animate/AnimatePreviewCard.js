@@ -26,7 +26,7 @@ export default function AnimatePreviewCard({ children }) {
       className={`grid grid-cols-1 gap-6 ${
         path != '/'
           ? 'sm:grid-cols-2 2xl:grid-cols-4'
-          : 'sm:gap-80 lg:gap-6 2xl:gap-20 sm:grid-cols-3 overflow-x-auto'
+          : 'sm:gap-80 lg:gap-6 2xl:gap-20 sm:grid-cols-3 overflow-y-hidden lg:overflow-visible'
       } ${
         path != '/work/articles' ? 'lg:grid-cols-3' : 'lg:grid-cols-2 2xl:grid-cols-3'
       } w-full py-4`}

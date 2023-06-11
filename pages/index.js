@@ -137,9 +137,15 @@ export default function Home({ work }) {
         </motion.div>
         <AnimatePreviewCard>
           {work.map(({ name, role, previewImage, dId }, i) => (
-            <Link href={'work/apps/' + dId} key={i}>
-              <PreviewCard name={name} role={role} img={previewImage} id={dId} increaseDelay={i} />
-            </Link>
+            <PreviewCard
+              name={name}
+              role={role}
+              img={previewImage}
+              id={dId}
+              increaseDelay={i}
+              key={i}
+              href={'work/apps'}
+            />
           ))}
         </AnimatePreviewCard>
       </section>
