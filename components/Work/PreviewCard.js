@@ -46,7 +46,7 @@ const PreviewCard = ({ name, title, role, img, id, icon, increaseDelay }) => {
               {icon} <h2 className="font-medium tracking-[2px]">{title}</h2>
             </div>
           ) : (
-            <div className="bg-secondary w-full h-full rounded-md"></div>
+            <div className="bg-secondary dark:bg-sec_tertiary w-full h-full rounded-md"></div>
           )}
         </motion.div>
       </motion.div>
