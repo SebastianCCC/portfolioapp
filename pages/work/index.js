@@ -9,12 +9,9 @@ import Image from 'next/image'
 import PreviewCard from '../../components/Work/PreviewCard'
 import { StarIcon, NewsPaper } from '../../assets'
 import AnimatePreviewCard from '../../components/Animate/AnimatePreviewCard'
+import { Projects } from '../../components/Links'
 
 export default function Work({ work }) {
-  const Projects = [
-    { name: 'Applications', title: 'Starred', path: 'work/apps', icon: <StarIcon /> },
-    { name: 'Articles', title: 'Posts', path: '/work/articles', icon: <NewsPaper /> },
-  ]
   return (
     <>
       <div className="pt-20 xl:p-4">
