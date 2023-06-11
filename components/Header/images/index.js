@@ -54,11 +54,11 @@ export const LogoIcon = ({ FillRef }) => {
   )
 }
 
-export const LogoIconDark = ({ FillRef }) => {
+export const LogoIconDark = ({ FillRef, width, height }) => {
   return (
     <svg
-      width="118"
-      height="68"
+      width={width || 118}
+      height={height || 68}
       viewBox="0 0 118 68"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

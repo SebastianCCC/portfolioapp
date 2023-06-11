@@ -40,9 +40,15 @@ export default function Articles({ articles }) {
         </motion.p>
         <AnimatePreviewCard>
           {articles.map(({ title, tags, cover_image, url }, i) => (
-            <a href={url} target="_blank" rel="noopener noreferrer" key={i}>
-              <PreviewCard name={title} role={tags} img={cover_image} increaseDelay={i} />
-            </a>
+            <PreviewCard
+              name={title}
+              role={tags}
+              img={cover_image}
+              increaseDelay={i}
+              key={i}
+              href={url}
+              externalLink={true}
+            />
           ))}
         </AnimatePreviewCard>
       </div>

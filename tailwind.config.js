@@ -13,6 +13,8 @@ module.exports = {
         sec_tertiary: '#222121',
         additional: '#171717',
         sec_addition: '#b5b5b5',
+        projectview_dark: '#1B1B1B',
+        projectview: '#FBFBFB',
       },
       fontSize: {
         base: '15px',
@@ -24,6 +26,7 @@ module.exports = {
       },
       screens: {
         pc: '1440px',
+        xSmall: '395px',
       },
     },
   },

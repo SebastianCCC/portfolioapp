@@ -1,4 +1,5 @@
 import { HomeIcon, WorkIcon, UserIcon, MailIcon } from './images'
+import { StarIcon, NewsPaper } from '../../assets'
 import { RiGithubFill, RiLinkedinBoxFill, RiSpotifyFill } from 'react-icons/ri'
 
 export const NavLinks = [
@@ -12,6 +13,7 @@ export const NavLinks = [
     icon: <WorkIcon />,
     title: 'Work',
     link: '/work',
+    projectContent: true,
   },
   {
     icon: <MailIcon />,
@@ -38,4 +40,9 @@ export const SocialLinks = [
     soclink: 'https://open.spotify.com/artist/5kOQRo3IZFZe1TUhyqZZyN?si=q-9zOLxTRkqG9I4zHhDWCw',
     title: 'Spotify',
   },
+]
+
+export const Projects = [
+  { name: 'Applications', title: 'Starred', path: '/work/apps', icon: <StarIcon /> },
+  { name: 'Articles', title: 'Posts', path: '/work/articles', icon: <NewsPaper /> },
 ]

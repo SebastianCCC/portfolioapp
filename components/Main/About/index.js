@@ -42,7 +42,7 @@ const About = ({ title, mail }) => {
                 fill
                 src={avatarImage}
                 alt={'A Photo of me'}
-                className="object-cover"
+                className="object-cover rounded-md"
               />
             </motion.div>
           </div>
