@@ -3,7 +3,16 @@ import { useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { StateContext } from '../../hooks/StateContext'
 
-const NavBarItems = ({ link, title, icon }) => {
+const NavBarItems = ({
+  link,
+  title,
+  icon,
+  onHoverEnter,
+  onHoverLeave,
+  style,
+  styleIcon,
+  onClick,
+}) => {
   const { isOpen, setIsOpen } = useContext(StateContext)
 
   const isFunction = () => {
@@ -12,11 +21,16 @@ const NavBarItems = ({ link, title, icon }) => {
 
   return (
     <li
-      className={`group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer py-[15px] xl:py-0 tracking-[2px] text-md xl:text-base uppercase xl:capitalize px-4`}
+      className={`${style} group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer ${
+        !style && 'xl:py-0 py-[15px]'
+      } tracking-[2px] text-md xl:text-base uppercase xl:capitalize mx-4`}
+      onMouseEnter={onHoverEnter}
+      onMouseLeave={onHoverLeave}
+      onClick={onClick}
     >
       <Link href={link}>
         <div className="xl:flex items-center">
-          {icon && <div className="rounded p-1">{icon}</div>}
+          {icon && <div className={`${styleIcon} rounded p-1`}>{icon}</div>}
           <motion.h2
             initial={{ x: -20 }}
             animate={{ x: 0 }}

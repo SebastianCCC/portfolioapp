@@ -9,12 +9,9 @@ import Image from 'next/image'
 import PreviewCard from '../../components/Work/PreviewCard'
 import { StarIcon, NewsPaper } from '../../assets'
 import AnimatePreviewCard from '../../components/Animate/AnimatePreviewCard'
+import { Projects } from '../../components/Links'
 
 export default function Work({ work }) {
-  const Projects = [
-    { name: 'Applications', title: 'Starred', path: 'work/apps', icon: <StarIcon /> },
-    { name: 'Articles', title: 'Posts', path: '/work/articles', icon: <NewsPaper /> },
-  ]
   return (
     <>
       <div className="pt-20 xl:p-4">
@@ -33,9 +30,15 @@ export default function Work({ work }) {
         </motion.p>
         <AnimatePreviewCard>
           {Projects.map(({ name, title, path, icon }, i) => (
-            <Link href={path} key={i}>
-              <PreviewCard name={name} title={title} icon={icon} increaseDelay={i} />
-            </Link>
+            <PreviewCard
+              name={name}
+              title={title}
+              icon={icon}
+              increaseDelay={i}
+              key={i}
+              href={path}
+              disableLoading={true}
+            />
           ))}
         </AnimatePreviewCard>
       </div>
