@@ -81,7 +81,7 @@ const WId = ({ currentpage }) => {
             </p>
             <div className="text-center sm:text-left mt-8">
               <h2 className="dark:text-tertiary tracking-[2px] mb-1 uppercase">Tech Used</h2>
-              <div className="flex items-center overflow-auto">
+              <div className="flex items-center overflow-auto -mx-4 pl-4">
                 {stack.map((tech, i) => (
                   <p
                     className="my-4 min-w-fit capitalize first:pl-0 px-4 even:border-x last:border-r-transparent border-sec_addition"
