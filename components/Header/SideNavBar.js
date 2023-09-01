@@ -10,6 +10,7 @@ import AnimateProjectView from '../Animate/AnimateProjectView'
 import { AnimatePresence } from 'framer-motion'
 import { Projects } from '../Links'
 import { StateContext } from '../../hooks/StateContext'
+import { motion } from 'framer-motion'
 
 const SideNavBar = () => {
   const { theme } = useTheme()
@@ -37,7 +38,12 @@ const SideNavBar = () => {
 
   return (
     /*     <nav className="flex flex-col items-center"></nav> */
-    <div className="hidden xl:block">
+    <motion.div
+      initial={{ x: -288, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="hidden xl:block"
+    >
       <div
         className={`top-0 bottom-0 left-0 dark:bg-sec_tertiary bg-secondary min-h-screen fixed w-[288px]`}
       >
@@ -82,7 +88,7 @@ const SideNavBar = () => {
           />
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }
 
