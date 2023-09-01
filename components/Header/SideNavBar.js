@@ -45,7 +45,7 @@ const SideNavBar = () => {
       className="hidden xl:block"
     >
       <div
-        className={`top-0 bottom-0 left-0 dark:bg-sec_tertiary bg-secondary min-h-screen fixed w-[288px]`}
+        className={`top-0 bottom-0 left-0 dark:bg-sec_tertiary bg-secondary/25 min-h-screen fixed w-[288px]`}
       >
         <Link href="/">
           <div className="w-full flex justify-center p-4 py-11 cursor-pointer">
