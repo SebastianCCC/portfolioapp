@@ -149,19 +149,21 @@ export default function Home({ work }) {
             </div>
           </Link>
         </motion.div>
-        <AnimatePreviewCard>
-          {work.map(({ name, role, previewImage, dId }, i) => (
-            <PreviewCard
-              name={name}
-              role={role}
-              img={previewImage}
-              id={dId}
-              increaseDelay={i}
-              key={i}
-              href={'work/apps'}
-            />
-          ))}
-        </AnimatePreviewCard>
+        <div className="-mx-4 pl-4 overflow-y-hidden lg:overflow-visible">
+          <AnimatePreviewCard>
+            {work.map(({ name, role, previewImage, dId }, i) => (
+              <PreviewCard
+                name={name}
+                role={role}
+                img={previewImage}
+                id={dId}
+                increaseDelay={i}
+                key={i}
+                href={'work/apps'}
+              />
+            ))}
+          </AnimatePreviewCard>
+        </div>
       </section>
       <About title="About Me" mail="Contact Me" />
       <ComStack title="Tech i enjoy" />
