@@ -3,10 +3,10 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { HiOutlineGlobe } from 'react-icons/hi'
 import { RiStackLine, RiTimeLine, RiGithubFill } from 'react-icons/ri'
-import AnimateTitles from '../../../components/Animate/Titles'
-import db from '../../../firebase'
+import AnimateTitles from '../../components/Animate/Titles'
+import db from '../../firebase'
 import { motion } from 'framer-motion'
-import HeaderTitles from '../../../components/Animate/Titles'
+import HeaderTitles from '../../components/Animate/Titles'
 import Image from 'next/image'
 
 export async function getStaticProps({ params }) {

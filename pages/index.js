@@ -159,7 +159,7 @@ export default function Home({ work }) {
                 id={dId}
                 increaseDelay={i}
                 key={i}
-                href={'work/apps'}
+                href="work"
               />
             ))}
           </AnimatePreviewCard>
