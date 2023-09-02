@@ -5,7 +5,6 @@ const HeaderTitles = ({ title }) => {
     <motion.header
       initial={{ x: -50, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
       transition={{
         type: 'spring',
         delay: 0.2,

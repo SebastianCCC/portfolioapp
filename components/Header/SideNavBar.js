@@ -45,7 +45,7 @@ const SideNavBar = () => {
       className="hidden xl:block"
     >
       <div
-        className={`top-0 bottom-0 left-0 dark:bg-sec_tertiary bg-secondary/25 min-h-screen fixed w-[288px]`}
+        className={`top-0 bottom-0 left-0 dark:bg-sec_tertiary bg-projectview min-h-screen fixed w-[288px]`}
       >
         <Link href="/">
           <div className="w-full flex justify-center p-4 py-11 cursor-pointer">
@@ -59,7 +59,7 @@ const SideNavBar = () => {
                 !pc && (
                   <div
                     key={i}
-                    className="first:border-t first:pt-8 last:border-y last:py-8 last:mt-8 dark:border-tertiary border-white"
+                    className="first:border-t first:pt-8 last:border-y last:py-8 last:mt-8 dark:border-tertiary border-secondary/70"
                   >
                     <NavBarItems
                       icon={icon}
