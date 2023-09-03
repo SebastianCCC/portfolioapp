@@ -25,7 +25,7 @@ const About = ({ title, mail }) => {
       <HeaderTitles title={title} />
       <div className="w-full">
         <div className="flex flex-col mt-4 md:flex-row-reverse justify-center items-start">
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-3/4 lg:w-1/2">
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: '100%' }}
@@ -35,7 +35,7 @@ const About = ({ title, mail }) => {
                 delay: 0.2,
                 duration: 1.5,
               }}
-              className="relative select-none pointer-events-none h-[190px] lg:h-[357px]"
+              className="relative select-none pointer-events-none h-[357px]"
             >
               <Image
                 sizes="100vw"

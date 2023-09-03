@@ -3,10 +3,10 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { HiOutlineGlobe } from 'react-icons/hi'
 import { RiStackLine, RiTimeLine, RiGithubFill } from 'react-icons/ri'
-import AnimateTitles from '../../../components/Animate/Titles'
-import db from '../../../firebase'
+import AnimateTitles from '../../components/Animate/Titles'
+import db from '../../firebase'
 import { motion } from 'framer-motion'
-import HeaderTitles from '../../../components/Animate/Titles'
+import HeaderTitles from '../../components/Animate/Titles'
 import Image from 'next/image'
 
 export async function getStaticProps({ params }) {
@@ -57,7 +57,7 @@ const WId = ({ currentpage }) => {
       <Head>
         <title>{`Seechris - ${path.slice(0).charAt(0).toUpperCase() + path.slice(1)}`}</title>
       </Head>
-      <div className="pt-20 xl:p-4">
+      <div className="pt-20 xl:p-4 md:container md:m-auto">
         <HeaderTitles title={`${name} ${endDate}`} />
         <div className="flex flex-col-reverse lg:flex-row mt-3 lg:mt-[65px]">
           <motion.div
