@@ -35,7 +35,7 @@ const PreviewCard = ({
     <div className="relative min-w-fit">
       <SkeletonLoader animation={itemImg} loaded={loaded || disableLoading}>
         <Link
-          href={`${href}/${id || ''}`}
+          href={`${!!href ? href + '/' : ''}${id || ''}`}
           target={`${!!externalLink ? '_blank' : '_self'}`}
           rel="noopener noreferrer"
         >

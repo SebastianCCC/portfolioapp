@@ -71,7 +71,6 @@ export default function Apps({ work }) {
               id={dId}
               increaseDelay={i}
               key={i}
-              href="apps"
             />
           ))}
         </AnimatePreviewCard>

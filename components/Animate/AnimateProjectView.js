@@ -30,12 +30,12 @@ function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }) {
       onMouseEnter={onHoverEnter}
       onMouseLeave={onHoverLeave}
     >
-      <div className="flex flex-col justify-center items-center h-full">
+      <div className="flex flex-col justify-center items-center h-full bg-secondary/25 dark:bg-transparent">
         {projects.map(({ name, title, path, icon }, i) => {
           return (
             <ul className="w-full" key={i}>
               <NavBarItems
-                style="bg-secondary dark:bg-sec_tertiary p-2 my-2 rounded-md"
+                style="bg-projectview dark:bg-sec_tertiary p-2 my-2 rounded-md"
                 styleIcon="scale-[.65]"
                 icon={icon}
                 title={name}

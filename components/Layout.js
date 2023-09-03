@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
                 {!isOpen && <SideNavBar />}
               </>
             </header>
-            <main className="md:container md:m-auto flex-1 p-4">{children}</main>
+            <main className="lg:container lg:m-auto flex-1 p-4">{children}</main>
             <footer className="min-w-full">{<NavBottom />}</footer>
           </>
         )}
