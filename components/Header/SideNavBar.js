@@ -15,13 +15,18 @@ import { motion } from 'framer-motion'
 const SideNavBar = () => {
   const { theme } = useTheme()
   const [delayHandler, setDelayHandler] = useState(null)
+  const [delayHandlerEnter, setDelayHandlerEnter] = useState(null)
   const { projectView, setProjectView } = useContext(StateContext)
 
   const PROJECT_VIEW_DELAY = 500
 
   const toggleProjectViewEnter = (state = true) => {
     if (state) {
-      setProjectView(true)
+      setDelayHandlerEnter(
+        setTimeout(() => {
+          setProjectView(true)
+        }, PROJECT_VIEW_DELAY)
+      )
       clearTimeout(delayHandler)
     }
   }
@@ -33,6 +38,7 @@ const SideNavBar = () => {
           setProjectView(false)
         }, PROJECT_VIEW_DELAY)
       )
+      clearTimeout(delayHandlerEnter)
     }
   }
 
