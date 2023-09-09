@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
       <StateProvider>
-        <ThemeProvider themes={['dark', 'light']} attribute="class">
+        <ThemeProvider themes={['dark', 'light']} defaultTheme="dark" attribute="class">
           <Layout>
             <ErrorBoundary>
               <Component {...pageProps} />

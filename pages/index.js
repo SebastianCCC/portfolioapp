@@ -12,6 +12,7 @@ import HeaderTitles from '../components/Animate/Titles'
 import PreviewCard from '../components/Work/PreviewCard'
 import { Sendicon } from '../assets'
 import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
+import GradientCard from '../components/GradientCard'
 
 export async function getStaticProps() {
   const collectionRef = collection(db, 'work')
@@ -86,27 +87,20 @@ export default function Home({ work }) {
               </motion.span>
             ))}
           </motion.h1>
-          <motion.div
-            initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-gradient-to-r from-secondary/70 dark:from-white/10 rounded-md mt-4 p-[1px]"
-          >
-            <div className="bg-gradient-to-r from-projectview to-white dark:from-projectview_dark dark:to-additional rounded-md">
-              <motion.h2
-                variants={containerDesc}
-                initial="hidden"
-                animate="show"
-                className="dark:text-sec_addition text-base xl:text-[17px] p-5"
-              >
-                {descarr.map((letter, i) => (
-                  <motion.span variants={item} key={i}>
-                    {letter}
-                  </motion.span>
-                ))}
-              </motion.h2>
-            </div>
-          </motion.div>
+          <GradientCard styles="mt-4">
+            <motion.h2
+              variants={containerDesc}
+              initial="hidden"
+              animate="show"
+              className="dark:text-sec_addition text-base xl:text-[17px] p-5"
+            >
+              {descarr.map((letter, i) => (
+                <motion.span variants={item} key={i}>
+                  {letter}
+                </motion.span>
+              ))}
+            </motion.h2>
+          </GradientCard>
           <motion.div
             initial={{ y: 10, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -149,7 +143,7 @@ export default function Home({ work }) {
             </div>
           </Link>
         </motion.div>
-        <div className="-mx-4 pl-4 overflow-y-hidden lg:overflow-visible">
+        <div className="sm:-mx-4 sm:pl-4 lg:m-0 lg:p-0 sm:overflow-y-hidden lg:overflow-visible">
           <AnimatePreviewCard>
             {work.map(({ name, role, previewImage, dId }, i) => (
               <PreviewCard
