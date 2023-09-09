@@ -14,10 +14,6 @@ const ComStack = ({ title }) => {
       icon: <TbBrandNextjs />,
     },
     {
-      name: 'Tailwindcss',
-      icon: <SiTailwindcss />,
-    },
-    {
       name: 'Firebase',
       icon: <SiFirebase />,
     },
@@ -28,6 +24,10 @@ const ComStack = ({ title }) => {
     {
       name: 'Warp',
       icon: <SiWarp />,
+    },
+    {
+      name: 'Tailwindcss',
+      icon: <SiTailwindcss />,
     },
   ]
 
