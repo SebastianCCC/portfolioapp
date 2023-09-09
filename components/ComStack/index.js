@@ -1,14 +1,10 @@
 import { motion } from 'framer-motion'
-import { IoLogoNodejs } from 'react-icons/io'
-import { RiStackLine } from 'react-icons/ri'
-import { SiTailwindcss, SiReact } from 'react-icons/si'
-import { TbBrandNextjs, TbBrandFirebase } from 'react-icons/tb'
-import { IoLogoElectron } from 'react-icons/io5'
-import AnimateTitles from '../Animate/Titles'
+import { SiFirebase, SiLinear, SiReact, SiTailwindcss, SiWarp } from 'react-icons/si'
+import { TbBrandNextjs } from 'react-icons/tb'
 import Tech from './Tech'
 
 const ComStack = ({ title }) => {
-  const stacks = [
+  const stack = [
     {
       name: 'React',
       icon: <SiReact />,
@@ -18,20 +14,20 @@ const ComStack = ({ title }) => {
       icon: <TbBrandNextjs />,
     },
     {
-      name: 'Firebase',
-      icon: <TbBrandFirebase />,
-    },
-    {
       name: 'Tailwindcss',
       icon: <SiTailwindcss />,
     },
     {
-      name: 'NodeJs',
-      icon: <IoLogoNodejs />,
+      name: 'Firebase',
+      icon: <SiFirebase />,
     },
     {
-      name: 'Electron',
-      icon: <IoLogoElectron />,
+      name: 'Linear',
+      icon: <SiLinear />,
+    },
+    {
+      name: 'Warp',
+      icon: <SiWarp />,
     },
   ]
 
@@ -61,8 +57,8 @@ const ComStack = ({ title }) => {
           animate="show"
           className="flex w-[200%]"
         >
-          <Tech stack={stacks} />
-          <Tech stack={stacks} />
+          <Tech stack={stack} />
+          <Tech stack={stack} />
         </motion.div>
       </div>
     </section>
