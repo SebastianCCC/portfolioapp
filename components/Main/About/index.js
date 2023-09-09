@@ -46,7 +46,7 @@ const About = ({ title, mail }) => {
               />
             </motion.div>
           </div>
-          <div className="w-full mr-10 lg:p-0">
+          <div className="w-full mr-10 lg:p-0 text-center sm:text-left">
             <h3 className="uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3">Who am I?</h3>
             <motion.p
               initial={{ y: 100, opacity: 0 }}
@@ -107,7 +107,7 @@ const About = ({ title, mail }) => {
                   duration: 1.5,
                 }}
                 onClick={() => setIsShown(!isShown)}
-                className="dark:text-tertiary mt-2 rounded dark:hover:text-white"
+                className="dark:text-white mt-2 rounded"
               >
                 {isShown ? 'Read Less' : 'Read More'}
               </motion.button>
