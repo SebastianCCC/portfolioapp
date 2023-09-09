@@ -87,7 +87,7 @@ export default function Home({ work }) {
               </motion.span>
             ))}
           </motion.h1>
-          <GradientCard>
+          <GradientCard styles="mt-4">
             <motion.h2
               variants={containerDesc}
               initial="hidden"

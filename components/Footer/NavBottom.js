@@ -10,7 +10,7 @@ const NavBottom = () => {
 
   return (
     <div className="mt-20 xl:mt-40">
-      <GradientCard to="left" animateOnce={true}>
+      <GradientCard to="top-to-left" animateOnce={true}>
         <div className="p-8 sm:p-5 flex flex-col-reverse sm:flex-row justify-evenly items-center">
           <ul className="flex items-center px-2">
             {SocialLinks.map(({ soclink, title }, i) => (
