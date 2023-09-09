@@ -1,14 +1,10 @@
 import { motion } from 'framer-motion'
-import { IoLogoNodejs } from 'react-icons/io'
-import { RiStackLine } from 'react-icons/ri'
-import { SiTailwindcss, SiReact } from 'react-icons/si'
-import { TbBrandNextjs, TbBrandFirebase } from 'react-icons/tb'
-import { IoLogoElectron } from 'react-icons/io5'
-import AnimateTitles from '../Animate/Titles'
+import { SiFirebase, SiLinear, SiReact, SiTailwindcss, SiWarp } from 'react-icons/si'
+import { TbBrandNextjs } from 'react-icons/tb'
 import Tech from './Tech'
 
 const ComStack = ({ title }) => {
-  const stacks = [
+  const stack = [
     {
       name: 'React',
       icon: <SiReact />,
@@ -19,19 +15,19 @@ const ComStack = ({ title }) => {
     },
     {
       name: 'Firebase',
-      icon: <TbBrandFirebase />,
+      icon: <SiFirebase />,
+    },
+    {
+      name: 'Linear',
+      icon: <SiLinear />,
+    },
+    {
+      name: 'Warp',
+      icon: <SiWarp />,
     },
     {
       name: 'Tailwindcss',
       icon: <SiTailwindcss />,
-    },
-    {
-      name: 'NodeJs',
-      icon: <IoLogoNodejs />,
-    },
-    {
-      name: 'Electron',
-      icon: <IoLogoElectron />,
     },
   ]
 
@@ -53,7 +49,7 @@ const ComStack = ({ title }) => {
   return (
     <section className="text-black dark:text-white w-full mt-6 lg:py-6 xl:p-4 relative">
       <h2 className="uppercase text-base tracking-[2px] dark:text-tertiary">{title}</h2>
-      <div className="w-full sm:w-1/2 overflow-hidden absolute">
+      <div className="w-full md:w-1/2 overflow-hidden absolute">
         <div className="w-full h-full dark:bg-gradient-d-r bg-gradient-light-r absolute z-20"></div>
         <motion.div
           variants={horizontalScroll}
@@ -61,8 +57,8 @@ const ComStack = ({ title }) => {
           animate="show"
           className="flex w-[200%]"
         >
-          <Tech stack={stacks} />
-          <Tech stack={stacks} />
+          <Tech stack={stack} />
+          <Tech stack={stack} />
         </motion.div>
       </div>
     </section>
