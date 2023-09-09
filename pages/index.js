@@ -149,7 +149,7 @@ export default function Home({ work }) {
             </div>
           </Link>
         </motion.div>
-        <div className="-mx-4 pl-4 overflow-y-hidden lg:overflow-visible">
+        <div className="sm:-mx-4 sm:pl-4 lg:m-0 lg:p-0 sm:overflow-y-hidden lg:overflow-visible">
           <AnimatePreviewCard>
             {work.map(({ name, role, previewImage, dId }, i) => (
               <PreviewCard
