@@ -23,7 +23,7 @@ const NavBarItems = ({
     <li
       className={`${style} group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer ${
         !style && 'xl:py-0 py-[15px]'
-      } tracking-[2px] text-md xl:text-base uppercase xl:capitalize mx-4`}
+      } tracking-[1px] text-md xl:text-base uppercase xl:capitalize mx-4`}
       onMouseEnter={onHoverEnter}
       onMouseLeave={onHoverLeave}
       onClick={onClick}

@@ -44,7 +44,7 @@ export default function Home({ work }) {
 
   const name = 'Software engineer with a passion.'
   const desc =
-    "Hi, i'm Sebastian Christopther, a full time frontend developer that always gives it 100%"
+    "Hi, i'm Sebastian Christopher, a full time frontend developer that always gives it 100%"
   const namearr = [...name]
   const descarr = [...desc]
   const containerTitle = {
@@ -74,7 +74,7 @@ export default function Home({ work }) {
   return (
     <>
       <div className="flex flex-col relative overflow-hidden">
-        <section className="mt-40 xl:mt-72 xl:p-4">
+        <section className="mt-32 xl:mt-56 xl:p-4">
           <motion.h1
             variants={containerTitle}
             initial="hidden"
@@ -118,7 +118,7 @@ export default function Home({ work }) {
           </motion.div>
         </section>
       </div>
-      <section id="projects" className="my-80 pt-8 xl:p-4 2xl:my-96">
+      <section id="projects" className="my-28 pt-8 xl:p-4 2xl:my-44">
         <HeaderTitles title="Projects" />
         <motion.div
           initial={{ y: 50, opacity: 0 }}
