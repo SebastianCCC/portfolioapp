@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { SiFirebase, SiLinear, SiReact, SiTailwindcss, SiWarp } from 'react-icons/si'
-import { TbBrandNextjs } from 'react-icons/tb'
+import { SiFirebase, SiLinear, SiReact, SiTailwindcss, SiWarp, SiNextdotjs } from 'react-icons/si'
 import Tech from './Tech'
 
 const ComStack = ({ title }) => {
@@ -11,7 +10,7 @@ const ComStack = ({ title }) => {
     },
     {
       name: 'NextJs',
-      icon: <TbBrandNextjs />,
+      icon: <SiNextdotjs />,
     },
     {
       name: 'Firebase',
