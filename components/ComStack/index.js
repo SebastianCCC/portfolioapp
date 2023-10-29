@@ -48,7 +48,7 @@ const ComStack = ({ title }) => {
 
   return (
     <section className="text-black dark:text-white w-full mt-6 lg:py-6 xl:p-4 relative">
-      <h2 className="uppercase text-base tracking-[2px] dark:text-tertiary">{title}</h2>
+      <h2 className="capitalize text-base tracking-[2px] dark:text-tertiary">{title}</h2>
       <div className="w-full md:w-1/2 overflow-hidden absolute">
         <div className="w-full h-full dark:bg-gradient-d-r bg-gradient-light-r absolute z-20"></div>
         <motion.div

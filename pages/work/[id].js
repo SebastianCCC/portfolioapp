@@ -80,7 +80,7 @@ const WId = ({ currentpage }) => {
               {isgroup ? 'Group' : 'Solo'} Project
             </p>
             <div className="text-center sm:text-left mt-8">
-              <h2 className="dark:text-tertiary tracking-[2px] mb-1 uppercase">Tech Used</h2>
+              <h2 className="dark:text-tertiary tracking-[2px] mb-1 capitalize">Tech Used</h2>
               <div className="flex items-center overflow-auto -mx-4 pl-4">
                 {stack.map((tech, i) => (
                   <p
@@ -92,7 +92,7 @@ const WId = ({ currentpage }) => {
                 ))}
               </div>
             </div>
-            <h2 className="text-center sm:text-left dark:text-tertiary tracking-[2px] mt-5 mb-1 uppercase">
+            <h2 className="text-center sm:text-left dark:text-tertiary tracking-[2px] mt-5 mb-1 capitalize">
               Links
             </h2>
             <div className="flex justify-center sm:justify-start py-4 dark:text-sec_addition uppercase">
