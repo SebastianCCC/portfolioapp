@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { SiFirebase, SiLinear, SiReact, SiTailwindcss, SiWarp, SiNextdotjs } from 'react-icons/si'
+import { Raycast } from '../../assets'
 import Tech from './Tech'
 
 const ComStack = ({ title }) => {
@@ -25,8 +26,8 @@ const ComStack = ({ title }) => {
       icon: <SiWarp />,
     },
     {
-      name: 'Tailwindcss',
-      icon: <SiTailwindcss />,
+      name: 'Raycast',
+      icon: <Raycast />,
     },
   ]
 
