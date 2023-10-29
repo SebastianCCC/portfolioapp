@@ -40,9 +40,7 @@ const PreviewCard = ({
           rel="noopener noreferrer"
         >
           <motion.article
-            className={`group min-w-fit ${
-              path == '/' && 'sm:min-w-[300px]'
-            } xl:min-w-[350px] cursor-pointer`}
+            className={`group min-w-fit ${path == '/' && 'sm:min-w-[300px]'} cursor-pointer`}
           >
             <motion.div
               className="max-w-full"
@@ -65,7 +63,7 @@ const PreviewCard = ({
                   />
                 ) : icon ? (
                   <div className="w-full h-full dark:text-sec_addition dark:bg-tertiary bg-secondary overflow-hidden flex flex-col justify-center items-center rounded-md">
-                    {icon} <h2 className="font-medium tracking-[2px]">{title}</h2>
+                    {icon} <h2 className="font-medium tracking-[1px]">{title}</h2>
                   </div>
                 ) : (
                   <div className="bg-secondary dark:bg-sec_tertiary w-full h-full rounded-md"></div>
@@ -84,7 +82,7 @@ const PreviewCard = ({
                 <motion.h3
                   custom={increaseDelay}
                   variants={itemText}
-                  className="text-md tracking-[2px]"
+                  className="text-md tracking-[1px]"
                 >
                   {name}
                 </motion.h3>
