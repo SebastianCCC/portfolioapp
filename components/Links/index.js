@@ -7,13 +7,14 @@ export const NavLinks = [
     icon: <HomeIcon />,
     title: 'Home',
     link: '/',
-    pc: true,
+    mobile: true,
   },
   {
     icon: <WorkIcon />,
     title: 'Work',
     link: '',
     projectContent: true,
+    pc: true,
   },
   {
     icon: <MailIcon />,
