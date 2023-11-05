@@ -12,7 +12,7 @@ export const NavLinks = [
   {
     icon: <WorkIcon />,
     title: 'Work',
-    link: '/work',
+    link: '',
     projectContent: true,
   },
   {

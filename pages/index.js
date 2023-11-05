@@ -134,14 +134,6 @@ export default function Home({ work }) {
           <p className="xl:text-md mt-4 mb-2">
             Here you will find a list of my projects in detail, click any project to view it.
           </p>
-          <Link href="/work">
-            <div className="flex items-center dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
-              <button className="xl:text-md capitalize mr-1">View all projects</button>
-              <div className="dark:text-tertiary -rotate-45">
-                <Sendicon />
-              </div>
-            </div>
-          </Link>
         </motion.div>
         <div className="sm:-mx-4 sm:pl-4 lg:m-0 lg:p-0 sm:overflow-y-hidden lg:overflow-visible">
           <AnimatePreviewCard>
