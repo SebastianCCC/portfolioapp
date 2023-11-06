@@ -60,9 +60,9 @@ const SideNavBar = () => {
         </Link>
         <nav className={`pb-8`}>
           <ul>
-            {NavLinks.map(({ icon, title, link, pc, projectContent }, i) => {
+            {NavLinks.map(({ icon, title, link, mobile, projectContent }, i) => {
               return (
-                !pc && (
+                !mobile && (
                   <div
                     key={i}
                     className="first:border-t first:pt-8 last:border-y last:py-8 last:mt-8 dark:border-tertiary border-secondary/70"

@@ -93,7 +93,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="pt-20 xl:p-4">
+    <div className="pt-28 xl:p-4">
       <HeaderTitles title="Contact" />
       <div className="flex flex-col mt-[26px] md:w-[90%] xl:w-[85%] 2xl:w-2/3 m-auto">
         <motion.h1

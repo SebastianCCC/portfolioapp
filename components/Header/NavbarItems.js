@@ -3,6 +3,16 @@ import { useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { StateContext } from '../../hooks/StateContext'
 
+const LinkItem = ({ link, children }) => {
+  switch (link) {
+    case '':
+      return <div>{children}</div>
+
+    default:
+      return <Link href={link}>{children}</Link>
+  }
+}
+
 const NavBarItems = ({
   link,
   title,
@@ -28,7 +38,7 @@ const NavBarItems = ({
       onMouseLeave={onHoverLeave}
       onClick={onClick}
     >
-      <Link href={link}>
+      <LinkItem link={link}>
         <div className="xl:flex items-center">
           {icon && <div className={`${styleIcon} rounded p-1`}>{icon}</div>}
           <motion.h2
@@ -40,7 +50,7 @@ const NavBarItems = ({
             {title}
           </motion.h2>
         </div>
-      </Link>
+      </LinkItem>
     </li>
   )
 }
