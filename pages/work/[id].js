@@ -57,7 +57,7 @@ const WId = ({ currentpage }) => {
       <Head>
         <title>{`Seechris - ${path.slice(0).charAt(0).toUpperCase() + path.slice(1)}`}</title>
       </Head>
-      <div className="pt-20 xl:p-4 md:container md:m-auto">
+      <div className="pt-28 xl:p-4 md:container md:m-auto">
         <HeaderTitles title={`${name} ${endDate}`} />
         <div className="flex flex-col-reverse lg:flex-row mt-3 lg:mt-[65px]">
           <motion.div

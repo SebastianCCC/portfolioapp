@@ -1,31 +1,27 @@
-import { collection, getDocs } from 'firebase/firestore'
-import db from '../../../firebase'
 import { motion } from 'framer-motion'
-import { AiOutlineAppstore } from 'react-icons/ai'
-import AnimateTitles from '../../../components/Animate/Titles'
-import Link from 'next/link'
-import HeaderTitles from '../../../components/Animate/Titles'
-import Image from 'next/image'
-import PreviewCard from '../../../components/Work/PreviewCard'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
+import HeaderTitles from '../../../components/Animate/Titles'
+import PreviewCard from '../../../components/Work/PreviewCard'
 
 export async function getStaticProps() {
-  const res = await fetch('https://dev.to/api/articles?username=' + process.env.USERNAME)
-  const articles = await res.json()
+  const res = await fetch(
+    'https://api.dribbble.com/v2/user/shots?access_token=' + process.env.DRIBBBLE_ACCESS_TOKEN
+  )
+  const artwork = await res.json()
 
   return {
     props: {
-      articles,
+      artwork,
     },
     revalidate: 10,
   }
 }
 
-export default function Articles({ articles }) {
+export default function Artwork({ artwork }) {
   return (
     <>
       <div className="pt-28 xl:p-4">
-        <HeaderTitles title="Articles" />
+        <HeaderTitles title="Artwork" />
         <motion.p
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -36,17 +32,17 @@ export default function Articles({ articles }) {
           }}
           className="mt-4 mb-20 xl:text-md"
         >
-          Here you will find all of my articles in detail, click any article to view it.
+          Here you will find all of my art in detail, click any artwork to view it.
         </motion.p>
         <AnimatePreviewCard>
-          {articles.map(({ title, tags, cover_image, url }, i) => (
+          {artwork.map(({ title, tags, images, html_url, id }, i) => (
             <PreviewCard
               name={title}
-              role={tags}
-              img={cover_image}
+              role={tags.join(', ')}
+              img={images.hidpi}
               increaseDelay={i}
-              key={i}
-              href={url}
+              key={id}
+              href={html_url}
               externalLink={true}
             />
           ))}

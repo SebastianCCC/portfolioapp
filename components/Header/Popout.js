@@ -48,11 +48,15 @@ const SideNavBar = () => {
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <ul onClick={() => setIsOpen(false)}>
-                {NavLinks.map(({ title, link }, i) => (
-                  <NavBarItems key={i} title={title} link={link} />
-                ))}
-              </ul>
+              {NavLinks.map(({ title, link, pc }, i) => {
+                return (
+                  !pc && (
+                    <ul key={i} onClick={() => setIsOpen(false)}>
+                      <NavBarItems title={title} link={link} />
+                    </ul>
+                  )
+                )
+              })}
             </div>
           </motion.div>
         )}
