@@ -48,7 +48,7 @@ export default function Apps({ work }) {
   }
   return (
     <>
-      <div className="pt-20 xl:p-4">
+      <div className="pt-28 xl:p-4">
         <HeaderTitles title="Projects" />
         <motion.p
           initial={{ y: 50, opacity: 0 }}

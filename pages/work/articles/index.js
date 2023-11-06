@@ -24,7 +24,7 @@ export async function getStaticProps() {
 export default function Articles({ articles }) {
   return (
     <>
-      <div className="pt-20 xl:p-4">
+      <div className="pt-28 xl:p-4">
         <HeaderTitles title="Articles" />
         <motion.p
           initial={{ y: 50, opacity: 0 }}
