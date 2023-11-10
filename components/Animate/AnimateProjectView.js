@@ -26,7 +26,7 @@ function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }) {
       animate="open"
       exit="closed"
       variants={variants}
-      className="fixed top-0 left-0 w-[288px] h-full bg-projectview dark:bg-projectview_dark -z-10"
+      className="fixed top-0 left-0 w-[288px] h-full bg-white dark:bg-additional -z-10 dark:border-tertiary/25 border-secondary/70 border-r"
       onMouseEnter={onHoverEnter}
       onMouseLeave={onHoverLeave}
     >
@@ -35,7 +35,7 @@ function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }) {
           return (
             <ul className="w-full" key={i}>
               <NavBarItems
-                style="bg-projectview dark:bg-sec_tertiary p-2 my-2 rounded-md"
+                style="bg-secondary/40 dark:bg-projectview_dark p-2 my-2 rounded-md"
                 styleIcon="scale-[.65]"
                 icon={icon}
                 title={name}
