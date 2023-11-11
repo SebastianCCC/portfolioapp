@@ -24,7 +24,7 @@ const About = ({ title, mail }) => {
     <section id="about" className="text-black dark:text-sec_addition xl:p-4 mt-40 w-full">
       <HeaderTitles title={title} />
       <div className="w-full relative">
-        <div className="grain" />
+        <div className="grain sm:left-[-150px]" />
         <div className="flex flex-col mt-4 md:flex-row-reverse justify-center items-start">
           <div className="w-full md:w-3/4 lg:w-1/2">
             <motion.div
