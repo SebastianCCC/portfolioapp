@@ -38,7 +38,8 @@ input[type='text'],
   .bg-gradient-b {
     @apply bg-gradient-to-b from-[#8F1560] to-[#253269];
   }
-  body:before {
+  body:before,
+  .grain {
     @apply bg-[url('/grain.png')]
      w-full 
      h-4/5
