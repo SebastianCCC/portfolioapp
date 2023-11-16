@@ -8,14 +8,31 @@ import HeaderTitles from '../../../components/Animate/Titles'
 import Image from 'next/image'
 import PreviewCard from '../../../components/Work/PreviewCard'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
+import { getArticlesByUsername, getReactionsById } from '../../../services/ForumService'
 
 export async function getStaticProps() {
-  const res = await fetch('https://dev.to/api/articles?username=' + process.env.USERNAME)
-  const articles = await res.json()
+  const articlesBy = await getArticlesByUsername()
+  let articles = []
+
+  if (!articlesBy.error) {
+    for (let index = 0; index < articlesBy.length; index++) {
+      const reactions = await getReactionsById(articlesBy[index].id)
+
+      if (!reactions.error) {
+        const likes = reactions.article_reaction_counts.filter(
+          (reaction) => reaction.category === 'like'
+        )[0]
+        articles.push({
+          ...articlesBy[index],
+          likes: likes.count,
+        })
+      }
+    }
+  }
 
   return {
     props: {
-      articles,
+      articles: articles.sort((a, b) => b.likes - a.likes),
     },
     revalidate: 10,
   }
