@@ -70,7 +70,9 @@ const handler = async (req, res) => {
 
   transporter.sendMail(mailData, (err) => {
     if (!err) {
-      res.status(200)
+      res.status(200).end()
+    } else {
+      res.status(500).end()
     }
   })
 }

@@ -6,9 +6,10 @@ import NavBottom from './Footer/NavBottom'
 import Popout from './Header/Popout'
 import SideNavBar from './Header/SideNavBar'
 import TopNavbar from './Header/TopNavbar'
+import ProgressBar from './Contact/ProgressBar'
 
 const Layout = ({ children }) => {
-  const { isOpen } = useContext(StateContext)
+  const { isOpen, formLoading } = useContext(StateContext)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const path = router.pathname
@@ -29,7 +30,7 @@ const Layout = ({ children }) => {
           }`}
         </title>
       </Head>
-      <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap">
+      <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap h-screen">
         {mounted && (
           <>
             <header className="relative w-full xl:w-fit xl:min-w-[288px] top-0 z-[25]">
@@ -39,11 +40,12 @@ const Layout = ({ children }) => {
                 {!isOpen && <SideNavBar />}
               </>
             </header>
-            <main className="lg:container lg:m-auto flex-1 p-4">{children}</main>
-            <footer className="min-w-full">{<NavBottom />}</footer>
+            <main className="lg:container lg:mx-auto flex-1 p-4">{children}</main>
+            <footer className="min-w-full flex items-end">{<NavBottom />}</footer>
           </>
         )}
       </div>
+      {formLoading && <ProgressBar />}
     </>
   )
 }

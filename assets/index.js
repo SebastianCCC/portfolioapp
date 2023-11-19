@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 export const ExternalLink = () => {
   return (
     <svg
@@ -103,5 +105,40 @@ export const Raycast = () => {
         </clipPath>
       </defs>
     </svg>
+  )
+}
+
+export const LogoRocket = () => {
+  const container = {
+    hidden: { y: 0 },
+    visible: {
+      opacity: 1,
+      y: -20,
+      transition: {
+        type: 'spring',
+        bounce: 0.5,
+        repeat: Infinity,
+        repeatType: 'reverse',
+      },
+    },
+  }
+  return (
+    <motion.svg
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      xmlns="http://www.w3.org/2000/svg"
+      width={31}
+      height={31}
+      fill="none"
+    >
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M20.137 18.561a7.75 7.75 0 0 1-7.543 9.533v-6.2m7.543-3.333a19.35 19.35 0 0 0 7.957-15.655 19.35 19.35 0 0 0-15.654 7.957m7.697 7.698a19.275 19.275 0 0 1-7.543 3.333m0 0c-.133.027-.268.053-.402.077A19.492 19.492 0 0 1 9.03 18.81c.024-.134.049-.269.076-.403m3.334-7.543a7.75 7.75 0 0 0-9.534 7.543h6.2m3.334-7.543a19.284 19.284 0 0 0-3.334 7.543m-2.892 3.087a5.804 5.804 0 0 0-2.27 5.562 5.805 5.805 0 0 0 5.563-2.27m11.806-13.16a1.937 1.937 0 1 1-3.875 0 1.937 1.937 0 0 1 3.875 0Z"
+      />
+    </motion.svg>
   )
 }
