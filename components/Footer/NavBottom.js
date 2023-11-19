@@ -9,7 +9,7 @@ const NavBottom = () => {
   const { theme } = useTheme()
 
   return (
-    <div className="mt-20 xl:mt-40">
+    <div className="mt-20 w-full">
       <GradientCard to="top-to-left" animateOnce={true}>
         <div className="p-8 sm:p-5 flex flex-col-reverse sm:flex-row justify-evenly items-center">
           <ul className="flex items-center px-2">

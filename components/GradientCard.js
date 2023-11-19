@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
+import { checkBrowser } from '../utils/userAgent'
 
 export default function GradientCard({ children, to = 'right', animateOnce, styles, borderColor }) {
   const bgGradient = classNames(
@@ -11,20 +12,28 @@ export default function GradientCard({ children, to = 'right', animateOnce, styl
   )
 
   return (
-    <motion.div
-      initial={{ y: 10, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      viewport={{ once: animateOnce }}
-      className={`${bgGradient} ${styles} ${
-        borderColor || 'from-secondary/70 dark:from-white/10'
-      } rounded-md p-[1px]`}
-    >
-      <div
-        className={`${bgGradient} from-projectview to-white dark:from-projectview_dark dark:to-additional rounded-md`}
+    <div className={styles}>
+      <motion.div
+        initial={{ y: 10, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: animateOnce }}
+        className={
+          checkBrowser() === 'firefox'
+            ? 'border dark:border-tertiary/25 border-secondary/70 rounded-md'
+            : borderColor || `${bgGradient} from-secondary/70 dark:from-white/10 rounded-md p-[1px]`
+        }
       >
-        {children}
-      </div>
-    </motion.div>
+        <div
+          className={
+            checkBrowser() === 'firefox'
+              ? 'bg-projectview dark:bg-[#151515]/50 rounded-md'
+              : `${bgGradient} from-projectview to-white dark:from-projectview_dark dark:to-additional rounded-md`
+          }
+        >
+          {children}
+        </div>
+      </motion.div>
+    </div>
   )
 }
