@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { SiFirebase, SiLinear, SiReact, SiTailwindcss, SiWarp, SiNextdotjs } from 'react-icons/si'
+import { SiFirebase, SiLinear, SiNextdotjs, SiReact, SiWarp } from 'react-icons/si'
 import { Raycast } from '../../assets'
 import Tech from './Tech'
 

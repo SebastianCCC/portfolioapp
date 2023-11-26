@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { LogoIconDark } from './Header/images'
 
 function SkeletonLoader({ loaded, animation, children }) {
   return (
