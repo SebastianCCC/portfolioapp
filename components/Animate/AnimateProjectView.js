@@ -35,8 +35,7 @@ function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }) {
           return (
             <ul className="w-full" key={i}>
               <NavBarItems
-                style="bg-secondary/40 dark:bg-projectview_dark p-2 my-2 rounded-md"
-                styleIcon="scale-[.65]"
+                style="bg-secondary/40 dark:bg-projectview_dark p-3 my-2 rounded-md"
                 icon={icon}
                 title={name}
                 link={path}

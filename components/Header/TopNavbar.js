@@ -14,12 +14,12 @@ const ProjectLinks = () => {
       <ul className="w-full" key={i}>
         <Link href={path}>
           <div
-            className={`flex items-center justify-center min-w-fit first:pl-0 px-4 dark:text-sec_addition text-tertiary/70 ${
+            className={`flex items-center justify-center min-w-fit p-3 dark:text-sec_addition text-tertiary/70 ${
               router.pathname === path ? 'dark:text-white text-black/100' : ''
             }`}
           >
-            <div className="mr-1 scale-50">{icon}</div>
-            <p>{name}</p>
+            <div className="mr-2">{icon}</div>
+            <p className="text-sm capitalize tracking-[1px] font-extrabold">{name}</p>
           </div>
         </Link>
       </ul>
