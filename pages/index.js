@@ -1,22 +1,18 @@
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'
-import db from '../firebase'
+import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
 import { motion } from 'framer-motion'
-import ComStack from '../components/ComStack'
-import About from '../components/Main/About'
-import { BackHeroIcon } from '../components/Main/Hero/Background'
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ExternalLink } from '../assets'
-import HeaderTitles from '../components/Animate/Titles'
-import PreviewCard from '../components/Work/PreviewCard'
-import { Sendicon } from '../assets'
+import { useEffect, useState } from 'react'
 import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
+import HeaderTitles from '../components/Animate/Titles'
+import ComStack from '../components/ComStack'
 import GradientCard from '../components/GradientCard'
+import About from '../components/Main/About'
+import PreviewCard from '../components/Work/PreviewCard'
+import db from '../firebase'
 
 export async function getStaticProps() {
   const collectionRef = collection(db, 'work')
-  const q = await query(collectionRef, orderBy('id', 'desc'), limit(3))
+  const q = query(collectionRef, orderBy('id', 'desc'), limit(3))
 
   const workDocs = await getDocs(q)
   const work = []
@@ -79,7 +75,7 @@ export default function Home({ work }) {
             variants={containerTitle}
             initial="hidden"
             animate="show"
-            className="text-lg md:text-2xl xl:text-3xl font-bold"
+            className="text-lg md:text-2xl font-bold"
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -101,21 +97,6 @@ export default function Home({ work }) {
               ))}
             </motion.h2>
           </GradientCard>
-          <motion.div
-            initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="w-fit"
-          >
-            <Link href="/#projects">
-              <div className="flex items-center mt-[30px] dark:text-sec_addition hover:underline underline-offset-2 cursor-pointer">
-                <p className="text-md mr-1">Projects in close vicinity</p>
-                <div className="dark:text-tertiary -rotate-45">
-                  <ExternalLink />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
         </section>
       </div>
       <section id="projects" className="my-28 pt-8 xl:p-4 2xl:my-44">

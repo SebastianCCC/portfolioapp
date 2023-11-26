@@ -1,19 +1,14 @@
-import { useTheme } from 'next-themes'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import ContactSwitch from '../Contact/ContactSwitch'
-import { NavLinks, SocialLinks } from '../Links'
-import ThemeSwitch from '../Theme'
-import { LogoIconDark } from './images'
-import NavBarItems from './NavbarItems'
 import { useContext, useState } from 'react'
-import AnimateProjectView from '../Animate/AnimateProjectView'
-import { AnimatePresence } from 'framer-motion'
-import { Projects } from '../Links'
 import { StateContext } from '../../hooks/StateContext'
-import { motion } from 'framer-motion'
+import AnimateProjectView from '../Animate/AnimateProjectView'
+import { NavLinks, Projects } from '../Links'
+import ThemeSwitch from '../Theme'
+import NavBarItems from './NavbarItems'
+import { LogoIconOutline } from './images'
 
 const SideNavBar = () => {
-  const { theme } = useTheme()
   const [delayHandler, setDelayHandler] = useState(null)
   const [delayHandlerEnter, setDelayHandlerEnter] = useState(null)
   const { projectView, setProjectView } = useContext(StateContext)
@@ -55,17 +50,17 @@ const SideNavBar = () => {
       >
         <Link href="/">
           <div className="w-full flex justify-center p-4 py-11 cursor-pointer">
-            <LogoIconDark />
+            <LogoIconOutline />
           </div>
         </Link>
-        <nav className={`pb-8`}>
+        <nav className={`pb-5`}>
           <ul>
             {NavLinks.map(({ icon, title, link, mobile, projectContent }, i) => {
               return (
                 !mobile && (
                   <div
                     key={i}
-                    className="first:border-t first:pt-8 last:border-y last:py-8 last:mt-8 dark:border-tertiary/25 border-secondary/70"
+                    className="first:border-t first:pt-7 first:pb-1 last:border-y last:py-7 last:mt-7 dark:border-tertiary/25 border-secondary/70"
                   >
                     <NavBarItems
                       icon={icon}
