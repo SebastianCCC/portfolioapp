@@ -9,12 +9,14 @@ const ThemeSwitch = () => {
   return (
     <motion.button
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      className="w-full sm:scale-90 xl:scale-100 sm:bg-secondary/25 sm:dark:bg-tertiary/25 xl:bg-secondary/30 xl:dark:bg-additional/10 flex items-center justify-between sm:p-2 rounded-md sm:border-secondary/70 sm:dark:border-white/10 sm:border"
+      className="group dark:hover:text-white dark:text-white xl:dark:text-sec_addition w-full sm:scale-90 xl:scale-100 sm:bg-secondary/25 sm:dark:bg-tertiary/25 xl:dark:bg-projectview_dark flex items-center sm:p-3 rounded-md"
     >
-      <p className="hidden sm:block mr-2">{isDark ? 'Dark' : 'Light'}</p>
       <motion.div animate={isDark ? { rotate: 360 } : { rotate: 0 }}>
         {!isDark ? <MoonIcon /> : <SunIcon />}
       </motion.div>
+      <p className="dark:group-hover:text-white hidden sm:block ml-2 text-sm capitalize tracking-[1px] font-extrabold">
+        {isDark ? 'Light' : 'Dark'}
+      </p>
     </motion.button>
   )
 }

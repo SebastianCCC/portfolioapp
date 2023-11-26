@@ -3,9 +3,8 @@ import { useTheme } from 'next-themes'
 import { useContext } from 'react'
 import { StateContext } from '../../hooks/StateContext'
 import { NavLinks } from '../Links'
-import ThemeSwitch from '../Theme'
-import { ExitIcon, LogoIcon } from './images'
 import NavBarItems from './NavbarItems'
+import { ExitIcon, LogoIcon } from './images'
 
 const SideNavBar = () => {
   const { isOpen, setIsOpen } = useContext(StateContext)

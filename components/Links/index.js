@@ -1,6 +1,5 @@
-import { HomeIcon, WorkIcon, UserIcon, MailIcon } from './images'
-import { StarIcon, NewsPaper, PaintBrush } from '../../assets'
-import { RiGithubFill, RiLinkedinBoxFill, RiSpotifyFill } from 'react-icons/ri'
+import { NewsPaper, PaintBrush, StarIcon } from '../../assets'
+import { HomeIcon, MailIcon, UserIcon, WorkIcon } from './images'
 
 export const NavLinks = [
   {
