@@ -14,7 +14,7 @@ const ProjectLinks = () => {
       <ul className="w-full" key={i}>
         <Link href={path}>
           <div
-            className={`flex items-center justify-center min-w-fit p-3 dark:text-sec_addition text-tertiary/70 ${
+            className={`flex items-center justify-center min-w-fit p-4 dark:text-sec_addition text-tertiary/70 ${
               router.pathname === path ? 'dark:text-white text-black/100' : ''
             }`}
           >
@@ -94,7 +94,7 @@ const SideNavBar = () => {
             animate="open"
             exit="closed"
             variants={variants}
-            className="sm:hidden no-scrollbar flex items-center overflow-auto -mx-4 px-5 py-1 dark:bg-additional/90 bg-white/80 border-b border-tertiary/25 backdrop-blur-[8px] rounded-md"
+            className="sm:hidden no-scrollbar flex items-center overflow-auto dark:bg-additional/90 bg-white/80 border-b border-tertiary/25 backdrop-blur-[8px] rounded-md"
           >
             <ProjectLinks />
           </motion.div>
