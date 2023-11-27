@@ -1,7 +1,5 @@
 import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
 import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../components/Animate/Titles'
 import ComStack from '../components/ComStack'
@@ -30,14 +28,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ work }) {
-  const { theme } = useTheme()
-
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   const name = 'Software engineer with a passion.'
   const desc =
     "Hi, i'm Sebastian Christopher, a full time frontend developer that always gives it 100%"
