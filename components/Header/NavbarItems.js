@@ -22,7 +22,7 @@ const NavBarItems = ({
   onClick,
 }) => {
   return (
-    <div className='mx-4'>
+    <div className="mx-4">
       <LinkItem link={link}>
         <li
           className={`${style} group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer ${
@@ -32,13 +32,13 @@ const NavBarItems = ({
           onMouseLeave={onHoverLeave}
           onClick={onClick}
         >
-          <div className="xl:flex items-center">
+          <div className="flex items-center">
             {icon && <div className={`${styleIcon} rounded p-1`}>{icon}</div>}
             <motion.h2
               initial={{ x: -20 }}
               animate={{ x: 0 }}
               transition={{ duration: 0.5 }}
-              className={`dark:group-hover:text-white text-center xl:ml-2 font-extrabold`}
+              className={`dark:group-hover:text-white text-center ml-2 font-extrabold`}
             >
               {title}
             </motion.h2>

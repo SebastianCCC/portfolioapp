@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../hooks/StateContext'
 import NavBottom from './Footer/NavBottom'
-import Popout from './Header/Popout'
+import BurgerMenu from './Header/BurgerMenu'
 import SideNavBar from './Header/SideNavBar'
 import TopNavbar from './Header/TopNavbar'
 import ProgressBar from './Contact/ProgressBar'
@@ -30,13 +30,18 @@ const Layout = ({ children }) => {
           }`}
         </title>
       </Head>
-      <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap h-screen">
+      <div
+        id="root"
+        className={`flex flex-col xl:flex-row xl:flex-wrap h-screen ${
+          isOpen ? 'overflow-hidden' : null
+        }`}
+      >
         {mounted && (
           <>
             <header className="relative w-full xl:w-fit xl:min-w-[288px] top-0 z-[25]">
               <>
                 <TopNavbar />
-                <Popout />
+                <BurgerMenu />
                 {!isOpen && <SideNavBar />}
               </>
             </header>
