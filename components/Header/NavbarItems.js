@@ -22,15 +22,15 @@ const NavBarItems = ({
   onClick,
 }) => {
   return (
-    <li
-      className={`${style} group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer ${
-        !style && 'xl:py-0 py-[15px]'
-      } text-sm capitalize tracking-[1px] mx-4`}
-      onMouseEnter={onHoverEnter}
-      onMouseLeave={onHoverLeave}
-      onClick={onClick}
-    >
-      <LinkItem link={link}>
+    <LinkItem link={link}>
+      <li
+        className={`${style} group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer ${
+          !style && 'xl:py-0 py-[15px]'
+        } text-sm capitalize tracking-[1px] mx-4`}
+        onMouseEnter={onHoverEnter}
+        onMouseLeave={onHoverLeave}
+        onClick={onClick}
+      >
         <div className="xl:flex items-center">
           {icon && <div className={`${styleIcon} rounded p-1`}>{icon}</div>}
           <motion.h2
@@ -42,8 +42,8 @@ const NavBarItems = ({
             {title}
           </motion.h2>
         </div>
-      </LinkItem>
-    </li>
+      </li>
+    </LinkItem>
   )
 }
 

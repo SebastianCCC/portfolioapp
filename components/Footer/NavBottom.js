@@ -1,9 +1,8 @@
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import NavBarItems from '../Header/NavbarItems'
+import GradientCard from '../GradientCard'
 import { SocialLinks } from '../Links'
 import { FooterIcon } from './images'
-import GradientCard from '../GradientCard'
 
 const NavBottom = () => {
   const { theme } = useTheme()
