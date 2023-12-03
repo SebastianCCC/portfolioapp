@@ -32,14 +32,14 @@ const BurgerMenu = () => {
             animate="open"
             exit="closed"
             variants={variants}
-            className="fixed w-full dark:bg-additional bg-secondary min-h-screen p-4 backdrop-blur-[8px]"
+            className="fixed w-full dark:bg-additional bg-secondary min-h-screen p-4 backdrop-blur-[8px] xl:hidden"
           >
             <div className="w-full">
               <div onClick={() => setIsOpen(false)} className="dark:text-secondary text-additional">
                 <ExitIcon />
               </div>
             </div>
-            <div className="flex flex-col mx-8 my-16">
+            <div className="flex flex-col my-12 md:max-w-[600px] lg:max-w-[800px] mx-auto">
               <div className="dark:text-secondary text-additional m-4">
                 <LogoIcon />
               </div>
