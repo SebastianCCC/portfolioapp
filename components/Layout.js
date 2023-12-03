@@ -30,19 +30,14 @@ const Layout = ({ children }) => {
           }`}
         </title>
       </Head>
-      <div
-        id="root"
-        className={`flex flex-col xl:flex-row xl:flex-wrap h-screen ${
-          isOpen ? 'overflow-hidden' : null
-        }`}
-      >
+      <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap h-screen">
         {mounted && (
           <>
             <header className="relative w-full xl:w-fit xl:min-w-[288px] top-0 z-[25]">
               <>
                 <TopNavbar />
                 <BurgerMenu />
-                {!isOpen && <SideNavBar />}
+                <SideNavBar />
               </>
             </header>
             <main className="lg:container lg:mx-auto flex-1 p-4">{children}</main>
