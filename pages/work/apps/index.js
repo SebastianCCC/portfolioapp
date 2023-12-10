@@ -25,23 +25,6 @@ export async function getStaticProps() {
 }
 
 export default function Apps({ work }) {
-  const container = {
-    hidden: { width: 0 },
-    show: {
-      width: '100%',
-      transition: {
-        delay: 0.2,
-        duration: 3.5,
-        delayChildren: 1,
-        staggerChildren: 0.7,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { width: 0 },
-    show: { width: '100%' },
-  }
   return (
     <>
       <div className="pt-28 xl:p-4">

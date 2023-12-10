@@ -13,13 +13,8 @@ export default function AnimatePreviewCard({ children }) {
         return 'md:grid-cols-2 2xl:grid-cols-3 sm:px-12 md:p-0'
       case '/work/apps':
         return 'sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:max-w-[730px] lg:max-w-full md:m-auto'
-    }
-  }
-
-  const landingPagePathStyles = () => {
-    switch (path) {
       case '/':
-        return 'gap-4 sm:grid-cols-4'
+        return 'gap-4 w-[1024px] m-auto lg:w-full grid-cols-4 pr-4 lg:pr-0'
     }
   }
 
@@ -40,7 +35,7 @@ export default function AnimatePreviewCard({ children }) {
       whileInView="show"
       variants={container}
       viewport={{ once: true }}
-      className={`grid grid-cols-1 gap-6 w-full py-4 ${projectPathStyles()} ${landingPagePathStyles()}`}
+      className={`grid w-full py-4 ${projectPathStyles()}`}
     >
       {children}
     </motion.div>

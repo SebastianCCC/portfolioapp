@@ -18,7 +18,7 @@ export async function getStaticProps() {
   const readMoreCard = {
     name: 'Read more',
     role: 'View all of my projects',
-    dId: 'readmore',
+    dId: 'apps',
   }
 
   work.push(readMoreCard)
@@ -110,11 +110,11 @@ export default function Home({ work }) {
           }}
           className="flex flex-col xl:flex-row justify-between items-start xl:items-center"
         >
-          <p className="xl:text-md mt-4 mb-2">
+          <p className="xl:text-[17px] mt-4 mb-2">
             Here you will find a list of my projects in detail, click any project to view it.
           </p>
         </motion.div>
-        <div className="sm:-mx-4 sm:pl-4 lg:m-0 lg:p-0 sm:overflow-y-hidden lg:overflow-visible">
+        <div className="no-scrollbar -mx-4 pl-4 lg:m-0 lg:p-0 overflow-y-hidden lg:overflow-visible">
           <AnimatePreviewCard>
             {work.map(({ name, role, previewImage, dId, endDate }, i) => (
               <PreviewCard

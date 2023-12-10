@@ -20,7 +20,7 @@ function SkeletonLoader({ loaded, children, backgroundImage, projectColor }) {
           <div>{children}</div>
         </div>
       )}
-      {backgroundImage}
+      <div className="select-none pointer-events-none">{backgroundImage}</div>
     </>
   )
 }
