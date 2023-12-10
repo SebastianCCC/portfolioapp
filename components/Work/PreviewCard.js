@@ -1,97 +1,93 @@
+import { format } from 'date-fns'
+import { motion, useMotionValue, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { useContext, useRef, useState } from 'react'
+import { DATE_FORMAT_DA } from '../../config'
+import { StateContext } from '../../hooks/StateContext'
+import { getColorFromImage } from '../../utils/getColorFromImage'
+import { rgbToHex } from '../../utils/rgbToHex'
+import { WorkIcon } from '../Links/images'
 import SkeletonLoader from '../SkeletonLoader'
-import { useState } from 'react'
 
-const PreviewCard = ({
-  name,
-  title,
-  role,
-  img,
-  id,
-  icon,
-  increaseDelay,
-  href,
-  externalLink,
-  disableLoading,
-}) => {
+const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, endDate }) => {
   const [loaded, setLoaded] = useState(false)
-  const BreakPointWidth = typeof window !== 'undefined' && window.innerWidth >= 1024
-  const router = useRouter()
-  const path = router.pathname
-  const itemImg = {
-    hidden: { width: 0 },
-    show: { width: '100%', transition: { duration: 1 } },
+  const { setProjectView } = useContext(StateContext)
+
+  let ref = useRef(null)
+  const color = getColorFromImage(ref)
+  const hexColor = rgbToHex(color?.[0], color?.[1], color?.[2])
+
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const x = useTransform(mouseX, [-100, 100], [-6, 6], { clamp: false })
+  const y = useTransform(mouseY, [-100, 100], [-3, 3], { clamp: false })
+  function handleMouseMove({ currentTarget, clientX, clientY }) {
+    let { x, y, width } = currentTarget.getBoundingClientRect()
+
+    mouseX.set(clientX - x - width / 2)
+    mouseY.set(clientY - y - width / 2)
   }
 
-  const itemText = {
-    hidden: { x: -50, opacity: 0 },
-    show: (delay) => ({ x: 0, opacity: 1, transition: { delay: delay / 2.5 + 0.8, duration: 1 } }),
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { duration: 1 } },
   }
 
   return (
-    <div className="relative min-w-fit">
-      <SkeletonLoader animation={itemImg} loaded={loaded || disableLoading}>
-        <Link
-          href={`${!!href ? href + '/' : ''}${id || ''}`}
-          target={`${!!externalLink ? '_blank' : '_self'}`}
-          rel="noopener noreferrer"
-        >
-          <motion.article
-            className={`group min-w-fit ${path == '/' && 'sm:min-w-[300px]'} cursor-pointer`}
+    <motion.div
+      className="relative rounded-md overflow-hidden"
+      style={{ translateX: x, translateY: y, transition: 'transform 0.5s ease-out' }}
+      initial={fadeIn.hidden}
+      whileInView={fadeIn.show}
+      viewport={{ once: true }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => {
+        mouseX.set(0)
+        mouseY.set(0)
+      }}
+    >
+      <motion.div variants={fadeIn} className="w-full h-[380px]">
+        {id === 'readmore' ? (
+          <div
+            onClick={() => setProjectView(true)}
+            className="bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border rounded-md cursor-pointer flex flex-col items-center justify-center py-12"
           >
-            <motion.div
-              className="max-w-full"
-              initial={itemImg.hidden}
-              whileInView={(loaded || disableLoading) && itemImg.show}
-              viewport={{ once: true }}
+            <WorkIcon />
+            <h3 className="text-md font-bold mt-2">{name}</h3>
+            <p className="opacity-80">{role}</p>
+          </div>
+        ) : (
+          <SkeletonLoader
+            loaded={loaded || disableLoading}
+            projectColor={hexColor}
+            backgroundImage={
+              <Image
+                ref={ref}
+                fill
+                src={img}
+                alt={'Project: ' + name}
+                className="object-cover"
+                onLoad={() => setLoaded(true)}
+              />
+            }
+          >
+            <Link
+              href={`${!!href ? href + '/' : ''}${id || ''}`}
+              target={`${!!externalLink ? '_blank' : '_self'}`}
+              rel="noopener noreferrer"
+              className="absolute inset-0"
             >
-              <motion.div
-                variants={itemImg}
-                className="group-hover:scale-105 relative select-none pointer-events-none w-full h-[200px] xSmall:h-[300px] sm:h-[200px] xl:h-[300px]"
-              >
-                {img ? (
-                  <Image
-                    sizes="100vw"
-                    fill
-                    src={img}
-                    alt={'Project: ' + name}
-                    className="object-cover rounded-md"
-                    onLoadingComplete={() => setLoaded(true)}
-                  />
-                ) : icon ? (
-                  <div className="w-full h-full dark:text-sec_addition dark:bg-tertiary bg-secondary overflow-hidden flex flex-col justify-center items-center rounded-md">
-                    {icon} <h2 className="font-medium tracking-[1px]">{title}</h2>
-                  </div>
-                ) : (
-                  <div className="bg-secondary dark:bg-sec_tertiary w-full h-full rounded-md"></div>
-                )}
-              </motion.div>
-            </motion.div>
-            {(loaded || disableLoading) && (
-              <>
-                <motion.p
-                  custom={increaseDelay}
-                  variants={itemText}
-                  className="text-[16px] dark:text-tertiary mt-[20px] mb-2"
-                >
-                  {role}
-                </motion.p>
-                <motion.h3
-                  custom={increaseDelay}
-                  variants={itemText}
-                  className="text-md tracking-[1px]"
-                >
-                  {name}
-                </motion.h3>
-              </>
-            )}
-          </motion.article>
-        </Link>
-      </SkeletonLoader>
-    </div>
+              <div className="py-12 px-2 flex flex-col justify-end items-center text-center w-full h-full text-white">
+                <p>{format(new Date(endDate.seconds * 1000), DATE_FORMAT_DA)}</p>
+                <h3 className="text-md font-bold">{name}</h3>
+                <p className="opacity-80">{role}</p>
+              </div>
+            </Link>
+          </SkeletonLoader>
+        )}
+      </motion.div>
+    </motion.div>
   )
 }
 

@@ -15,13 +15,21 @@ export async function getStaticProps() {
   const workDocs = await getDocs(q)
   const work = []
 
+  const readMoreCard = {
+    name: 'Read more',
+    role: 'View all of my projects',
+    dId: 'readmore',
+  }
+
+  work.push(readMoreCard)
+
   workDocs.forEach((doc) => {
     work.push({ dId: doc.id, ...doc.data() })
   })
 
   return {
     props: {
-      work,
+      work: JSON.parse(JSON.stringify(work)),
     },
     revalidate: 10,
   }
@@ -108,7 +116,7 @@ export default function Home({ work }) {
         </motion.div>
         <div className="sm:-mx-4 sm:pl-4 lg:m-0 lg:p-0 sm:overflow-y-hidden lg:overflow-visible">
           <AnimatePreviewCard>
-            {work.map(({ name, role, previewImage, dId }, i) => (
+            {work.map(({ name, role, previewImage, dId, endDate }, i) => (
               <PreviewCard
                 name={name}
                 role={role}
@@ -117,6 +125,7 @@ export default function Home({ work }) {
                 increaseDelay={i}
                 key={i}
                 href="work"
+                endDate={endDate}
               />
             ))}
           </AnimatePreviewCard>

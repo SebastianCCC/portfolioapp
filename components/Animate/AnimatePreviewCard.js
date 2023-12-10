@@ -19,14 +19,14 @@ export default function AnimatePreviewCard({ children }) {
   const landingPagePathStyles = () => {
     switch (path) {
       case '/':
-        return 'sm:gap-80 lg:gap-6 2xl:gap-20 sm:grid-cols-3'
+        return 'gap-4 sm:grid-cols-4'
     }
   }
 
   const container = {
-    hidden: { width: 0 },
+    hidden: { opacity: 0 },
     show: {
-      width: '100%',
+      opacity: 1,
       transition: {
         duration: 1,
         when: 'beforeChildren',
