@@ -79,7 +79,7 @@ const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, 
               className="absolute inset-0"
             >
               <div className="py-12 px-2 flex flex-col justify-end items-center text-center w-full h-full text-white">
-                <p>{format(new Date(endDate.seconds * 1000), DATE_FORMAT_DA)}</p>
+                <p>{format(new Date(endDate), DATE_FORMAT_DA)}</p>
                 <h3 className="text-md font-bold">{name}</h3>
                 <p className="opacity-80">{role}</p>
               </div>

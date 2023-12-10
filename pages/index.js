@@ -125,7 +125,7 @@ export default function Home({ work }) {
                 increaseDelay={i}
                 key={i}
                 href="work"
-                endDate={endDate}
+                endDate={endDate?.seconds * 1000}
               />
             ))}
           </AnimatePreviewCard>
