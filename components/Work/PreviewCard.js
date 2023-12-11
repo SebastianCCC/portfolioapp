@@ -54,7 +54,9 @@ const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, 
         >
           {id === 'apps' ? (
             <div className="bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border rounded-md cursor-pointer flex flex-col items-center justify-center py-12">
-              <WorkIcon />
+              <div className="scale-125">
+                <WorkIcon />
+              </div>
               <h3 className="text-md font-bold mt-2">{name}</h3>
               <p className="opacity-80">{role}</p>
             </div>

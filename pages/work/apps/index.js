@@ -37,7 +37,7 @@ export default function Apps({ work }) {
             delay: 0.2,
             duration: 1,
           }}
-          className="mt-4 mb-20 xl:text-md"
+          className="mt-4 mb-20 xl:text-[17px]"
         >
           Here you will find all of my apps in detail, click any project to view it.
         </motion.p>

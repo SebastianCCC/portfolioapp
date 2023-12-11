@@ -45,7 +45,7 @@ export default function Articles({ articles }) {
             delay: 0.2,
             duration: 1,
           }}
-          className="mt-4 mb-20 xl:text-md"
+          className="mt-4 mb-20 xl:text-[17px] max-w-[800px] 2xl:max-w-full m-auto"
         >
           Here you will find all of my articles in detail, click any article to view it.
         </motion.p>

@@ -10,11 +10,11 @@ export default function AnimatePreviewCard({ children }) {
     switch (path) {
       case '/work/artwork':
       case '/work/articles':
-        return 'md:grid-cols-2 2xl:grid-cols-3 sm:px-12 md:p-0'
+        return 'grid-cols-1 2xl:grid-cols-2 max-w-[800px] 2xl:max-w-full m-auto'
       case '/work/apps':
-        return 'sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:max-w-[730px] lg:max-w-full md:m-auto'
+        return 'grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
       case '/':
-        return 'gap-4 w-[1024px] m-auto lg:w-full grid-cols-4 pr-4 lg:pr-0'
+        return 'w-[1024px] m-auto lg:w-full grid-cols-4 pr-4 lg:pr-0'
     }
   }
 
@@ -35,7 +35,7 @@ export default function AnimatePreviewCard({ children }) {
       whileInView="show"
       variants={container}
       viewport={{ once: true }}
-      className={`grid w-full py-4 ${projectPathStyles()}`}
+      className={`grid w-full gap-4 py-4 ${projectPathStyles()}`}
     >
       {children}
     </motion.div>
