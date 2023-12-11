@@ -1,25 +1,26 @@
-import { motion } from 'framer-motion'
-
-function SkeletonLoader({ loaded, animation, children }) {
+function SkeletonLoader({ loaded, children, backgroundImage, projectColor }) {
   return (
     <>
-      {!loaded && (
-        <motion.div
-          className="max-w-full"
-          initial={animation.hidden}
-          whileInView={animation.show}
-          viewport={{ once: true }}
+      {!loaded ? (
+        <div className="bg-secondary/50 dark:bg-sec_tertiary z-10 w-full h-full">
+          <div className="w-4/5 h-4 bg-white dark:bg-additional absolute bottom-5 z-10 rounded-md mx-4" />
+          <div className="w-3/5 h-4 bg-white dark:bg-additional absolute bottom-14 z-10 rounded-md mx-4" />
+        </div>
+      ) : (
+        <div
+          className="relative z-10 w-full h-full border rounded-md"
+          style={{ borderColor: projectColor }}
         >
-          <motion.div
-            variants={animation}
-            className="bg-secondary dark:bg-sec_tertiary w-full h-[200px] xl:h-[300px] rounded-md absolute z-10"
-          >
-            <div className="w-4/5 h-4 bg-white dark:bg-additional absolute bottom-5 z-10 rounded-md mx-4" />
-            <div className="w-3/5 h-4 bg-white dark:bg-additional absolute bottom-14 z-10 rounded-md mx-4" />
-          </motion.div>
-        </motion.div>
+          <div
+            className="w-full h-full opacity-40"
+            style={{
+              backgroundImage: `linear-gradient(to top, ${projectColor} 5%, rgba(0,0,0,0) 95%)`,
+            }}
+          />
+          <div>{children}</div>
+        </div>
       )}
-      {children}
+      <div className="select-none pointer-events-none">{backgroundImage}</div>
     </>
   )
 }

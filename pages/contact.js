@@ -52,7 +52,7 @@ const Contact = () => {
               delay: 0.2,
               duration: 2,
             }}
-            className="xl:text-md lg:mr-20"
+            className="xl:text-[17px] lg:mr-20"
           >
             Any cool projects in mind please share. Or if it&apos;s for a chat that&apos;s cool too.
           </motion.h1>

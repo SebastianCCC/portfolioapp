@@ -9,7 +9,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const ProjectLinks = () => {
   const router = useRouter()
-  return Projects.map(({ name, title, path, icon }, i) => {
+  return Projects.map(({ name, path, icon }, i) => {
     return (
       <ul className="w-full" key={i}>
         <Link href={path}>
@@ -28,7 +28,7 @@ const ProjectLinks = () => {
 }
 
 const SideNavBar = () => {
-  const { isOpen, setIsOpen } = useContext(StateContext)
+  const { setIsOpen } = useContext(StateContext)
   const [scrollPos, setScrollPos] = useState(0)
   const [isVisible, setIsVisible] = useState(true)
   const scrollThreshold = 60
@@ -54,24 +54,24 @@ const SideNavBar = () => {
   const variants = {
     open: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        x: { stiffness: 1000, velocity: -100 },
+        y: { stiffness: 1000, velocity: -100 },
       },
     },
     closed: {
       opacity: 0,
-      x: '-100vw',
+      y: '-100vw',
       transition: {
         delay: 1,
-        x: { stiffness: 1000 },
+        y: { stiffness: 1000 },
       },
     },
   }
 
   return (
     <div className="fixed xl:hidden w-full">
-      <div className="flex justify-between p-4 w-full items-center cursor-pointer dark:bg-additional/90 bg-white/80 border-b border-tertiary/25 backdrop-blur-[8px]">
+      <div className="flex relative z-10 justify-between p-4 w-full items-center cursor-pointer dark:bg-additional/95 bg-white/90 border-b border-tertiary/25 backdrop-blur-[8px]">
         <div className="flex items-center">
           <div onClick={() => setIsOpen(true)} className="mr-4">
             <MenuIcon />
@@ -94,7 +94,7 @@ const SideNavBar = () => {
             animate="open"
             exit="closed"
             variants={variants}
-            className="sm:hidden no-scrollbar flex items-center overflow-auto dark:bg-additional/90 bg-white/80 border-b border-tertiary/25 backdrop-blur-[8px] rounded-md"
+            className="sm:hidden no-scrollbar flex items-center overflow-auto dark:bg-additional/90 bg-white/80 border-b border-tertiary/25 backdrop-blur-[8px]"
           >
             <ProjectLinks />
           </motion.div>

@@ -1,13 +1,12 @@
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { HiOutlineGlobe } from 'react-icons/hi'
-import { RiStackLine, RiTimeLine, RiGithubFill } from 'react-icons/ri'
-import AnimateTitles from '../../components/Animate/Titles'
-import db from '../../firebase'
 import { motion } from 'framer-motion'
-import HeaderTitles from '../../components/Animate/Titles'
+import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import HeaderTitles from '../../components/Animate/Titles'
+import { DATE_FORMAT_DA } from '../../config'
+import db from '../../firebase'
+import { format } from 'date-fns'
 
 export async function getStaticProps({ params }) {
   const currentpage = doc(db, `work/${params?.id}`)
@@ -15,7 +14,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      currentpage: page,
+      currentpage: JSON.parse(JSON.stringify(page)),
     },
     revalidate: 10,
   }
@@ -43,7 +42,6 @@ const WId = ({ currentpage }) => {
     deployed,
     sorcecode,
     role,
-    startDate,
     endDate,
     decs,
     stack,
@@ -58,7 +56,9 @@ const WId = ({ currentpage }) => {
         <title>{`Seechris - ${path.slice(0).charAt(0).toUpperCase() + path.slice(1)}`}</title>
       </Head>
       <div className="pt-28 xl:p-4 md:container md:m-auto">
-        <HeaderTitles title={`${name} ${endDate}`} />
+        <HeaderTitles
+          title={`${name} ${format(new Date(endDate.seconds * 1000), DATE_FORMAT_DA)}`}
+        />
         <div className="flex flex-col-reverse lg:flex-row mt-3 lg:mt-[65px]">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
