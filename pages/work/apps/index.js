@@ -1,13 +1,9 @@
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'
-import db from '../../../firebase'
+import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import { motion } from 'framer-motion'
-import { AiOutlineAppstore } from 'react-icons/ai'
-import AnimateTitles from '../../../components/Animate/Titles'
-import Link from 'next/link'
-import HeaderTitles from '../../../components/Animate/Titles'
-import Image from 'next/image'
-import PreviewCard from '../../../components/Work/PreviewCard'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
+import HeaderTitles from '../../../components/Animate/Titles'
+import PreviewCard from '../../../components/Work/PreviewCard'
+import db from '../../../firebase'
 
 export async function getStaticProps() {
   const collectionRef = collection(db, 'work')
@@ -22,30 +18,13 @@ export async function getStaticProps() {
 
   return {
     props: {
-      work,
+      work: JSON.parse(JSON.stringify(work)),
     },
     revalidate: 10,
   }
 }
 
 export default function Apps({ work }) {
-  const container = {
-    hidden: { width: 0 },
-    show: {
-      width: '100%',
-      transition: {
-        delay: 0.2,
-        duration: 3.5,
-        delayChildren: 1,
-        staggerChildren: 0.7,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { width: 0 },
-    show: { width: '100%' },
-  }
   return (
     <>
       <div className="pt-28 xl:p-4">
@@ -58,18 +37,19 @@ export default function Apps({ work }) {
             delay: 0.2,
             duration: 1,
           }}
-          className="mt-4 mb-20 xl:text-md"
+          className="mt-4 mb-20 xl:text-[17px]"
         >
           Here you will find all of my apps in detail, click any project to view it.
         </motion.p>
         <AnimatePreviewCard>
-          {work.map(({ name, role, previewImage, dId }, i) => (
+          {work.map(({ name, role, previewImage, dId, endDate }, i) => (
             <PreviewCard
               name={name}
               role={role}
               img={previewImage}
               id={dId}
               increaseDelay={i}
+              endDate={endDate.seconds * 1000}
               key={i}
             />
           ))}

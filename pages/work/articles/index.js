@@ -1,13 +1,7 @@
-import { collection, getDocs } from 'firebase/firestore'
-import db from '../../../firebase'
 import { motion } from 'framer-motion'
-import { AiOutlineAppstore } from 'react-icons/ai'
-import AnimateTitles from '../../../components/Animate/Titles'
-import Link from 'next/link'
-import HeaderTitles from '../../../components/Animate/Titles'
-import Image from 'next/image'
-import PreviewCard from '../../../components/Work/PreviewCard'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
+import HeaderTitles from '../../../components/Animate/Titles'
+import PreviewCard from '../../../components/Work/PreviewCard'
 import { getArticlesByUsername, getReactionsById } from '../../../services/ForumService'
 
 export async function getStaticProps() {
@@ -51,12 +45,12 @@ export default function Articles({ articles }) {
             delay: 0.2,
             duration: 1,
           }}
-          className="mt-4 mb-20 xl:text-md"
+          className="mt-4 mb-20 xl:text-[17px] max-w-[800px] 2xl:max-w-full m-auto"
         >
           Here you will find all of my articles in detail, click any article to view it.
         </motion.p>
         <AnimatePreviewCard>
-          {articles.map(({ title, tags, cover_image, url }, i) => (
+          {articles.map(({ title, tags, cover_image, url, edited_at }, i) => (
             <PreviewCard
               name={title}
               role={tags}
@@ -64,6 +58,7 @@ export default function Articles({ articles }) {
               increaseDelay={i}
               key={i}
               href={url}
+              endDate={edited_at}
               externalLink={true}
             />
           ))}
