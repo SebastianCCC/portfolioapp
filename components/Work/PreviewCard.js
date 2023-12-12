@@ -46,43 +46,45 @@ const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, 
       }}
     >
       <motion.div variants={fadeIn} className="w-full h-[380px]">
-        <Link
-          href={`${!!href ? href + '/' : ''}${id || ''}`}
-          target={`${!!externalLink ? '_blank' : '_self'}`}
-          rel="noopener noreferrer"
-          className="select-none"
-        >
-          {id === 'apps' ? (
-            <div className="bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border rounded-md cursor-pointer flex flex-col items-center justify-center py-12">
+        {id === 'apps' ? (
+          <Link href={`${!!href ? href + '/' : ''}${id || ''}`} rel="noopener noreferrer">
+            <div className="bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border rounded-md cursor-pointer flex flex-col items-center justify-center py-12 select-none">
               <div className="scale-125">
                 <WorkIcon />
               </div>
               <h3 className="text-md font-bold mt-2">{name}</h3>
               <p className="opacity-80">{role}</p>
             </div>
-          ) : (
-            <SkeletonLoader
-              loaded={loaded || disableLoading}
-              projectColor={hexColor}
-              backgroundImage={
-                <Image
-                  ref={ref}
-                  fill
-                  src={img}
-                  alt={'Project: ' + name}
-                  className="object-cover"
-                  onLoad={() => setLoaded(true)}
-                />
-              }
+          </Link>
+        ) : (
+          <SkeletonLoader
+            loaded={loaded || disableLoading}
+            projectColor={hexColor}
+            backgroundImage={
+              <Image
+                ref={ref}
+                fill
+                src={img}
+                alt={'Project: ' + name}
+                className="object-cover"
+                onLoad={() => setLoaded(true)}
+              />
+            }
+          >
+            <Link
+              href={`${!!href ? href + '/' : ''}${id || ''}`}
+              target={`${!!externalLink ? '_blank' : '_self'}`}
+              rel="noopener noreferrer"
+              className="absolute inset-0"
             >
-              <div className="py-12 px-2 flex flex-col justify-end items-center text-center w-full h-full text-white absolute inset-0">
+              <div className="py-12 px-2 flex flex-col justify-end items-center text-center w-full h-full text-white select-none">
                 <p>{format(new Date(endDate), DATE_FORMAT_DA)}</p>
                 <h3 className="text-md font-bold">{name}</h3>
                 <p className="opacity-80">{role}</p>
               </div>
-            </SkeletonLoader>
-          )}
-        </Link>
+            </Link>
+          </SkeletonLoader>
+        )}
       </motion.div>
     </motion.div>
   )
