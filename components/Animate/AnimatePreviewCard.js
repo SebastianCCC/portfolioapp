@@ -14,7 +14,7 @@ export default function AnimatePreviewCard({ children }) {
       case '/work/apps':
         return 'grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
       case '/':
-        return 'w-[1024px] m-auto lg:w-full grid-cols-4 pr-4 lg:pr-0'
+        return 'w-[1112px] m-auto lg:w-full grid-cols-4 pr-4 lg:pr-0'
     }
   }
 
