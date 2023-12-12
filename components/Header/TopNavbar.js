@@ -56,15 +56,15 @@ const SideNavBar = () => {
       opacity: 1,
       y: 0,
       transition: {
-        y: { stiffness: 1000, velocity: -100 },
+        duration: 0.7,
       },
     },
     closed: {
       opacity: 0,
       y: '-100vw',
       transition: {
+        duration: 1.5,
         delay: 1,
-        y: { stiffness: 1000 },
       },
     },
   }
