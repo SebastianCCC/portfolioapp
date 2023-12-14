@@ -44,6 +44,7 @@ export default function Apps({ work }) {
         <AnimatePreviewCard>
           {work.map(({ name, role, previewImage, dId, endDate }, i) => (
             <PreviewCard
+              collapsed={true}
               name={name}
               role={role}
               img={previewImage}

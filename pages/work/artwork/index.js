@@ -37,6 +37,7 @@ export default function Artwork({ artwork }) {
         <AnimatePreviewCard>
           {artwork.map(({ title, tags, images, html_url, id, updated_at }, i) => (
             <PreviewCard
+              collapsed={true}
               name={title}
               role={tags.join(', ')}
               img={images.hidpi}

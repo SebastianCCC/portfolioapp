@@ -52,6 +52,7 @@ export default function Articles({ articles }) {
         <AnimatePreviewCard>
           {articles.map(({ title, tags, cover_image, url, edited_at }, i) => (
             <PreviewCard
+              collapsed={true}
               name={title}
               role={tags}
               img={cover_image}
