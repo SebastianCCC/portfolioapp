@@ -9,7 +9,17 @@ import { rgbToHex } from '../../utils/rgbToHex'
 import { WorkIcon } from '../Links/images'
 import SkeletonLoader from '../SkeletonLoader'
 
-const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, endDate }) => {
+const PreviewCard = ({
+  name,
+  role,
+  img,
+  id,
+  href,
+  externalLink,
+  disableLoading,
+  endDate,
+  collapsed,
+}) => {
   const [loaded, setLoaded] = useState(false)
 
   let ref = useRef(null)
@@ -18,7 +28,7 @@ const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, 
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
-  const x = useTransform(mouseX, [-100, 100], [-6, 6], { clamp: false })
+  const x = useTransform(mouseX, [-100, 100], [-3, 3], { clamp: false })
   const y = useTransform(mouseY, [-100, 100], [-3, 3], { clamp: false })
   function handleMouseMove({ currentTarget, clientX, clientY }) {
     let { x, y, width } = currentTarget.getBoundingClientRect()
@@ -45,7 +55,10 @@ const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, 
         mouseY.set(0)
       }}
     >
-      <motion.div variants={fadeIn} className="w-full h-[380px]">
+      <motion.div
+        variants={fadeIn}
+        className={`w-full ${collapsed ? 'h-[220px] xSmall:h-[380px]' : 'h-[380px]'}`}
+      >
         {id === 'apps' ? (
           <Link href={`${!!href ? href + '/' : ''}${id || ''}`} rel="noopener noreferrer">
             <div className="bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border rounded-md cursor-pointer flex flex-col items-center justify-center py-12 select-none">
@@ -77,7 +90,11 @@ const PreviewCard = ({ name, role, img, id, href, externalLink, disableLoading, 
               rel="noopener noreferrer"
               className="absolute inset-0"
             >
-              <div className="py-12 px-2 flex flex-col justify-end items-center text-center w-full h-full text-white select-none">
+              <div
+                className={`px-2 flex flex-col ${
+                  collapsed ? 'py-6 xSmall:py-12' : 'py-12'
+                } justify-end items-center text-center w-full h-full text-white select-none`}
+              >
                 <p>{format(new Date(endDate), DATE_FORMAT_DA)}</p>
                 <h3 className="text-md font-bold">{name}</h3>
                 <p className="opacity-80">{role}</p>
