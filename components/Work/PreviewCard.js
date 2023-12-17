@@ -96,8 +96,8 @@ const PreviewCard = ({
                 } justify-end items-center text-center w-full h-full text-white select-none`}
               >
                 <p>{format(new Date(endDate), DATE_FORMAT_DA)}</p>
-                <h3 className="text-md font-bold">{name}</h3>
-                <p className="opacity-80">{role}</p>
+                <h3 className="text-md font-bold w-[320px] xSmall:w-full truncate">{name}</h3>
+                <p className="opacity-80 w-[320px] xSmall:w-full truncate">{role}</p>
               </div>
             </Link>
           </SkeletonLoader>
