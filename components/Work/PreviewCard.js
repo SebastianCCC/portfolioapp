@@ -31,10 +31,10 @@ const PreviewCard = ({
   const x = useTransform(mouseX, [-100, 100], [-3, 3], { clamp: false })
   const y = useTransform(mouseY, [-100, 100], [-3, 3], { clamp: false })
   function handleMouseMove({ currentTarget, clientX, clientY }) {
-    let { x, y, width } = currentTarget.getBoundingClientRect()
+    let { x, y, width, height } = currentTarget.getBoundingClientRect()
 
     mouseX.set(clientX - x - width / 2)
-    mouseY.set(clientY - y - width / 2)
+    mouseY.set(clientY - y - height / 2)
   }
 
   const fadeIn = {
@@ -71,6 +71,7 @@ const PreviewCard = ({
           </Link>
         ) : (
           <SkeletonLoader
+            collapsed={collapsed}
             loaded={loaded || disableLoading}
             projectColor={hexColor}
             backgroundImage={
@@ -91,13 +92,13 @@ const PreviewCard = ({
               className="absolute inset-0"
             >
               <div
-                className={`px-2 flex flex-col ${
+                className={`px-4 flex flex-col ${
                   collapsed ? 'py-6 xSmall:py-12' : 'py-12'
-                } justify-end items-center text-center w-full h-full text-white select-none`}
+                } justify-end xSmall:items-center xSmall:text-center w-full h-full text-white select-none`}
               >
                 <p>{format(new Date(endDate), DATE_FORMAT_DA)}</p>
-                <h3 className="text-md font-bold w-[320px] xSmall:w-full truncate">{name}</h3>
-                <p className="opacity-80 w-[320px] xSmall:w-full truncate">{role}</p>
+                <h3 className="text-md font-bold xSmall:w-full truncate">{name}</h3>
+                <p className="opacity-80 xSmall:w-full truncate">{role}</p>
               </div>
             </Link>
           </SkeletonLoader>
