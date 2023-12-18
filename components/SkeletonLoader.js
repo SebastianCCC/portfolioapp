@@ -1,4 +1,4 @@
-function SkeletonLoader({ loaded, children, backgroundImage, projectColor }) {
+function SkeletonLoader({ loaded, children, backgroundImage, projectColor, collapsed }) {
   return (
     <>
       {!loaded ? (
@@ -12,7 +12,9 @@ function SkeletonLoader({ loaded, children, backgroundImage, projectColor }) {
           style={{ borderColor: projectColor }}
         >
           <div
-            className="w-full h-full opacity-40"
+            className={`w-full h-full rounded-md ${
+              collapsed ? 'opacity-80 xSmall:opacity-40' : 'opacity-40'
+            }`}
             style={{
               backgroundImage: `linear-gradient(to top, ${projectColor} 5%, rgba(0,0,0,0) 95%)`,
             }}
