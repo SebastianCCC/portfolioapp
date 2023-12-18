@@ -71,6 +71,7 @@ const PreviewCard = ({
           </Link>
         ) : (
           <SkeletonLoader
+            collapsed={collapsed}
             loaded={loaded || disableLoading}
             projectColor={hexColor}
             backgroundImage={
