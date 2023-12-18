@@ -31,10 +31,10 @@ const PreviewCard = ({
   const x = useTransform(mouseX, [-100, 100], [-3, 3], { clamp: false })
   const y = useTransform(mouseY, [-100, 100], [-3, 3], { clamp: false })
   function handleMouseMove({ currentTarget, clientX, clientY }) {
-    let { x, y, width } = currentTarget.getBoundingClientRect()
+    let { x, y, width, height } = currentTarget.getBoundingClientRect()
 
     mouseX.set(clientX - x - width / 2)
-    mouseY.set(clientY - y - width / 2)
+    mouseY.set(clientY - y - height / 2)
   }
 
   const fadeIn = {
