@@ -1,10 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { withSentry } from '@sentry/nextjs'
 import nodemailer from 'nodemailer'
+import { ContactValidation } from '../../../schema/validation/ContactValidation'
 
 const handler = async (req, res) => {
-  const { firstName, email, subject, message } = req.body
+  const value = await ContactValidation(req.body)
+
   const transporter = nodemailer.createTransport({
     port: 465,
     host: 'smtp.gmail.com',
@@ -16,10 +17,10 @@ const handler = async (req, res) => {
   })
 
   const mailData = {
-    from: email,
-    to: `${process.env.EMAIL}, ${email}`,
-    subject: `Here is a summary of your message, ${firstName}!`,
-    text: `${firstName}:\r\n ${message}`,
+    from: value.email,
+    to: value.email,
+    subject: `Here is a summary of your message, ${value.firstName}!`,
+    text: `${value.firstName}:\r\n ${value.message}`,
     html: `
       <div style="width: 500px; margin: 0 auto;">
           <img
@@ -28,8 +29,8 @@ const handler = async (req, res) => {
             height="50"
           />
         <div style="margin-left: 4px">
-          <h1 style="font-weight: bold; font-size: 20px; color: #434040; margin: 0;	text-transform: capitalize;">Hello ${firstName}!</h1>
-          <p style="font-weight: 400; font-size: 12px; color: #434040; margin: 0; color: black;">${email}</p>
+          <h1 style="font-weight: bold; font-size: 20px; color: #434040; margin: 0;	text-transform: capitalize;">Hello ${value.firstName}!</h1>
+          <p style="font-weight: 400; font-size: 12px; color: #434040; margin: 0; color: black; text-transform: lowercase;">${value.email}</p>
           <p style="font-weight: 400; font-size: 15px; color: #434040; margin: 0; margin-top: 8px">I've received your pretty words, so an email should be on it's way once i get off work.</p>
           <div style="display: flex; margin-top: 24px; margin-bottom: 16px;">
             <h2 style="font-weight: 400; font-size: 15px; text-align: center;	text-transform: uppercase; color: #434040; margin: 0; padding-right: 8px; letter-spacing: 2px; min-width: 28%;">Summary</h2>
@@ -37,11 +38,11 @@ const handler = async (req, res) => {
           </div>
           <div style="padding: 10px; background-color: #EDEDED4D; border-radius: 6px;">
             <p style="font-weight: 400; font-size: 12px; color: #434040; margin: 0; color: black;">Subject!</p>
-            <p style="font-weight: bold; font-size: 14px; font-style: italic; color: #434040; margin: 0; color: black;">${subject}</p>
+            <p style="font-weight: bold; font-size: 14px; font-style: italic; color: #434040; margin: 0; color: black;">${value.subject}</p>
           </div>
           <div style="min-height: 60px; margin-top: 8px; margin-bottom: 16px; padding: 10px; background-color: #EDEDED4D; border-radius: 6px;">
           <p style="font-weight: 400; font-size: 12px; color: #434040; margin: 0; color: black;">Message!</p>
-          <p style="font-weight: bold; font-size: 14px; font-style: italic; color: #434040; margin: 0; color: black;">${message}</p>
+          <p style="font-weight: bold; font-size: 14px; font-style: italic; color: #434040; margin: 0; color: black;">${value.message}</p>
           </div>
           <p style="font-weight: 400; font-size: 15px; color: #434040; margin: 0;">Does it all look right? If not, send me another mail and i will get back to you.</p>
           <footer style="margin-top: 24px; margin-bottom: 16px; padding: 16px; border-radius: 6px;">
@@ -69,8 +70,12 @@ const handler = async (req, res) => {
   }
 
   transporter.sendMail(mailData, (err) => {
+    if (value.errors) {
+      res.status(422).json({ errors: value.errors, input: value.path, parms: value.params })
+    }
+
     if (!err) {
-      res.status(200).end()
+      res.status(200).json({ userEmail: mailData.to })
     } else {
       res.status(500).end()
     }
