@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
-import { StateContext } from '../../hooks/StateContext'
+import { StateContext } from '../../utils/StateContext'
 import ThemeSwitch from '../Theme'
 import { LogoIcon, MenuIcon } from './images'
 import { Projects } from '../Links'

@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
-import { StateContext } from '../../hooks/StateContext'
+import { StateContext } from '../../utils/StateContext'
 import AnimateProjectView from '../Animate/AnimateProjectView'
 import { NavLinks, Projects } from '../Links'
 import ThemeSwitch from '../Theme'
