@@ -1,4 +1,4 @@
-import { getArticlesByUsername, getReactionsById } from '../../../services/forum/forumService'
+import { getArticlesByUsername, getReactionsById } from '../../../services/forumService'
 
 export const callArticlesByUsername = async () => {
   let loading = false
