@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useContext } from 'react'
-import { StateContext } from '../../hooks/StateContext'
+import { StateContext } from '../../utils/StateContext'
 import { NavLinks } from '../Links'
 import NavBarItems from './NavbarItems'
 import { ExitIcon, LogoIcon } from './images'

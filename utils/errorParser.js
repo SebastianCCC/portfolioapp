@@ -13,6 +13,9 @@ const message = (error) => {
     case 404:
       return 'Looking so hard but could not find what you are looking for'
 
+    case 422:
+      return 'Please fill in the required fields'
+
     case 500:
       return 'Something went wrong on the server'
 

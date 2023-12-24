@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import NavBarItems from '../Header/NavbarItems'
 import { useContext } from 'react'
-import { StateContext } from '../../hooks/StateContext'
+import { StateContext } from '../../utils/StateContext'
 
 function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }) {
   const { setProjectView } = useContext(StateContext)
