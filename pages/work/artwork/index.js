@@ -2,16 +2,14 @@ import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
+import { callDribbbleShots } from '../../../hooks/serverHooks/artworks/useArtworks'
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://api.dribbble.com/v2/user/shots?access_token=' + process.env.DRIBBBLE_ACCESS_TOKEN
-  )
-  const artwork = await res.json()
+  const { shots } = await callDribbbleShots()
 
   return {
     props: {
-      artwork,
+      artwork: shots,
     },
     revalidate: 10,
   }
