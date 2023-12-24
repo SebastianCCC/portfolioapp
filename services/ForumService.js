@@ -1,7 +1,7 @@
 import { FORUM_URL, FORUM_URL_API } from '../config'
 import { client } from '../utils/client'
 import { errorParser } from '../utils/errorParser'
-
+// trigger build
 export function getArticlesByUsername() {
   return client(FORUM_URL_API)
     .get(`/articles?username=${process.env.USERNAME}`)
