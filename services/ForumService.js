@@ -1,6 +1,6 @@
-import { FORUM_URL, FORUM_URL_API } from '../../config'
-import { client } from '../../utils/client'
-import { errorParser } from '../../utils/errorParser'
+import { FORUM_URL, FORUM_URL_API } from '../config'
+import { client } from '../utils/client'
+import { errorParser } from '../utils/errorParser'
 
 export function getArticlesByUsername() {
   return client(FORUM_URL_API)
