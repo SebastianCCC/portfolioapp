@@ -17,8 +17,7 @@ const Contact = () => {
     if (success) {
       return {
         title: 'Message received',
-        description:
-          'I have sent you an email to confirm, please check your inbox and spam folder.',
+        description: `I have sent you an email (${success}) to confirm, please check your inbox and spam folder.`,
       }
     }
     if (error) {
