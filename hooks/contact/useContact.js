@@ -15,7 +15,7 @@ export const useContact = () => {
     ])
 
     if (!res.value.error) {
-      handleSuccess(true)
+      handleSuccess(res.value.userEmail)
       handleFormLoading(false)
     } else {
       handleError(res.value.message)
