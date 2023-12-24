@@ -2,31 +2,18 @@ import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
-import { getArticlesByUsername, getReactionsById } from '../../../services/ForumService'
+import {
+  callArticlesByUsername,
+  callArticlesReactionsById,
+} from '../../../hooks/serverHooks/articles/useArticles'
 
 export async function getStaticProps() {
-  const articlesBy = await getArticlesByUsername()
-  let articles = []
-
-  if (!articlesBy.error) {
-    for (let index = 0; index < articlesBy.length; index++) {
-      const reactions = await getReactionsById(articlesBy[index].id)
-
-      if (!reactions.error) {
-        const likes = reactions.article_reaction_counts.filter(
-          (reaction) => reaction.category === 'like'
-        )[0]
-        articles.push({
-          ...articlesBy[index],
-          likes: likes.count,
-        })
-      }
-    }
-  }
+  const { articles } = await callArticlesByUsername()
+  const { articlesWithLikes } = await callArticlesReactionsById(articles)
 
   return {
     props: {
-      articles: articles.sort((a, b) => b.likes - a.likes),
+      articles: articlesWithLikes,
     },
     revalidate: 10,
   }

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
-import { StateContext } from '../hooks/StateContext'
+import { StateContext } from '../utils/StateContext'
 import NavBottom from './Footer/NavBottom'
 import BurgerMenu from './Header/BurgerMenu'
 import SideNavBar from './Header/SideNavBar'

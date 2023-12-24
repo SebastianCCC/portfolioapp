@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import { StateProvider } from '../hooks/StateContext'
+import { StateProvider } from '../utils/StateContext'
 import { ThemeProvider } from 'next-themes'
 import '../styles/globals.css'
 import Head from 'next/head'
