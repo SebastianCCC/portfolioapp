@@ -25,6 +25,9 @@ const nextConfig = {
       },
     ],
   },
+  sentry: {
+    hideSourceMaps: true,
+  },
 }
 
 const sentryWebpackPluginOptions = {
@@ -35,9 +38,9 @@ const sentryWebpackPluginOptions = {
   //   urlPrefix, include, ignore
 
   silent: true, // Suppresses all logs
+  sourceMapReference: false,
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
-  hideSourceMaps: true,
 }
 
 // Make sure adding Sentry options is the last code to run before exporting, to
