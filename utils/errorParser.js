@@ -3,13 +3,13 @@ export const errorParser = (error) => {
 
   return {
     message: errorMessage,
-    status: error?.status,
+    status: error?.status || error?.code,
     error: true,
   }
 }
 
 const message = (error) => {
-  switch (error?.status) {
+  switch (error?.status || error?.code) {
     case 404:
       return 'Looking so hard but could not find what you are looking for'
 
@@ -18,6 +18,10 @@ const message = (error) => {
 
     case 500:
       return 'Something went wrong on the server'
+
+    case 'auth/wrong-password':
+    case 'auth/user-not-found':
+      return 'Invalid email or password'
 
     default:
       return 'Something went wrong'
