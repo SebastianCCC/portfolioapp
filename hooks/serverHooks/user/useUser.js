@@ -2,7 +2,7 @@ import { postLoginUser } from '../../../services/userService'
 
 export const callUserLogin = async (auth, data) => {
   let loading = false
-  let error = null
+  let error = false
   let user = null
 
   const userLogin = async () => {

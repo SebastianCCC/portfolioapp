@@ -11,7 +11,7 @@ const handler = async (req, res) => {
   }
 
   if (!error) {
-    res.status(200).json({ user: { ...user.providerData[0], uid: user.uid } })
+    res.status(200).json({ user: { ...user.providerData[0], uid: user.uid, token: user.accessToken } })
   } else {
     res.status(400).json({ errors: [error] })
   }
