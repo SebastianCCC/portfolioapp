@@ -1,5 +1,5 @@
 import { NewsPaper, PaintBrush, StarIcon } from '../../assets'
-import { HomeIcon, MailIcon, UserIcon, WorkIcon } from './images'
+import { HomeIcon, LoginIcon, MailIcon, UserIcon, WorkIcon } from './images'
 
 export const NavLinks = [
   {
@@ -24,6 +24,11 @@ export const NavLinks = [
     icon: <UserIcon />,
     title: 'About Me',
     link: '/#about',
+  },
+  {
+    icon: <LoginIcon />,
+    title: 'Logout',
+    link: '/login',
   },
 ]
 

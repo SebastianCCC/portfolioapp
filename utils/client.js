@@ -24,3 +24,16 @@ export function client(URL) {
 
   return client
 }
+
+export function urlencodedClient(URL, path, method, data) {
+  const client = fetch(URL + path, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams(data),
+    signal: AbortSignal.timeout(10000),
+  })
+
+  return client
+}

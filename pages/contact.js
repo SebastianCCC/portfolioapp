@@ -3,12 +3,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { Sendicon } from '../assets'
 import HeaderTitles from '../components/Animate/Titles'
-import { animation, data, maxMsgTxtLength } from '../components/Contact/contactInputs'
+import { data, maxMsgTxtLength } from '../components/Contact/contactInputs'
 import GradientCard from '../components/GradientCard'
 import { useContact } from '../hooks/contact/useContact'
 import { schema } from '../schema/ContactSchema'
 import HandleFormMessages from '../components/Contact/HandleFormMessages'
 import SCConfetti from '../components/Contact/SCConfetti'
+import { animation } from '../components/Animation/AnimateInputs'
+import Head from 'next/head'
 
 const Contact = () => {
   const { success, error, onSubmit } = useContact()
@@ -39,6 +41,9 @@ const Contact = () => {
 
   return (
     <>
+      <Head>
+        <title>Seechris - Contact</title>
+      </Head>
       <div className="pt-28 xl:p-4">
         <HeaderTitles title="Contact" />
         <div className="flex flex-col mt-[26px] md:w-[90%] xl:w-[85%] 2xl:w-2/3 m-auto">

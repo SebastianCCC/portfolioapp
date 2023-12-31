@@ -17,6 +17,7 @@ body {
 }
 
 input[type='text'],
+input[type='password'],
 .relative textarea {
   @apply outline-none;
 }

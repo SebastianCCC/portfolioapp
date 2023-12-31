@@ -1,5 +1,5 @@
 import { auth } from '../../../firebase'
-import { callUserLogin } from '../../../hooks/serverHooks/user/useUser'
+import { callUserLogin } from '../../../hooks/serverHooks/user/useAuth'
 import { UserValidation } from '../../../schema/validation/UserValidation'
 
 const handler = async (req, res) => {
@@ -11,9 +11,9 @@ const handler = async (req, res) => {
   }
 
   if (!error) {
-    res.status(200).json({ user: { ...user.providerData[0], uid: user.uid, token: user.accessToken } })
+    res.status(200).json({ user: { ...user.providerData[0], uid: user.uid }, token: user.stsTokenManager })
   } else {
-    res.status(400).json({ errors: [error] })
+    res.status(401).json({ errors: [error] })
   }
 }
 

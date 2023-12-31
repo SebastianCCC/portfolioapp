@@ -60,7 +60,7 @@ const SideNavBar = () => {
                 !mobile && (
                   <div
                     key={i}
-                    className="first:border-t first:pt-7 first:pb-1 last:border-y last:py-7 last:mt-7 dark:border-tertiary/25 border-secondary/70"
+                    className="first:border-t first:pt-7 even:py-2 last:border-y even:last:py-7 last:mt-7 dark:border-tertiary/25 border-secondary/70"
                   >
                     <NavBarItems
                       icon={icon}
