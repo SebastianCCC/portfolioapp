@@ -1,11 +1,11 @@
-import Layout from '../components/Layout'
-import { StateProvider } from '../utils/StateContext'
-import { ThemeProvider } from 'next-themes'
-import '../styles/globals.css'
-import Head from 'next/head'
-import ErrorBoundary from '../components/ErrorBoundary'
-import { useState, useEffect } from 'react'
 import { Analytics } from '@vercel/analytics/react'
+import { ThemeProvider } from 'next-themes'
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import ErrorBoundary from '../components/ErrorBoundary'
+import Layout from '../components/Layout'
+import '../styles/globals.css'
+import { StateProvider } from '../utils/StateContext'
 
 function MyApp({ Component, pageProps }) {
   const [isdark, setIsDark] = useState()

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
-import { callDribbbleShots } from '../../../hooks/serverHooks/artworks/useArtworks'
+import { callDribbbleShots } from '../../../hooks/serverHooks/artworks/useArtwork'
 
 export async function getStaticProps() {
   const { shots } = await callDribbbleShots()

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import NavBarItems from '../Header/NavbarItems'
 import { useContext } from 'react'
 import { StateContext } from '../../utils/StateContext'
+import NavBarItems from '../Header/NavbarItems'
 
 function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }) {
   const { setProjectView } = useContext(StateContext)
@@ -30,7 +30,7 @@ function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }) {
       onMouseEnter={onHoverEnter}
       onMouseLeave={onHoverLeave}
     >
-      <div className="flex flex-col justify-center items-center h-full bg-secondary/25 dark:bg-transparent">
+      <div className="flex flex-col justify-center items-center h-full bg-secondary/25 dark:bg-transparent px-4">
         {projects.map(({ name, title, path, icon }, i) => {
           return (
             <ul className="w-full" key={i}>

@@ -1,5 +1,5 @@
 export const maxMsgTxtLength = 400
-export const data = [
+export const contact = [
   {
     type: 'text',
     placeholder: 'Simon Sinek',
@@ -16,46 +16,55 @@ export const data = [
   },
   {
     type: 'text',
-    placeholder: 'Subject',
-    name: 'What’s the subject?',
+    placeholder: 'e.g. React Native help',
+    name: 'A subject to ease the conversation',
     registerid: 'subject',
     to: 'left',
   },
   {
     type: 'textarea',
     placeholder: 'Hello Sebastian...',
-    name: 'What’s your message?',
+    name: 'A message to start the conversation',
     registerid: 'message',
     to: 'right',
   },
 ]
 
-export const animation = () => {
-  const container = {
-    hidden: { y: -50, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.2,
-        duration: 1.2,
-        delayChildren: 1,
-        staggerChildren: 0.7,
-      },
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        delay: 0.2,
-        duration: 0.7,
-      },
-    },
-  }
+export const contactReply = [
+  {
+    type: 'text',
+    placeholder: 'Simon Sinek',
+    name: 'The name of the person you’re replying to',
+    registerid: 'firstName',
+    to: 'left',
+  },
+  {
+    type: 'text',
+    placeholder: 'Simon@Sinek.com',
+    name: 'The email address of the person you’re replying to',
+    registerid: 'email',
+    to: 'right',
+  },
+  {
+    type: 'text',
+    placeholder: 'e.g. React Native help',
+    name: 'A subject to ease the conversation',
+    registerid: 'subject',
+    to: 'left',
+  },
+  {
+    type: 'textarea',
+    placeholder: 'Hello Sebastian...',
+    name: 'A message to the person you’re replying to',
+    registerid: 'message',
+    to: 'right',
+  },
+]
 
-  const item = {
-    hidden: { y: -50, opacity: 0 },
-    show: { y: 0, opacity: 1 },
-  }
-
-  return { container, item }
-}
+export const selectForm = [
+  {
+    title: 'Reply to email',
+    slug: 'reply',
+    link: '/contact/reply',
+  },
+]
