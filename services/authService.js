@@ -20,3 +20,4 @@ export function postRefreshIdToken(data) {
     })
     .catch((error) => errorParser(error))
 }
+

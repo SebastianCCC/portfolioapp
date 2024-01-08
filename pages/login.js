@@ -40,7 +40,7 @@ const Contact = () => {
             }}
             className="xl:text-[17px] lg:mr-20"
           >
-            Login to your account
+            Signin will allow you to like my projects and upvote the once you like.
           </motion.h1>
           <AnimatePresence>
             <motion.form
@@ -60,7 +60,7 @@ const Contact = () => {
                     key={registerid}
                   >
                     <div className="w-full">
-                      <label htmlFor={registerid} className="uppercase dark:text-secondary">
+                      <label htmlFor={registerid} className="dark:text-secondary">
                         {name}
                       </label>
                       <GradientCard styles="mt-3" to={to} animateOnce={true}>

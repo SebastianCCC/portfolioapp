@@ -8,3 +8,11 @@ export function postContactForm(data) {
     .then((res) => res.data)
     .catch((err) => errorParser(err.response))
 }
+
+export function postContactReplyForm(data) {
+  // if no baseURL is provided, the client will use localhost in development
+  return client()
+    .post(`/api/email/reply`, data)
+    .then((res) => res.data)
+    .catch((err) => errorParser(err.response))
+}

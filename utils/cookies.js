@@ -1,4 +1,4 @@
-import { hasCookie, getCookie, setCookie as cookie } from 'cookies-next'
+import { deleteCookie, hasCookie, getCookie, setCookie as cookie } from 'cookies-next'
 
 const defaultOptions = {
   path: '/',
@@ -17,10 +17,16 @@ export const setCookies = (cookies, options) => {
 }
 
 export const getCookieValue = (name, options) => {
-  if (!hasCookie(name, { ...options })) return { cookie: null }
+  if (!hasCookie(name, { ...options })) return { [name]: null }
 
   const cookie = getCookie(name, { ...options })
   const parsedCookie = JSON.parse(cookie)
 
   return { [name]: parsedCookie }
+}
+
+export const removeCookies = (cookies, options) => {
+  cookies.map((singleCookie) => {
+    deleteCookie(singleCookie, { ...options, ...defaultOptions })
+  })
 }

@@ -5,3 +5,8 @@ export const convertSecondsToDate = (seconds) => {
 export const expiredToken = (expirationTime) => {
   return Date.now() > expirationTime
 }
+
+export const protectedRoutes = (pathname) => {
+  const routes = ['/contact/reply']
+  return routes.filter((route) => route === pathname)
+}

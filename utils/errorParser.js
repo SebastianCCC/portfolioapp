@@ -12,8 +12,11 @@ const message = (error) => {
   switch (error?.status || error?.code) {
     case 401:
     case 'auth/wrong-password':
-    case 'auth/user-not-found':
       return 'Incorrect email or password'
+
+    case 403:
+    case 'INVALID_ID_TOKEN':
+      return 'You are not authorized to access this content'
 
     case 404:
       return 'Looking so hard but could not find what you are looking for'

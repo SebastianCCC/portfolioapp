@@ -1,19 +1,24 @@
 import { NewsPaper, PaintBrush, StarIcon } from '../../assets'
-import { HomeIcon, LoginIcon, MailIcon, UserIcon, WorkIcon } from './images'
+import { HomeIcon, MailIcon, UserIcon, WorkIcon } from './images'
 
 export const NavLinks = [
   {
     icon: <HomeIcon />,
     title: 'Home',
     link: '/',
-    mobile: true,
+    handleEvent: {
+      name: null,
+      mobileOnly: true,
+    },
   },
   {
     icon: <WorkIcon />,
     title: 'Work',
     link: '',
-    projectContent: true,
-    pc: true,
+    handleEvent: {
+      name: 'toggleProjectView',
+      pcOnly: true,
+    },
   },
   {
     icon: <MailIcon />,
@@ -24,11 +29,6 @@ export const NavLinks = [
     icon: <UserIcon />,
     title: 'About Me',
     link: '/#about',
-  },
-  {
-    icon: <LoginIcon />,
-    title: 'Logout',
-    link: '/login',
   },
 ]
 

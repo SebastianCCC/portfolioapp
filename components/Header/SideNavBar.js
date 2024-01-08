@@ -5,6 +5,7 @@ import { StateContext } from '../../utils/StateContext'
 import AnimateProjectView from '../Animate/AnimateProjectView'
 import { NavLinks, Projects } from '../Links'
 import ThemeSwitch from '../Theme'
+import LoginButtun from './LoginButtun'
 import NavBarItems from './NavbarItems'
 import { LogoIconOutline } from './images'
 
@@ -37,8 +38,19 @@ const SideNavBar = () => {
     }
   }
 
+  const events = (eventName) => {
+    if (eventName === 'toggleProjectView') {
+      return {
+        onHoverEnter: () => toggleProjectViewEnter(eventName),
+        onHoverLeave: () => toggleProjectViewLeave(eventName),
+        onClick: () => setProjectView(false),
+      }
+    }
+
+    return {}
+  }
+
   return (
-    /*     <nav className="flex flex-col items-center"></nav> */
     <motion.div
       initial={{ x: -288, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
@@ -55,20 +67,20 @@ const SideNavBar = () => {
         </Link>
         <nav className={`pb-5`}>
           <ul>
-            {NavLinks.map(({ icon, title, link, mobile, projectContent }, i) => {
+            {NavLinks.map(({ icon, title, link, handleEvent }) => {
               return (
-                !mobile && (
+                !handleEvent?.mobileOnly && (
                   <div
-                    key={i}
-                    className="first:border-t first:pt-7 even:py-2 last:border-y even:last:py-7 last:mt-7 dark:border-tertiary/25 border-secondary/70"
+                    key={title}
+                    className="first:border-t first:pt-7 even:pt-1 last:border-y last:py-7 last:mt-7 dark:border-tertiary/25 border-secondary/70 px-4"
                   >
                     <NavBarItems
                       icon={icon}
                       title={title}
                       link={link}
-                      onHoverEnter={() => toggleProjectViewEnter(!!projectContent)}
-                      onHoverLeave={() => toggleProjectViewLeave(!!projectContent)}
-                      onClick={() => setProjectView(false)}
+                      onHoverEnter={events(handleEvent?.name).onHoverEnter}
+                      onHoverLeave={events(handleEvent?.name).onHoverLeave}
+                      onClick={events(handleEvent?.name).onClick}
                     />
                   </div>
                 )
@@ -77,14 +89,15 @@ const SideNavBar = () => {
           </ul>
         </nav>
         <div className={`mx-4`}>
+          <LoginButtun />
           <ThemeSwitch />
         </div>
       </div>
       <AnimatePresence>
         {projectView && (
           <AnimateProjectView
-            onHoverEnter={() => toggleProjectViewEnter()}
-            onHoverLeave={() => toggleProjectViewLeave()}
+            onHoverEnter={events('toggleProjectView').onHoverEnter}
+            onHoverLeave={events('toggleProjectView').onHoverLeave}
             projects={Projects}
           />
         )}
