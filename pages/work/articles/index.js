@@ -5,7 +5,7 @@ import PreviewCard from '../../../components/Work/PreviewCard'
 import {
   callArticlesByUsername,
   callArticlesReactionsById,
-} from '../../../hooks/serverHooks/articles/useArticles'
+} from '../../../hooks/serverHooks/articles/useArticle'
 
 export async function getStaticProps() {
   const { articles } = await callArticlesByUsername()

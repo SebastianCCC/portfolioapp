@@ -2,14 +2,14 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../utils/StateContext'
+import ProgressBar from './Contact/ProgressBar'
 import NavBottom from './Footer/NavBottom'
 import BurgerMenu from './Header/BurgerMenu'
 import SideNavBar from './Header/SideNavBar'
 import TopNavbar from './Header/TopNavbar'
-import ProgressBar from './Contact/ProgressBar'
 
 const Layout = ({ children }) => {
-  const { isOpen, formLoading } = useContext(StateContext)
+  const { formLoading } = useContext(StateContext)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const path = router.pathname
@@ -22,11 +22,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>
           {`Seechris - ${
-            path === '/'
-              ? 'Home'
-              : path === '/work'
-              ? 'Work'
-              : path.slice(6).charAt(0).toUpperCase() + path.slice(7)
+            path === '/' ? 'Home' : path.slice(6).charAt(0).toUpperCase() + path.slice(7)
           }`}
         </title>
       </Head>

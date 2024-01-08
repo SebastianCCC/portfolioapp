@@ -1,16 +1,35 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { MailIcon } from './images'
+import { selectForm } from './contactInputs'
 
-const ContactSwitch = () => {
+const ContactSwitch = ({ onClick }) => {
   return (
     <>
-      <Link href="/contact">
-        <motion.button className="dark:text-tertiary text-secondary py-1 mb-1 dark:hover:text-white hover:text-primary rounded p-1 text-2xl flex items-center">
-          <MailIcon />
-          <h2 className="xl:hidden font-bold pl-2 text-base">Contact Me</h2>
-        </motion.button>
-      </Link>
+      <motion.div
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          delay: 0.2,
+          duration: 2,
+        }}
+      >
+        <div className="rounded-md dark:bg-[#151515] bg-projectview border dark:border-tertiary/25 border-secondary/70 py-3 px-5 mb-4">
+          <h3 className="text-sm">Switch between forms</h3>
+          <div className="w-full h-[0.5px] dark:bg-tertiary/40 bg-secondary my-3" />
+          <div className="flex justify-between">
+            {selectForm.map(({ title, slug, link }) => {
+              return (
+                <div onClick={onClick} key={slug}>
+                  <Link href={link}>
+                    <p className="text-sm font-extrabold">{title}</p>
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </motion.div>
     </>
   )
 }

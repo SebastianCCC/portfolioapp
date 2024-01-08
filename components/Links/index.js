@@ -6,14 +6,19 @@ export const NavLinks = [
     icon: <HomeIcon />,
     title: 'Home',
     link: '/',
-    mobile: true,
+    handleEvent: {
+      name: null,
+      mobileOnly: true,
+    },
   },
   {
     icon: <WorkIcon />,
     title: 'Work',
     link: '',
-    projectContent: true,
-    pc: true,
+    handleEvent: {
+      name: 'toggleProjectView',
+      pcOnly: true,
+    },
   },
   {
     icon: <MailIcon />,
