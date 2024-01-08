@@ -2,7 +2,7 @@ import { deleteCookie, hasCookie, getCookie, setCookie as cookie } from 'cookies
 
 const defaultOptions = {
   path: '/',
-  httpOnly: process.env.NEXT_PUBLIC_ENV ? false : true,
+  httpOnly: false,
   secure: process.env.NEXT_PUBLIC_ENV ? false : true,
 }
 
