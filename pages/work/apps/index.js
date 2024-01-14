@@ -1,24 +1,16 @@
-import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
 import db from '../../../firebase'
+import { callApplications } from '../../../hooks/serverHooks/apps/useApplication'
 
 export async function getStaticProps() {
-  const collectionRef = collection(db, 'work')
-  const q = await query(collectionRef, orderBy('id', 'desc'))
-
-  const workDocs = await getDocs(q)
-  const work = []
-
-  workDocs.forEach((doc) => {
-    work.push({ dId: doc.id, ...doc.data() })
-  })
+  const { apps } = await callApplications(db, 'work')
 
   return {
     props: {
-      work: JSON.parse(JSON.stringify(work)),
+      work: apps,
     },
     revalidate: 10,
   }

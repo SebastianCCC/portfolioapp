@@ -1,4 +1,3 @@
-import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
 import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../components/Animate/Titles'
@@ -7,29 +6,15 @@ import GradientCard from '../components/GradientCard'
 import About from '../components/Main/About'
 import PreviewCard from '../components/Work/PreviewCard'
 import db from '../firebase'
+import { callApplications } from '../hooks/serverHooks/apps/useApplication'
+import { readMoreCard } from '../components/Work/readMoreCardData'
 
 export async function getStaticProps() {
-  const collectionRef = collection(db, 'work')
-  const q = query(collectionRef, orderBy('id', 'desc'), limit(3))
-
-  const workDocs = await getDocs(q)
-  const work = []
-
-  const readMoreCard = {
-    name: 'Read more',
-    role: 'View all of my projects',
-    dId: 'apps',
-  }
-
-  work.push(readMoreCard)
-
-  workDocs.forEach((doc) => {
-    work.push({ dId: doc.id, ...doc.data() })
-  })
+  const { apps } = await callApplications(db, 'work', 3, readMoreCard)
 
   return {
     props: {
-      work: JSON.parse(JSON.stringify(work)),
+      work: apps,
     },
     revalidate: 10,
   }
