@@ -14,7 +14,7 @@ const SideNavBar = () => {
   const [delayHandlerEnter, setDelayHandlerEnter] = useState(null)
   const { projectView, setProjectView } = useContext(StateContext)
 
-  const PROJECT_VIEW_DELAY = 500
+  const PROJECT_VIEW_DELAY = 300
 
   const toggleProjectViewEnter = (state = true) => {
     if (state) {
