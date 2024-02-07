@@ -1,11 +1,11 @@
 import { FORUM_URL, FORUM_URL_API } from '../config'
 import { Forum } from '../types/Forum'
 import { client } from '../utils/client'
-import { ErrorParser, errorParser } from '../utils/errorParser'
+import { ErrorParserSchema, errorParser } from '../utils/errorParser'
 
 type Schemas = Forum['schemas']
-type Article = Schemas['Article'][] & ErrorParser
-type Reaction = Schemas['Reaction'] & ErrorParser
+type Article = Schemas['Article'][] & ErrorParserSchema
+type Reaction = Schemas['Reaction'] & ErrorParserSchema
 
 export function getArticlesByUsername(): Promise<Article> {
 	return client(FORUM_URL_API)

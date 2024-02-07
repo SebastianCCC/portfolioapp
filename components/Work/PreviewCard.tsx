@@ -11,7 +11,7 @@ import SkeletonLoader from '../SkeletonLoader'
 
 type PreviewCardProps = {
 	name: string
-	role: string | string[]
+	role?: string | string[] | null
 	img: string | null
 	id?: string
 	href: string

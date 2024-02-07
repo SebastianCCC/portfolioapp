@@ -2,31 +2,27 @@ import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
-import {
-	callArticlesByUsername,
-	callArticlesReactionsById,
-} from '../../../hooks/serverHooks/articles/useArticle'
-import { Forum } from '../../../types/Forum'
+import { callDribbbleShots } from '../../../hooks/serverHooks/artworks/useArtwork'
+import { Dribbble } from '../../../types/Dribbble'
 
-type Schemas = Forum['schemas']
+type Schemas = Dribbble['schemas']
 
 export async function getStaticProps() {
-	const { articles } = await callArticlesByUsername()
-	const { articlesWithLikes } = await callArticlesReactionsById(articles)
+	const { shots } = await callDribbbleShots()
 
 	return {
 		props: {
-			articles: articlesWithLikes,
+			artwork: shots,
 		},
 		revalidate: 10,
 	}
 }
 
-export default function Articles({ articles }: { articles: Schemas['Article'][] }) {
+export default function Artwork({ artwork }: { artwork: Schemas['Shot'][] }) {
 	return (
 		<>
 			<div className='pt-28 xl:p-4'>
-				<HeaderTitles title='Articles' />
+				<HeaderTitles title='Artwork' />
 				<motion.p
 					initial={{ y: 50, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
@@ -37,18 +33,18 @@ export default function Articles({ articles }: { articles: Schemas['Article'][] 
 					}}
 					className='mt-4 mb-20 xl:text-[17px] max-w-[800px] 2xl:max-w-full m-auto'
 				>
-					Here you will find all of my articles in detail, click any article to view it.
+					Here you will find all of my art in detail, click any artwork to view it.
 				</motion.p>
 				<AnimatePreviewCard>
-					{articles.map(({ title, tags, cover_image, url, edited_at, id }) => (
+					{artwork.map(({ title, tags, images, html_url, id, updated_at }) => (
 						<PreviewCard
 							collapsed={true}
 							name={title}
-							role={tags}
-							img={cover_image}
+							role={tags?.join(', ')}
+							img={images.hidpi}
 							key={id}
-							href={url}
-							endDate={edited_at}
+							href={html_url}
+							endDate={updated_at}
 							externalLink={true}
 						/>
 					))}

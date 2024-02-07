@@ -24,7 +24,7 @@ export interface Forum {
 			last_comment_at: Date | null
 			reading_time_minutes: number
 			tag_list: string
-			tags: string[]
+			tags: string[] | null
 			body_html: string
 			body_markdown: string
 			user: Forum['schemas']['User']

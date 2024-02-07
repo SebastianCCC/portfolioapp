@@ -1,7 +1,7 @@
 import { FirebaseError } from '@firebase/util'
 import { AxiosResponse } from 'axios'
 
-export type ErrorParser = {
+export type ErrorParserSchema = {
 	message: string
 	status?: number | string
 	error: boolean
@@ -9,7 +9,7 @@ export type ErrorParser = {
 
 type Error = AxiosResponse & FirebaseError
 
-export const errorParser = (error?: Error): ErrorParser => {
+export const errorParser = (error?: Error): ErrorParserSchema => {
 	const errorMessage = message(error)
 
 	return {
