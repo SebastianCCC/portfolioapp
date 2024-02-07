@@ -18,7 +18,7 @@ export interface Forum {
 			social_image: string | null
 			canonical_url: string
 			created_at: Date
-			edited_at: Date | null
+			edited_at: Date | string | number | null
 			crossposted_at: Date | null
 			published_at: Date
 			last_comment_at: Date | null
