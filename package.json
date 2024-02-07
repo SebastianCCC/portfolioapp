@@ -16,7 +16,7 @@
 		"classnames": "^2.5.1",
 		"colorthief": "^2.2.0",
 		"cookies-next": "^4.1.0",
-		"date-fns": "^2.30.0",
+		"date-fns": "^3.3.1",
 		"firebase": "^10.5.2",
 		"framer-motion": "^10.12.7",
 		"next": "14.0.1",
