@@ -12,7 +12,7 @@ export const callDribbbleShots = async () => {
     loading = true
     const dribbbleShots = await getShots()
 
-    if (!dribbbleShots.error) {
+    if (!('error' in dribbbleShots)) {
       shots = dribbbleShots
       loading = false
     } else {
