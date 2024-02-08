@@ -12,7 +12,7 @@ export const callArticlesByUsername = async () => {
     loading = true
     const articlesWithoutLikes = await getArticlesByUsername()
 
-    if (!articlesWithoutLikes.error) {
+    if (!('error' in articlesWithoutLikes)) {
       articles = articlesWithoutLikes
       loading = false
     } else {
@@ -35,7 +35,7 @@ export const callArticlesReactionsById = async (articles: Schemas['Article'][]) 
     for (let index = 0; index < articles.length; index++) {
       const reactions = await getReactionsById(articles[index].id)
 
-      if (!reactions.error) {
+      if (!('error' in reactions)) {
         const likes = reactions.article_reaction_counts.filter(
           (reaction) => reaction.category === 'like',
         )[0]
