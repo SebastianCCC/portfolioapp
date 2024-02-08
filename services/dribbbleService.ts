@@ -1,14 +1,15 @@
-import { Dribbble } from '../types/Dribbble'
+import { AxiosResponse } from 'axios'
 import { DRIBBBLE_URL_API } from '../config'
+import { Dribbble } from '../types/Dribbble'
 import { authClient } from '../utils/client'
-import { errorParser, ErrorParserSchema } from '../utils/errorParser'
+import { errorParser } from '../utils/errorParser'
 
 type Schemas = Dribbble['schemas']
-type Shot = Schemas['Shot'][] & ErrorParserSchema
+type Shot = AxiosResponse<Schemas['Shot'][]>
 
-export function getShots(): Promise<Shot> {
+export function getShots() {
   return authClient(DRIBBBLE_URL_API, process.env.DRIBBBLE_ACCESS_TOKEN)
     .get(`/v2/user/shots`)
-    .then((res) => res.data)
+    .then((res: Shot) => res.data)
     .catch((err) => errorParser(err.response))
 }
