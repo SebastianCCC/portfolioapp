@@ -5,9 +5,12 @@ import ComStack from '../components/ComStack'
 import GradientCard from '../components/GradientCard'
 import About from '../components/Main/About'
 import PreviewCard from '../components/Work/PreviewCard'
+import { readMoreCard } from '../components/Work/readMoreCardData'
 import db from '../firebase'
 import { callApplications } from '../hooks/serverHooks/apps/useApplication'
-import { readMoreCard } from '../components/Work/readMoreCardData'
+import { Firestore } from '../types/Firestore'
+
+type Schemas = Firestore['schemas']
 
 export async function getStaticProps() {
   const { apps } = await callApplications(db, 'work', 3, readMoreCard)
@@ -20,7 +23,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ work }) {
+export default function Home({ work }: { work: Schemas['Work'][] }) {
   const name = 'Software engineer with a passion.'
   const desc =
     "Hi, i'm Sebastian Christopher, a full time frontend developer that always gives it 100%"
@@ -101,16 +104,15 @@ export default function Home({ work }) {
         </motion.div>
         <div className='no-scrollbar -mx-4 pl-4 lg:m-0 lg:p-0 overflow-y-hidden lg:overflow-visible'>
           <AnimatePreviewCard>
-            {work.map(({ name, role, previewImage, dId, endDate }, i) => (
+            {work.map(({ name, role, previewImage, dId, endDate }) => (
               <PreviewCard
+                key={dId}
                 name={name}
                 role={role}
                 img={previewImage}
                 id={dId}
-                increaseDelay={i}
-                key={i}
                 href='work'
-                endDate={endDate?.seconds * 1000}
+                endDate={endDate ? endDate.seconds * 1000 : null}
               />
             ))}
           </AnimatePreviewCard>
