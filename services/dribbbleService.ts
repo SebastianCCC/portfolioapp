@@ -5,11 +5,11 @@ import { authClient } from '../utils/client'
 import { errorParser } from '../utils/errorParser'
 
 type Schemas = Dribbble['schemas']
-type Shot = AxiosResponse<Schemas['Shot'][]>
+type Shots = AxiosResponse<Schemas['Shot'][]>
 
 export function getShots() {
   return authClient(DRIBBBLE_URL_API, process.env.DRIBBBLE_ACCESS_TOKEN)
     .get(`/v2/user/shots`)
-    .then((res: Shot) => res.data)
+    .then((res: Shots) => res.data)
     .catch((err) => errorParser(err.response))
 }

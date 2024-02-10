@@ -6,14 +6,7 @@ export interface Dribbble {
       height: number
       html_url: string
       id: number
-      images: {
-        hidpi: string
-        normal: string
-        one_x: string
-        two_x: string
-        four_x: string
-        teaser: string
-      }
+      images: Dribbble['schemas']['Images']
       low_profile: boolean
       tags: string[] | null
       title: string
@@ -23,6 +16,15 @@ export interface Dribbble {
       attachments: Dribbble['schemas']['Attachments'][] | []
       projects: Dribbble['schemas']['Project'][] | []
       video: Dribbble['schemas']['Video'] | null
+    }
+
+    Images: {
+      hidpi: string
+      normal: string
+      one_x: string
+      two_x: string
+      four_x: string
+      teaser: string
     }
 
     Attachments: {
