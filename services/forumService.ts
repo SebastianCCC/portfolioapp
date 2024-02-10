@@ -5,13 +5,13 @@ import { client } from '../utils/client'
 import { errorParser } from '../utils/errorParser'
 
 type Schemas = Forum['schemas']
-type Article = AxiosResponse<Schemas['Article'][]>
+type Articles = AxiosResponse<Schemas['Article'][]>
 type Reaction = AxiosResponse<Schemas['Reaction']>
 
 export function getArticlesByUsername() {
   return client(FORUM_URL_API)
     .get(`/articles?username=${process.env.USERNAME}`)
-    .then((res: Article) => res.data)
+    .then((res: Articles) => res.data)
     .catch((err) => errorParser(err.response))
 }
 

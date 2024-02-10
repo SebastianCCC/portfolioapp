@@ -2,13 +2,25 @@ import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { checkBrowser } from '../utils/userAgent'
 
-export default function GradientCard({ children, to = 'right', animateOnce, styles, borderColor }) {
+type GradientCardProps = {
+  children: React.ReactNode
+  to?: 'right' | 'bottom' | 'left' | 'top-to-left' | 'top'
+  animateOnce?: boolean
+  styles?: string
+}
+
+export default function GradientCard({
+  children,
+  to = 'right',
+  animateOnce = false,
+  styles,
+}: GradientCardProps) {
   const bgGradient = classNames(
     to === 'right' && 'bg-gradient-to-r',
     to === 'bottom' && 'bg-gradient-to-b',
     to === 'left' && 'bg-gradient-to-l',
     to === 'top-to-left' && 'bg-gradient-to-t sm:bg-gradient-to-l',
-    to === 'top' && 'bg-gradient-to-t'
+    to === 'top' && 'bg-gradient-to-t',
   )
 
   return (
@@ -21,7 +33,7 @@ export default function GradientCard({ children, to = 'right', animateOnce, styl
         className={
           checkBrowser() === 'firefox'
             ? 'border dark:border-tertiary/25 border-secondary/70 rounded-md'
-            : borderColor || `${bgGradient} from-secondary/70 dark:from-white/10 rounded-md p-[1px]`
+            : `${bgGradient} from-secondary/70 dark:from-white/10 rounded-md p-[1px]`
         }
       >
         <div

@@ -12,10 +12,10 @@ import SkeletonLoader from '../SkeletonLoader'
 type PreviewCardProps = {
   name: string
   role?: string | string[] | null
-  img: string | null
+  img?: string | null
   id?: string
   href: string
-  externalLink: boolean
+  externalLink?: boolean
   endDate: Date | string | number | null
   collapsed?: boolean
 }
