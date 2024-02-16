@@ -7,7 +7,6 @@ export const NavLinks = [
     title: 'Home',
     link: '/',
     handleEvent: {
-      name: null,
       mobileOnly: true,
     },
   },
@@ -48,7 +47,27 @@ export const SocialLinks = [
 ]
 
 export const Projects = [
-  { name: 'Applications', title: 'Starred', path: '/work/apps', icon: <StarIcon /> },
-  { name: 'Articles', title: 'Posts', path: '/work/articles', icon: <NewsPaper /> },
-  { name: 'Artwork', title: 'Designs', path: '/work/artwork', icon: <PaintBrush /> },
+  {
+    name: 'Applications',
+    title: 'Starred',
+    description:
+      'A collection of all the cool stuff I have built and worked on. From web apps to mobile.',
+    path: '/work/apps',
+    icon: <StarIcon />,
+  },
+  {
+    name: 'Articles',
+    title: 'Posts',
+    description: 'Some interesting articles here, if you are into reading.',
+    path: '/work/articles',
+    icon: <NewsPaper />,
+  },
+  {
+    name: 'Artwork',
+    title: 'Designs',
+    description:
+      'My passion for webdev started from designing and creating art. Here are some of it.',
+    path: '/work/artwork',
+    icon: <PaintBrush />,
+  },
 ]
