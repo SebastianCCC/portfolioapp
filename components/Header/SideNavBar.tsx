@@ -43,6 +43,7 @@ const SideNavBar = () => {
       return {
         onHoverEnter: () => toggleProjectViewEnter(),
         onHoverLeave: () => toggleProjectViewLeave(),
+        onClick: () => toggleProjectViewLeave(),
       }
     }
   }
@@ -94,6 +95,7 @@ const SideNavBar = () => {
           <AnimateProjectView
             onHoverEnter={events('toggleProjectView')?.onHoverEnter}
             onHoverLeave={events('toggleProjectView')?.onHoverLeave}
+            onClick={events('toggleProjectView')?.onClick}
             projects={Projects}
           />
         )}

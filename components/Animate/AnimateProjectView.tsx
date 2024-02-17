@@ -15,9 +15,15 @@ type AnimateProjectViewProps = {
   projects: Project[]
   onHoverEnter?: () => void
   onHoverLeave?: () => void
+  onClick?: () => void
 }
 
-function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }: AnimateProjectViewProps) {
+function AnimateProjectView({
+  projects,
+  onHoverEnter,
+  onHoverLeave,
+  onClick,
+}: AnimateProjectViewProps) {
   const { setProjectView } = useContext(StateContext)
   const [descriptionView, handleDescriptionView] = useState<string | undefined>(projects[0].name)
 
@@ -68,7 +74,7 @@ function AnimateProjectView({ projects, onHoverEnter, onHoverLeave }: AnimatePro
                 link={path}
                 onHoverEnter={() => descriptionToggle(name)}
                 onHoverLeave={() => descriptionToggle()}
-                onClick={() => setProjectView(false)}
+                onClick={() => (onClick ? onClick() : null)}
               />
             </ul>
           )
