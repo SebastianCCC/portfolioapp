@@ -48,6 +48,7 @@ const NavBarItems = ({
       paddingTop: 8,
       transition: {
         opacity: { duration: 0.5 },
+        delay: 0.5,
       },
     },
     closed: {
@@ -56,6 +57,7 @@ const NavBarItems = ({
       paddingTop: 0,
       transition: {
         opacity: { duration: 0.1 },
+        delay: 0.2,
       },
     },
   }
@@ -85,7 +87,7 @@ const NavBarItems = ({
               animate='open'
               exit='closed'
               variants={variants}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ duration: 0.8 }}
               className='dark:text-sec_addition'
             >
               {description}
