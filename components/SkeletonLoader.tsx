@@ -21,7 +21,7 @@ function SkeletonLoader({
           <div className='w-3/5 h-4 bg-white dark:bg-additional absolute bottom-14 z-10 rounded-md mx-4' />
         </div>
       ) : (
-        <div className='relative z-10 w-full h-full dark:border-tertiary/75 border-secondary/70 border rounded-md'>
+        <div className='relative z-10 w-full h-full dark:border-tertiary/75 border-secondary/70 border-[0.5px] rounded-md'>
           <div
             className={`w-full h-full rounded-md ${
               collapsed ? 'opacity-80 xSmall:opacity-40' : 'opacity-40'

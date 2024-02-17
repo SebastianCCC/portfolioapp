@@ -71,7 +71,7 @@ const PreviewCard = ({
       >
         {id === 'apps' ? (
           <Link href={`${!!href ? href + '/' : ''}${id || ''}`} rel='noopener noreferrer'>
-            <div className='bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border rounded-md cursor-pointer flex flex-col items-center justify-center py-12 select-none'>
+            <div className='bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border-[0.5px] rounded-md cursor-pointer flex flex-col items-center justify-center py-12 select-none'>
               <div className='scale-125'>
                 <WorkIcon />
               </div>
