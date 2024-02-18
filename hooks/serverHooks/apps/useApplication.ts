@@ -4,6 +4,7 @@ import { getApplications } from '../../../services/applicationService'
 import { Firestore } from '../../../types/Firestore'
 
 type Schemas = Firestore['schemas']
+type Work = Schemas['Work'][]
 
 export const callApplications = async (
   db: FirestoreDB,
@@ -13,17 +14,17 @@ export const callApplications = async (
 ) => {
   let loading = false
   let error: boolean | string = false
-  let apps: Schemas['Work'][] = []
+  let apps: Work = []
 
   const applications = async () => {
     loading = true
     const applications = await getApplications(db, collectionPath, fetchLimit)
 
     if (!('error' in applications)) {
-      readMoreCard ? apps.push(readMoreCard) : null
       applications.forEach((doc) => {
         apps.push({ dId: doc.id, ...doc.data() })
       })
+      readMoreCard ? apps.push(readMoreCard) : null
       loading = false
     } else {
       error = applications.message
