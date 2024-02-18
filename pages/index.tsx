@@ -99,7 +99,7 @@ export default function Home({ work }: { work: Schemas['Work'][] }) {
           className='flex flex-col xl:flex-row justify-between items-start xl:items-center'
         >
           <p className='xl:text-[17px] mt-4 mb-2'>
-            Here you will find a list of my projects in detail, click any project to view it.
+            Latest and greatest in the collection, why not take a look?
           </p>
         </motion.div>
         <div className='no-scrollbar -mx-4 pl-4 lg:m-0 lg:p-0 overflow-y-hidden lg:overflow-visible'>
