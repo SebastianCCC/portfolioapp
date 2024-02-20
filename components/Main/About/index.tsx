@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
-import { RiStarHalfLine } from 'react-icons/ri'
+import { useState } from 'react'
+import getWindowSize from '../../../utils/getWindowSize'
 import HeaderTitles from '../../Animate/Titles'
 import avatarImage from './/images/Sebastian.png'
-import { MailIcon } from './images'
-import { useState } from 'react'
 
-const About = ({ title, mail }) => {
+type AboutProps = {
+  title: string
+}
+
+const About = ({ title }: AboutProps) => {
   const [isShown, setIsShown] = useState(false)
+  const { width } = getWindowSize()
 
   const variants = {
     open: {
@@ -16,17 +19,17 @@ const About = ({ title, mail }) => {
       y: 0,
     },
     closed: {
-      y: typeof window !== 'undefined' && window.innerWidth >= 1024 ? 0 : 50,
+      y: width ?? 0 >= 1024 ? 0 : 50,
     },
   }
 
   return (
-    <section id="about" className="text-black dark:text-sec_addition xl:p-4 mt-40 w-full">
+    <section id='about' className='text-black dark:text-sec_addition xl:p-4 mt-40 w-full'>
       <HeaderTitles title={title} />
-      <div className="w-full relative">
-        <div className="grain sm:left-[-150px]" />
-        <div className="flex flex-col mt-4 md:flex-row-reverse justify-center items-start">
-          <div className="w-full md:w-3/4 lg:w-1/2">
+      <div className='w-full relative'>
+        <div className='grain sm:left-[-150px]' />
+        <div className='flex flex-col mt-4 md:flex-row-reverse justify-center items-start'>
+          <div className='w-full md:w-3/4 lg:w-1/2'>
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: '100%' }}
@@ -36,19 +39,19 @@ const About = ({ title, mail }) => {
                 delay: 0.2,
                 duration: 1.5,
               }}
-              className="relative select-none pointer-events-none h-[357px]"
+              className='relative select-none pointer-events-none h-[357px]'
             >
               <Image
-                sizes="100vw"
+                sizes='100vw'
                 fill
                 src={avatarImage}
                 alt={'A Photo of me'}
-                className="object-cover rounded-md"
+                className='object-cover rounded-md'
               />
             </motion.div>
           </div>
-          <div className="w-full mr-10 lg:p-0 text-center sm:text-left">
-            <h3 className="uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3">Who am I?</h3>
+          <div className='w-full mr-10 lg:p-0 text-center sm:text-left'>
+            <h3 className='uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3'>Who am I?</h3>
             <motion.p
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -58,7 +61,7 @@ const About = ({ title, mail }) => {
                 delay: 0.2,
                 duration: 3,
               }}
-              className="text-base lg:text-[18px] leading-loose"
+              className='text-base lg:text-[18px] leading-loose'
             >
               I am Sebastian Christopher, I&apos;m the guy that gets excited over new tech, and the
               guy who enjoys every step of the way. I&apos;ve always enjoyed being creative, and at
@@ -66,7 +69,7 @@ const About = ({ title, mail }) => {
               I was hooked on developing.
               <>
                 <motion.span
-                  initial="closed"
+                  initial='closed'
                   animate={isShown ? 'open' : 'closed'}
                   variants={variants}
                   transition={{
@@ -82,7 +85,7 @@ const About = ({ title, mail }) => {
                   development started.
                 </motion.span>
                 <motion.span
-                  initial="closed"
+                  initial='closed'
                   animate={isShown ? 'open' : 'closed'}
                   variants={variants}
                   transition={{
@@ -97,7 +100,7 @@ const About = ({ title, mail }) => {
                 </motion.span>
               </>
             </motion.p>
-            <motion.div layout className="z-10 lg:hidden">
+            <motion.div layout className='z-10 lg:hidden'>
               <motion.button
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -108,7 +111,7 @@ const About = ({ title, mail }) => {
                   duration: 1.5,
                 }}
                 onClick={() => setIsShown(!isShown)}
-                className="dark:text-white mt-2 rounded"
+                className='dark:text-white mt-2 rounded'
               >
                 {isShown ? 'Read Less' : 'Read More'}
               </motion.button>

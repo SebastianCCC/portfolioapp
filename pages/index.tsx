@@ -118,7 +118,7 @@ export default function Home({ work }: { work: Schemas['Work'][] }) {
           </AnimatePreviewCard>
         </div>
       </section>
-      <About title='About Me' mail='Contact Me' />
+      <About title='About Me' />
       <ComStack title='Tech i enjoy' />
     </>
   )
