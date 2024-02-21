@@ -7,7 +7,7 @@ import HeaderTitles from '../../components/Animate/Titles'
 import { animation } from '../../components/Animation/AnimateInputs'
 import ContactForm from '../../components/Contact/ContactForm'
 import HandleFormMessages from '../../components/Contact/HandleFormMessages'
-import SCConfetti from '../../components/Contact/SCConfetti'
+import Confetti from '../../components/Contact/Confetti'
 import { useContact } from '../../hooks/contact/useContact'
 import { schema } from '../../schema/ContactSchema'
 import { contact } from '../../components/Contact/contactInputs'
@@ -44,9 +44,9 @@ const Contact = () => {
       <Head>
         <title>Seechris - Contact</title>
       </Head>
-      <div className="pt-28 xl:p-4">
-        <HeaderTitles title="Contact" />
-        <div className="flex flex-col mt-[26px] md:w-[90%] xl:w-[85%] 2xl:w-2/3 m-auto">
+      <div className='pt-28 xl:p-4'>
+        <HeaderTitles title='Contact' />
+        <div className='flex flex-col mt-[26px] md:w-[90%] xl:w-[85%] 2xl:w-2/3 m-auto'>
           <motion.h1
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -56,7 +56,7 @@ const Contact = () => {
               delay: 0.2,
               duration: 2,
             }}
-            className="xl:text-[17px] lg:mr-20"
+            className='xl:text-[17px] lg:mr-20'
           >
             Any cool projects in mind please share. Or if it&apos;s for a chat that&apos;s cool too.
           </motion.h1>
@@ -64,11 +64,11 @@ const Contact = () => {
             {!success && !error && (
               <motion.form
                 variants={animation().container}
-                initial="hidden"
-                animate="show"
-                exit="exit"
-                id="form"
-                className="w-full mt-20"
+                initial='hidden'
+                animate='show'
+                exit='exit'
+                id='form'
+                className='w-full mt-20'
                 onSubmit={handleSubmit(onSubmit)}
               >
                 <ContactForm
@@ -78,7 +78,7 @@ const Contact = () => {
                   animation={animation}
                 />
                 {Boolean(Object.keys(errors).length) && (
-                  <p className="dark:text-primary/70 w-full select-none tracking-[2px]">
+                  <p className='dark:text-primary/70 w-full select-none tracking-[2px]'>
                     {errors.firstName?.message ||
                       errors.email?.message ||
                       errors.subject?.message ||
@@ -96,12 +96,12 @@ const Contact = () => {
                       duration: 0.7,
                     },
                   }}
-                  type="submit"
-                  form="form"
-                  className="flex items-center mt-4 text-md"
+                  type='submit'
+                  form='form'
+                  className='flex items-center mt-4 text-md'
                 >
-                  <span className="mr-1">Send it</span>
-                  <div className="dark:text-tertiary -rotate-45">
+                  <span className='mr-1'>Send it</span>
+                  <div className='dark:text-tertiary -rotate-45'>
                     <Sendicon />
                   </div>
                 </motion.button>
@@ -111,7 +111,7 @@ const Contact = () => {
           {(success || error) && <HandleFormMessages message={formMessage()} />}
         </div>
       </div>
-      {success && <SCConfetti />}
+      {success && <Confetti />}
     </>
   )
 }
