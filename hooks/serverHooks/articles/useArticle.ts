@@ -2,11 +2,13 @@ import { getArticlesByUsername, getReactionsById } from '../../../services/forum
 import { Forum } from '../../../types/Forum'
 
 type Schemas = Forum['schemas']
+type Articles = Schemas['Article'][]
+type ArticlesWithLikes = { likes: number }[] & Articles
 
 export const callArticlesByUsername = async () => {
   let loading = false
   let error: boolean | string = false
-  let articles: Schemas['Article'][] = []
+  let articles: Articles = []
 
   const articlesByUsername = async () => {
     loading = true
@@ -25,10 +27,10 @@ export const callArticlesByUsername = async () => {
   return { error, loading, articles }
 }
 
-export const callArticlesReactionsById = async (articles: Schemas['Article'][]) => {
+export const callArticlesReactionsById = async (articles: Articles) => {
   let loading = false
   let error: boolean | string = false
-  let articlesWithLikes: Schemas['Article'][] = []
+  let articlesWithLikes: ArticlesWithLikes = []
 
   const reactionsById = async () => {
     loading = true

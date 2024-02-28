@@ -2,11 +2,12 @@ import { Dribbble } from '../../../types/Dribbble'
 import { getShots } from '../../../services/dribbbleService'
 
 type Schemas = Dribbble['schemas']
+type Shots = Schemas['Shot'][]
 
 export const callDribbbleShots = async () => {
   let loading = false
   let error: boolean | string = false
-  let shots: Schemas['Shot'][] = []
+  let shots: Shots = []
 
   const dribbbleShots = async () => {
     loading = true
