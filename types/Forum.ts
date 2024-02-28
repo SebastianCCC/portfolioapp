@@ -28,7 +28,6 @@ export interface Forum {
       body_html: string
       body_markdown: string
       user: Forum['schemas']['User']
-      likes?: number
     }
 
     User: {
