@@ -49,7 +49,7 @@ export interface Forum {
 
     ArticleCounts: {
       category: string
-      count: number
+      count?: number
     }
   }
 }

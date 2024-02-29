@@ -3,7 +3,8 @@ import { Forum } from '../../../types/Forum'
 
 type Schemas = Forum['schemas']
 type Articles = Schemas['Article'][]
-type ArticlesWithLikes = { likes: number }[] & Articles
+type ArticleCounts = Schemas['ArticleCounts']
+type ArticlesWithLikes = { likes: ArticleCounts }[] & Articles
 
 export const callArticlesByUsername = async () => {
   let loading = false
@@ -43,7 +44,7 @@ export const callArticlesReactionsById = async (articles: Articles) => {
         )[0]
         articlesWithLikes.push({
           ...articles[index],
-          likes: likes.count,
+          likes,
         })
 
         loading = false
@@ -59,6 +60,6 @@ export const callArticlesReactionsById = async (articles: Articles) => {
   return {
     error,
     loading,
-    articlesWithLikes: articlesWithLikes.sort((a, b) => (b.likes || 0) - (a.likes || 0)),
+    articlesWithLikes: articlesWithLikes.sort((a, b) => (b.likes.count || 0) - (a.likes.count || 0)),
   }
 }
