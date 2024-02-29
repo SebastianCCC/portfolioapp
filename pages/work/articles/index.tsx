@@ -9,6 +9,9 @@ import {
 import { Forum } from '../../../types/Forum'
 
 type Schemas = Forum['schemas']
+type Articles = Schemas['Article'][]
+type ArticleCounts = Schemas['ArticleCounts']
+type ArticlesWithLikes = Articles & { likes: ArticleCounts }[]
 
 export async function getStaticProps() {
   const { articles } = await callArticlesByUsername()
@@ -22,7 +25,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Articles({ articles }: { articles: Schemas['Article'][] }) {
+export default function Articles({ articles }: { articles: ArticlesWithLikes }) {
   return (
     <>
       <div className='pt-28 xl:p-4'>
