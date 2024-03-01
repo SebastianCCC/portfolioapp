@@ -43,7 +43,7 @@ export default function Articles({ articles }: { articles: ArticlesWithLikes }) 
           Here you will find all of my articles in detail, click any article to view it.
         </motion.p>
         <AnimatePreviewCard>
-          {articles.map(({ title, tags, cover_image, url, edited_at, id }) => (
+          {articles.map(({ title, tags, cover_image, url, created_at, id }) => (
             <PreviewCard
               collapsed={true}
               name={title}
@@ -51,7 +51,7 @@ export default function Articles({ articles }: { articles: ArticlesWithLikes }) 
               img={cover_image}
               key={id}
               href={url}
-              endDate={edited_at}
+              endDate={created_at}
               externalLink={true}
             />
           ))}
