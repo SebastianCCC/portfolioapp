@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   darkMode: 'class',
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -29,10 +31,9 @@ module.exports = {
         pc: '1440px',
         xSmall: '510px',
       },
-      dropShadow: {
-        glow: ['0 0px 20px rgba(255,255, 255, 0.35)', '0 0px 65px rgba(255, 255,255, 0.2)'],
-      },
     },
   },
   plugins: [],
 }
+
+export default config
