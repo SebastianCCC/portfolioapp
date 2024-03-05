@@ -23,13 +23,6 @@ input[type='password'],
 }
 
 @layer components {
-  .text-gradient-b {
-    @apply bg-gradient-to-b from-[#8F1560] to-[#253269];
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-  }
   .bg-gradient-d-r {
     @apply bg-gradient-to-r from-additional via-transparent to-additional;
   }
