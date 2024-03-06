@@ -31,11 +31,11 @@ export default function AnimatePreviewCard({ children }) {
   }
   return (
     <motion.div
-      initial="hidden"
-      whileInView="show"
+      initial='hidden'
+      whileInView='show'
       variants={container}
       viewport={{ once: true }}
-      className={`grid w-full gap-4 py-4 ${projectPathStyles()}`}
+      className={`grid gap-4 py-4 ${projectPathStyles()}`}
     >
       {children}
     </motion.div>
