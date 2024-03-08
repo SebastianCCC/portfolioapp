@@ -1,5 +1,4 @@
 import { Firestore as FirestoreDB } from 'firebase/firestore'
-import { ReadMoreCardProps } from '../../../components/Work/readMoreCardData'
 import { getApplications } from '../../../services/applicationService'
 import { Firestore } from '../../../types/Firestore'
 
@@ -10,8 +9,7 @@ export const callApplications = async (
   db: FirestoreDB,
   collectionPath: string,
   fetchLimit: number,
-  readMoreCard?: ReadMoreCardProps,
-) => {
+): Promise<{ error: boolean | string; loading: boolean; apps: Work }> => {
   let loading = false
   let error: boolean | string = false
   let apps: Work = []
@@ -24,7 +22,6 @@ export const callApplications = async (
       applications.forEach((doc) => {
         apps.push({ dId: doc.id, ...doc.data() })
       })
-      readMoreCard ? apps.push(readMoreCard) : null
       loading = false
     } else {
       error = applications.message

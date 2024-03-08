@@ -6,15 +6,18 @@ import { MouseEvent, useRef, useState } from 'react'
 import { DATE_FORMAT_DA } from '../../config'
 import { getColorFromImage } from '../../utils/getColorFromImage'
 import { rgbToHex } from '../../utils/rgbToHex'
-import { WorkIcon } from '../Links/images'
+import { addOpacity } from '../../utils/setColorOpacity'
+import { GroupIcon, UserIcon } from '../Links/images'
 import SkeletonLoader from '../SkeletonLoader'
+import { Sendicon } from '../../assets'
 
 type PreviewCardProps = {
   name: string
   role?: string | string[] | null
   img?: string | null
+  groupProject?: boolean
   id?: string
-  href: string
+  href?: string
   externalLink?: boolean
   endDate: Date | string | number | null
   collapsed?: boolean
@@ -24,6 +27,7 @@ const PreviewCard = ({
   name,
   role,
   img,
+  groupProject,
   id,
   href,
   externalLink,
@@ -54,7 +58,7 @@ const PreviewCard = ({
 
   return (
     <motion.div
-      className='relative rounded-md overflow-hidden'
+      className='relative overflow-hidden rounded-md @container'
       style={{ translateX: x, translateY: y, transition: 'transform 0.5s ease-out' }}
       initial={fadeIn.hidden}
       whileInView={fadeIn.show}
@@ -67,52 +71,58 @@ const PreviewCard = ({
     >
       <motion.div
         variants={fadeIn}
-        className={`w-full ${collapsed ? 'h-[220px] xSmall:h-[380px]' : 'h-[380px]'}`}
+        data-collapsed={collapsed || null}
+        className='h-[300px] w-full data-[collapsed]:h-[220px] data-[collapsed]:xSmall:h-[325px] data-[collapsed]:xSmall:@sm:h-[380px]'
       >
-        {id === 'apps' ? (
-          <Link href={`${!!href ? href + '/' : ''}${id || ''}`} rel='noopener noreferrer'>
-            <div className='bg-secondary/50 dark:bg-sec_tertiary w-full h-full dark:border-tertiary/50 border-secondary/70 border-[0.5px] rounded-md cursor-pointer flex flex-col items-center justify-center py-12 select-none'>
-              <div className='scale-125'>
-                <WorkIcon />
+        <SkeletonLoader
+          loaded={loaded}
+          projectColor={hexColor}
+          backgroundImage={
+            <Image
+              ref={ref}
+              fill
+              src={img || ''}
+              alt={'Project: ' + name}
+              className='object-cover'
+              onLoad={() => setLoaded(true)}
+            />
+          }
+        >
+          <Link
+            href={`${!!href ? href + '/' : ''}${id || ''}`}
+            target={`${!!externalLink ? '_blank' : '_self'}`}
+            rel='noopener noreferrer'
+            className='absolute inset-0'
+          >
+            <div className='flex h-full w-full select-none flex-col justify-between'>
+              <div className='flex items-center rounded-t-md px-4 py-3 text-white'>
+                {endDate ? (
+                  <p className='mr-2 rounded-md bg-projectview_dark p-2 text-xs leading-3'>
+                    {format(new Date(endDate), DATE_FORMAT_DA)}
+                  </p>
+                ) : null}
+                <div className='rounded-md bg-projectview_dark p-1 text-xs'>
+                  {groupProject ? <GroupIcon /> : <UserIcon />}
+                </div>
               </div>
-              <h3 className='text-md font-bold mt-2'>{name}</h3>
-              <p className='opacity-80'>{role}</p>
+              <div
+                style={{ backgroundColor: addOpacity(hexColor, 25) }}
+                data-collapsed={collapsed || null}
+                className='grid grid-cols-4 rounded-b-md px-4 py-3 text-white backdrop-blur-[8px]'
+              >
+                <div className='col-span-3'>
+                  <h3 className='truncate text-base font-bold xSmall:w-full'>{name}</h3>
+                  <p className='truncate text-sm opacity-80 xSmall:w-full'>{role}</p>
+                </div>
+                <div className='h-fit w-fit place-self-center justify-self-end rounded-md bg-projectview_dark/25 p-1 backdrop-blur-[8px]'>
+                  <div className='-rotate-45 scale-75 text-white'>
+                    <Sendicon />
+                  </div>
+                </div>
+              </div>
             </div>
           </Link>
-        ) : (
-          <SkeletonLoader
-            collapsed={collapsed}
-            loaded={loaded}
-            projectColor={hexColor}
-            backgroundImage={
-              <Image
-                ref={ref}
-                fill
-                src={img || ''}
-                alt={'Project: ' + name}
-                className='object-cover'
-                onLoad={() => setLoaded(true)}
-              />
-            }
-          >
-            <Link
-              href={`${!!href ? href + '/' : ''}${id || ''}`}
-              target={`${!!externalLink ? '_blank' : '_self'}`}
-              rel='noopener noreferrer'
-              className='absolute inset-0'
-            >
-              <div
-                className={`px-4 flex flex-col ${
-                  collapsed ? 'py-6 xSmall:py-12' : 'py-12'
-                } justify-end xSmall:items-center xSmall:text-center w-full h-full text-white select-none`}
-              >
-                {endDate ? <p>{format(new Date(endDate), DATE_FORMAT_DA)}</p> : null}
-                <h3 className='text-md font-bold xSmall:w-full truncate'>{name}</h3>
-                <p className='opacity-80 xSmall:w-full truncate'>{role}</p>
-              </div>
-            </Link>
-          </SkeletonLoader>
-        )}
+        </SkeletonLoader>
       </motion.div>
     </motion.div>
   )
