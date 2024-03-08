@@ -24,11 +24,11 @@ const About = ({ title }: AboutProps) => {
   }
 
   return (
-    <section id='about' className='text-black dark:text-sec_addition xl:p-4 mt-40 w-full'>
+    <section id='about' className='mt-40 w-full text-black dark:text-sec_addition xl:p-4'>
       <HeaderTitles title={title} />
-      <div className='w-full relative'>
+      <div className='relative w-full'>
         <div className='grain sm:left-[-150px]' />
-        <div className='flex flex-col mt-4 md:flex-row-reverse justify-center items-start'>
+        <div className='mt-4 flex flex-col items-start justify-center md:flex-row-reverse'>
           <div className='w-full md:w-3/4 lg:w-1/2'>
             <motion.div
               initial={{ width: 0 }}
@@ -39,19 +39,19 @@ const About = ({ title }: AboutProps) => {
                 delay: 0.2,
                 duration: 1.5,
               }}
-              className='relative select-none pointer-events-none h-[357px]'
+              className='pointer-events-none relative h-[357px] select-none'
             >
               <Image
                 sizes='100vw'
                 fill
                 src={avatarImage}
                 alt={'A Photo of me'}
-                className='object-cover rounded-md'
+                className='rounded-md object-cover'
               />
             </motion.div>
           </div>
-          <div className='w-full mr-10 lg:p-0 text-center sm:text-left'>
-            <h3 className='uppercase text-base dark:text-tertiary mt-7 md:mt-0 mb-3'>Who am I?</h3>
+          <div className='mr-10 w-full text-center sm:text-left lg:p-0'>
+            <h3 className='mb-3 mt-7 text-base uppercase dark:text-tertiary md:mt-0'>Who am I?</h3>
             <motion.p
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -61,7 +61,7 @@ const About = ({ title }: AboutProps) => {
                 delay: 0.2,
                 duration: 3,
               }}
-              className='text-base lg:text-[18px] leading-loose'
+              className='text-base leading-loose 2xl:text-[18px]'
             >
               I am Sebastian Christopher, I&apos;m the guy that gets excited over new tech, and the
               guy who enjoys every step of the way. I&apos;ve always enjoyed being creative, and at
@@ -111,7 +111,7 @@ const About = ({ title }: AboutProps) => {
                   duration: 1.5,
                 }}
                 onClick={() => setIsShown(!isShown)}
-                className='dark:text-white mt-2 rounded'
+                className='mt-2 rounded dark:text-white'
               >
                 {isShown ? 'Read Less' : 'Read More'}
               </motion.button>

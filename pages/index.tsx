@@ -5,15 +5,15 @@ import ComStack from '../components/ComStack'
 import GradientCard from '../components/GradientCard'
 import About from '../components/Main/About'
 import PreviewCard from '../components/Work/PreviewCard'
-import { readMoreCard } from '../components/Work/readMoreCardData'
 import db from '../firebase'
 import { callApplications } from '../hooks/serverHooks/apps/useApplication'
 import { Firestore } from '../types/Firestore'
 
 type Schemas = Firestore['schemas']
+type Work = Schemas['Work'][]
 
 export async function getStaticProps() {
-  const { apps } = await callApplications(db, 'work', 3, readMoreCard)
+  const { apps } = await callApplications(db, 'work', 3)
 
   return {
     props: {
@@ -23,7 +23,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ work }: { work: Schemas['Work'][] }) {
+export default function Home({ work }: { work: Work }) {
   const name = 'Software engineer with a passion.'
   const desc =
     "Hi, i'm Sebastian Christopher, a full time frontend developer that always gives it 100%"
@@ -55,13 +55,13 @@ export default function Home({ work }: { work: Schemas['Work'][] }) {
   }
   return (
     <>
-      <div className='flex flex-col relative overflow-hidden'>
+      <div className='relative flex flex-col overflow-hidden'>
         <section className='mt-32 xl:mt-56 xl:p-4'>
           <motion.h1
             variants={containerTitle}
             initial='hidden'
             animate='show'
-            className='text-lg md:text-2xl font-bold'
+            className='text-lg font-bold md:text-2xl'
           >
             {namearr.map((letter, i) => (
               <motion.span variants={item} key={i}>
@@ -74,7 +74,7 @@ export default function Home({ work }: { work: Schemas['Work'][] }) {
               variants={containerDesc}
               initial='hidden'
               animate='show'
-              className='dark:text-sec_addition text-base xl:text-[17px] p-5'
+              className='p-5 text-base dark:text-sec_addition xl:text-[17px]'
             >
               {descarr.map((letter, i) => (
                 <motion.span variants={item} key={i}>
@@ -96,20 +96,21 @@ export default function Home({ work }: { work: Schemas['Work'][] }) {
             delay: 0.2,
             duration: 2,
           }}
-          className='flex flex-col xl:flex-row justify-between items-start xl:items-center'
+          className='flex flex-col items-start justify-between xl:flex-row xl:items-center'
         >
-          <p className='xl:text-[17px] mt-4 mb-2'>
+          <p className='mb-2 mt-4 xl:text-[17px]'>
             Latest and greatest in the collection, why not take a look?
           </p>
         </motion.div>
-        <div className='no-scrollbar -mx-4 pl-4 lg:m-0 lg:p-0 overflow-y-hidden lg:overflow-visible'>
+        <div className='no-scrollbar -mx-4 overflow-y-hidden pl-4 lg:m-0 lg:overflow-visible lg:p-0'>
           <AnimatePreviewCard>
-            {work.map(({ name, role, previewImage, dId, endDate }) => (
+            {work.map(({ name, role, previewImage, isgroup, dId, endDate }) => (
               <PreviewCard
                 key={dId}
                 name={name}
                 role={role}
                 img={previewImage}
+                groupProject={isgroup}
                 id={dId}
                 href='work'
                 endDate={endDate ? endDate.seconds * 1000 : null}

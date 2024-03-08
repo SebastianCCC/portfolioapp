@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
-export default function AnimatePreviewCard({ children }) {
+export default function AnimatePreviewCard({ children }: { children: React.ReactNode }) {
   const router = useRouter()
   const path = router.pathname
 
@@ -12,9 +12,9 @@ export default function AnimatePreviewCard({ children }) {
       case '/work/articles':
         return 'grid-cols-1 2xl:grid-cols-2 max-w-[800px] 2xl:max-w-full m-auto'
       case '/work/apps':
-        return 'grid-cols-1 w-full xSmall:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+        return 'grid-cols-1 w-full xSmall:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4'
       case '/':
-        return 'w-[1112px] m-auto lg:w-full grid-cols-4 pr-4 lg:pr-0'
+        return 'w-[1112px] m-auto lg:w-full grid-cols-3 pr-4 lg:pr-0'
     }
   }
 
@@ -35,7 +35,7 @@ export default function AnimatePreviewCard({ children }) {
       whileInView='show'
       variants={container}
       viewport={{ once: true }}
-      className={`grid gap-4 py-4 ${projectPathStyles()}`}
+      className={`grid gap-4 py-4 2xl:gap-8 ${projectPathStyles()}`}
     >
       {children}
     </motion.div>

@@ -3,29 +3,20 @@ type SkeletonLoaderProps = {
   children: React.ReactNode
   backgroundImage: React.ReactNode
   projectColor: string
-  collapsed: boolean
 }
 
-function SkeletonLoader({
-  loaded,
-  children,
-  backgroundImage,
-  projectColor,
-  collapsed,
-}: SkeletonLoaderProps) {
+function SkeletonLoader({ loaded, children, backgroundImage, projectColor }: SkeletonLoaderProps) {
   return (
     <>
       {!loaded ? (
-        <div className='bg-secondary/50 dark:bg-sec_tertiary z-10 w-full h-full'>
-          <div className='w-4/5 h-4 bg-white dark:bg-additional absolute bottom-5 z-10 rounded-md mx-4' />
-          <div className='w-3/5 h-4 bg-white dark:bg-additional absolute bottom-14 z-10 rounded-md mx-4' />
+        <div className='z-10 h-full w-full bg-secondary/50 dark:bg-sec_tertiary'>
+          <div className='absolute bottom-5 z-10 mx-4 h-4 w-4/5 rounded-md bg-white dark:bg-additional' />
+          <div className='absolute bottom-14 z-10 mx-4 h-4 w-3/5 rounded-md bg-white dark:bg-additional' />
         </div>
       ) : (
-        <div className='relative z-10 w-full h-full dark:border-tertiary/75 border-secondary/70 border-[0.5px] rounded-md'>
+        <div className='relative z-10 h-full w-full rounded-md border-[0.5px] border-secondary/70 dark:border-tertiary/75'>
           <div
-            className={`w-full h-full rounded-md ${
-              collapsed ? 'opacity-80 xSmall:opacity-40' : 'opacity-40'
-            }`}
+            className='h-full w-full rounded-md opacity-40'
             style={{
               backgroundImage: `linear-gradient(to top, ${projectColor} 5%, rgba(0,0,0,0) 95%)`,
             }}
@@ -33,7 +24,7 @@ function SkeletonLoader({
           <div>{children}</div>
         </div>
       )}
-      <div className='select-none pointer-events-none'>{backgroundImage}</div>
+      <div className='pointer-events-none select-none'>{backgroundImage}</div>
     </>
   )
 }
