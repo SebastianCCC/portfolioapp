@@ -31,12 +31,12 @@ export default function Artwork({ artwork }: { artwork: Schemas['Shot'][] }) {
             delay: 0.2,
             duration: 1,
           }}
-          className='mt-4 mb-20 xl:text-[17px] max-w-[800px] 2xl:max-w-full m-auto'
+          className='m-auto mb-20 mt-4 max-w-[800px] xl:text-[17px] 2xl:max-w-full'
         >
           Here you will find all of my art in detail, click any artwork to view it.
         </motion.p>
         <AnimatePreviewCard>
-          {artwork.map(({ title, tags, images, html_url, id, updated_at }) => (
+          {artwork.map(({ title, tags, images, html_url, id, published_at }) => (
             <PreviewCard
               collapsed={true}
               name={title}
@@ -44,7 +44,7 @@ export default function Artwork({ artwork }: { artwork: Schemas['Shot'][] }) {
               img={images.hidpi}
               key={id}
               href={html_url}
-              endDate={updated_at}
+              endDate={published_at}
               externalLink={true}
             />
           ))}
