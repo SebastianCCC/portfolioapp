@@ -47,7 +47,7 @@ const ContactReply = () => {
           title='Contact'
           description='Send a reply to someone who has contacted you.'
         />
-        <div className='m-auto mt-[26px] flex flex-col md:w-[90%] xl:w-[85%] 2xl:w-2/3'>
+        <div className='m-auto flex flex-col md:w-[90%] xl:w-[85%] 2xl:w-2/3'>
           <AnimatePresence>
             {!success && !error && (
               <motion.form
