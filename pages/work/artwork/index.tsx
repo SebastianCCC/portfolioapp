@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
@@ -22,19 +21,10 @@ export default function Artwork({ artwork }: { artwork: Schemas['Shot'][] }) {
   return (
     <>
       <div className='pt-28 xl:p-4'>
-        <HeaderTitles title='Artwork' />
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            type: 'spring',
-            delay: 0.2,
-            duration: 1,
-          }}
-          className='m-auto mb-20 mt-4 max-w-[800px] xl:text-[17px] 2xl:max-w-full'
-        >
-          Here you will find all of my art in detail, click any artwork to view it.
-        </motion.p>
+        <HeaderTitles
+          title='Where my passion started'
+          description='Like what you see? Designed in either Photoshop or Zbrush, without the help of AI.'
+        />
         <AnimatePreviewCard>
           {artwork.map(({ title, tags, images, html_url, id, published_at }) => (
             <PreviewCard
@@ -45,7 +35,7 @@ export default function Artwork({ artwork }: { artwork: Schemas['Shot'][] }) {
               key={id}
               href={html_url}
               endDate={published_at}
-              externalLink={true}
+              externalLink={!!html_url}
             />
           ))}
         </AnimatePreviewCard>

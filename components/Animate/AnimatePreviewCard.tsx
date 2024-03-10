@@ -14,7 +14,7 @@ export default function AnimatePreviewCard({ children }: { children: React.React
       case '/work/apps':
         return 'grid-cols-1 w-full xSmall:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4'
       case '/':
-        return 'w-[1112px] m-auto lg:w-full grid-cols-3 pr-4 lg:pr-0'
+        return 'w-[1012px] m-auto lg:w-full grid-cols-3 pr-4 lg:pr-0'
     }
   }
 

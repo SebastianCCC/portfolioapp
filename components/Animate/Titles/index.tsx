@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 
 type HeaderTitlesProps = {
   title: string
+  description?: string
 }
 
-const HeaderTitles = ({ title }: HeaderTitlesProps) => {
+const HeaderTitles = ({ title, description }: HeaderTitlesProps) => {
   return (
     <motion.header
       initial={{ x: -50, opacity: 0 }}
@@ -12,23 +13,13 @@ const HeaderTitles = ({ title }: HeaderTitlesProps) => {
       viewport={{ once: true }}
       transition={{
         type: 'spring',
-        delay: 0.5,
-        duration: 1.5,
+        delay: 0.2,
+        duration: 1,
       }}
-      className='flex items-center text-base tracking-[2px] dark:text-tertiary'
+      className='my-10 text-center'
     >
-      <h2 className='flex-shrink-0 pr-2 uppercase'>{title}</h2>
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: '100%' }}
-        viewport={{ once: true }}
-        transition={{
-          type: 'spring',
-          delay: 1,
-          duration: 3,
-        }}
-        className='h-[1px] bg-additional dark:bg-tertiary'
-      />
+      <h2 className='m-auto mb-2 max-w-screen-xSmall text-md tracking-[1px]'>{title}</h2>
+      <p className='m-auto max-w-screen-md text-sm tracking-[2px] opacity-80'>{description}</p>
     </motion.header>
   )
 }
