@@ -65,18 +65,16 @@ const NavBarItems = ({
   return (
     <LinkItem link={link}>
       <li
-        className={`${style} group dark:hover:text-white dark:text-sec_addition text-additional cursor-pointer ${
-          !style && 'xl:py-0 py-[15px]'
-        } text-sm`}
+        data-style={!!style}
+        className={`${style} group cursor-pointer text-sm text-additional data-[style=false]:py-[15px]
+           dark:text-sec_addition dark:hover:text-white data-[style=false]:xl:py-0`}
         onMouseEnter={onHoverEnter}
         onMouseLeave={onHoverLeave}
         onClick={onClick}
       >
         <div className='flex items-center'>
           {icon && <div className={`${styleIcon} rounded p-1`}>{icon}</div>}
-          <h2
-            className={`dark:group-hover:text-white text-center ml-2 font-extrabold capitalize tracking-[1px]`}
-          >
+          <h2 className='ml-2 text-center font-extrabold capitalize tracking-[1px] dark:group-hover:text-white'>
             {title}
           </h2>
         </div>

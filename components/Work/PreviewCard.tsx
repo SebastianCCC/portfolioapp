@@ -90,7 +90,7 @@ const PreviewCard = ({
         >
           <Link
             href={`${!!href ? href + '/' : ''}${id || ''}`}
-            target={`${!!externalLink ? '_blank' : '_self'}`}
+            target={`${externalLink ? '_blank' : '_self'}`}
             rel='noopener noreferrer'
             className='absolute inset-0'
           >
@@ -115,7 +115,10 @@ const PreviewCard = ({
                   <p className='truncate text-sm opacity-80 xSmall:w-full'>{role}</p>
                 </div>
                 <div className='h-fit w-fit place-self-center justify-self-end rounded-md bg-projectview_dark/25 p-1 backdrop-blur-[8px]'>
-                  <div className='-rotate-45 scale-75 text-white'>
+                  <div
+                    data-external={externalLink || null}
+                    className='scale-75 text-white data-[external]:-rotate-45'
+                  >
                     <Sendicon />
                   </div>
                 </div>

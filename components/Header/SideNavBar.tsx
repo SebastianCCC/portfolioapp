@@ -56,21 +56,21 @@ const SideNavBar = () => {
       className='hidden xl:block'
     >
       <div
-        className={`top-0 bottom-0 left-0 dark:bg-[#151515] bg-[#fdfdfd] min-h-screen fixed w-[288px] dark:border-tertiary/25 border-secondary/70 border-r`}
+        className={`fixed bottom-0 left-0 top-0 min-h-screen w-[288px] border-r border-secondary/70 bg-[#fdfdfd] dark:border-tertiary/25 dark:bg-[#151515]`}
       >
         <Link href='/'>
-          <div className='w-full flex justify-center p-4 py-11 cursor-pointer'>
+          <div className='flex w-full cursor-pointer justify-center p-4 py-11'>
             <LogoIconOutline />
           </div>
         </Link>
-        <nav className={`pb-5`}>
+        <nav className='pb-5'>
           <ul>
             {NavLinks.map(({ icon, title, link, handleEvent }) => {
               return (
                 !handleEvent?.mobileOnly && (
                   <div
                     key={title}
-                    className='first:border-t first:pt-7 even:pt-1 last:border-y last:py-7 last:mt-7 dark:border-tertiary/25 border-secondary/70 px-4'
+                    className='border-secondary/70 px-5 first:border-t first:pt-7 last:mt-7 last:border-y last:py-7 even:pt-1 dark:border-tertiary/25'
                   >
                     <NavBarItems
                       icon={icon}

@@ -32,15 +32,15 @@ export default function GradientCard({
         viewport={{ once: animateOnce }}
         className={
           checkBrowser() === 'firefox'
-            ? 'border dark:border-tertiary/25 border-secondary/70 rounded-md'
-            : `${bgGradient} from-secondary/70 dark:from-white/10 rounded-md p-[1px]`
+            ? 'rounded-md border border-secondary/70 dark:border-tertiary/25'
+            : `${bgGradient} rounded-md from-secondary/70 p-[1px] dark:from-white/10`
         }
       >
         <div
           className={
             checkBrowser() === 'firefox'
-              ? 'bg-projectview dark:bg-[#151515]/50 rounded-md'
-              : `${bgGradient} from-projectview to-white dark:from-projectview_dark dark:to-additional rounded-md`
+              ? 'rounded-md bg-projectview dark:bg-[#151515]/50'
+              : `${bgGradient} rounded-md from-projectview to-white dark:from-projectview_dark dark:to-additional`
           }
         >
           {children}
