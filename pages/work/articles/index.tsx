@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
@@ -29,19 +28,10 @@ export default function Articles({ articles }: { articles: ArticlesWithLikes }) 
   return (
     <>
       <div className='pt-28 xl:p-4'>
-        <HeaderTitles title='Articles' />
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            type: 'spring',
-            delay: 0.2,
-            duration: 1,
-          }}
-          className='mt-4 mb-20 xl:text-[17px] max-w-[800px] 2xl:max-w-full m-auto'
-        >
-          Here you will find all of my articles in detail, click any article to view it.
-        </motion.p>
+        <HeaderTitles
+          title='Articles are great'
+          description="The complete list of every article i've witten. I promise they are worth the read."
+        />
         <AnimatePreviewCard>
           {articles.map(({ title, tags, cover_image, url, created_at, id }) => (
             <PreviewCard
@@ -52,7 +42,7 @@ export default function Articles({ articles }: { articles: ArticlesWithLikes }) 
               key={id}
               href={url}
               endDate={created_at}
-              externalLink={true}
+              externalLink={!!url}
             />
           ))}
         </AnimatePreviewCard>

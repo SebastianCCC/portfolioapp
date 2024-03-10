@@ -7,9 +7,10 @@ import avatarImage from './/images/Sebastian.png'
 
 type AboutProps = {
   title: string
+  description?: string
 }
 
-const About = ({ title }: AboutProps) => {
+const About = ({ title, description }: AboutProps) => {
   const [isShown, setIsShown] = useState(false)
   const { width } = getWindowSize()
 
@@ -24,9 +25,9 @@ const About = ({ title }: AboutProps) => {
   }
 
   return (
-    <section id='about' className='mt-40 w-full text-black dark:text-sec_addition xl:p-4'>
-      <HeaderTitles title={title} />
-      <div className='relative w-full'>
+    <section id='about' className='mt-40 w-full xl:p-4'>
+      <HeaderTitles title={title} description={description} />
+      <div className='relative w-full text-black dark:text-sec_addition'>
         <div className='grain sm:left-[-150px]' />
         <div className='mt-4 flex flex-col items-start justify-center md:flex-row-reverse'>
           <div className='w-full md:w-3/4 lg:w-1/2'>
@@ -50,8 +51,7 @@ const About = ({ title }: AboutProps) => {
               />
             </motion.div>
           </div>
-          <div className='mr-10 w-full text-center sm:text-left lg:p-0'>
-            <h3 className='mb-3 mt-7 text-base uppercase dark:text-tertiary md:mt-0'>Who am I?</h3>
+          <div className='mr-10 mt-7 w-full text-center sm:text-left md:mt-0 lg:p-0'>
             <motion.p
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}

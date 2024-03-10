@@ -7,22 +7,24 @@ import { replaceRoute } from '../../utils/navigateToRoute'
 
 export const useUserLogin = () => {
   const { handleFormLoading } = useContext(StateContext)
-  const [error, handleError] = useState(false)
+  const [error, handleError] = useState<string | boolean>(false)
 
   const router = useRouter()
-
+  // @ts-ignore
   const onSubmit = async (values) => {
     handleFormLoading(true)
     let [res] = await Promise.allSettled([
       postUserLogin(values),
       new Promise((resolve) => setTimeout(resolve, 1500)),
     ])
-
+    // @ts-ignore
     if (!res.value.error) {
+      // @ts-ignore
       setCookies(res.value)
       replaceRoute('/', router)
       handleFormLoading(false)
     } else {
+      // @ts-ignore
       handleError(res.value.message)
       handleFormLoading(false)
     }

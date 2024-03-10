@@ -86,22 +86,10 @@ export default function Home({ work }: { work: Work }) {
         </section>
       </div>
       <section id='projects' className='my-28 pt-8 xl:p-4 2xl:my-44'>
-        <HeaderTitles title='Projects' />
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            type: 'spring',
-            delay: 0.2,
-            duration: 2,
-          }}
-          className='flex flex-col items-start justify-between xl:flex-row xl:items-center'
-        >
-          <p className='mb-2 mt-4 xl:text-[17px]'>
-            Latest and greatest in the collection, why not take a look?
-          </p>
-        </motion.div>
+        <HeaderTitles
+          title='Latest Projects'
+          description='Latest and greatest in the collection, so why not take a look?'
+        />
         <div className='no-scrollbar -mx-4 overflow-y-hidden pl-4 lg:m-0 lg:overflow-visible lg:p-0'>
           <AnimatePreviewCard>
             {work.map(({ name, role, previewImage, isgroup, dId, endDate }) => (
@@ -119,7 +107,7 @@ export default function Home({ work }: { work: Work }) {
           </AnimatePreviewCard>
         </div>
       </section>
-      <About title='About Me' />
+      <About title='About Me' description='And who am I? And what am I doing in Paris??' />
       <ComStack title='Tech i enjoy' />
     </>
   )

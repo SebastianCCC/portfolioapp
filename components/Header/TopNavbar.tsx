@@ -9,17 +9,16 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const ProjectLinks = () => {
   const router = useRouter()
-  return Projects.map(({ name, path, icon }, i) => {
+  return Projects.map(({ name, path, icon }) => {
     return (
-      <ul className="w-full" key={i}>
+      <ul className='w-full' key={name}>
         <Link href={path}>
           <div
-            className={`flex items-center justify-center min-w-fit p-4 dark:text-sec_addition text-tertiary/70 ${
-              router.pathname === path ? 'dark:text-white text-black/100' : ''
-            }`}
+            data-path={router.pathname === path || null}
+            className='flex min-w-fit items-center justify-center p-4 text-tertiary/70 data-[path]:text-black/100 dark:text-sec_addition data-[path]:dark:text-white sm:px-3'
           >
-            <div className="mr-2">{icon}</div>
-            <p className="text-sm capitalize tracking-[1px] font-extrabold">{name}</p>
+            <div className='mr-2'>{icon}</div>
+            <p className='text-sm font-extrabold capitalize tracking-[1px]'>{name}</p>
           </div>
         </Link>
       </ul>
@@ -70,18 +69,18 @@ const SideNavBar = () => {
   }
 
   return (
-    <div className="fixed xl:hidden w-full">
-      <div className="flex relative z-10 justify-between p-4 w-full items-center cursor-pointer dark:bg-additional/95 bg-white/90 border-b border-tertiary/25 backdrop-blur-[8px]">
-        <div className="flex items-center">
-          <div onClick={() => setIsOpen(true)} className="mr-4">
+    <div className='fixed w-full xl:hidden'>
+      <div className='relative z-10 flex w-full cursor-pointer items-center justify-between border-b border-tertiary/25 bg-white/90 p-4 backdrop-blur-[8px] dark:bg-additional/95'>
+        <div className='flex items-center'>
+          <div onClick={() => setIsOpen(true)} className='mr-4 sm:mr-2'>
             <MenuIcon />
           </div>
           <ThemeSwitch />
         </div>
-        <div className="hidden sm:flex items-center">
+        <div className='hidden items-center sm:flex'>
           <ProjectLinks />
         </div>
-        <Link href="/">
+        <Link href='/'>
           <div>
             <LogoIcon />
           </div>
@@ -90,11 +89,11 @@ const SideNavBar = () => {
       <AnimatePresence>
         {isVisible && (
           <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
+            initial='closed'
+            animate='open'
+            exit='closed'
             variants={variants}
-            className="sm:hidden no-scrollbar flex items-center overflow-auto dark:bg-additional/90 bg-white/80 border-b border-tertiary/25 backdrop-blur-[8px]"
+            className='no-scrollbar flex items-center overflow-auto border-b border-tertiary/25 bg-white/80 backdrop-blur-[8px] dark:bg-additional/90 sm:hidden'
           >
             <ProjectLinks />
           </motion.div>

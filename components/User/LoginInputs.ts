@@ -13,4 +13,4 @@ export const data = [
     registerid: 'password',
     to: 'right',
   },
-]
+] as const
