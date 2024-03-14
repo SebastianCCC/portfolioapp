@@ -8,7 +8,7 @@ import BurgerMenu from './Header/BurgerMenu'
 import SideNavBar from './Header/SideNavBar'
 import TopNavbar from './Header/TopNavbar'
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const { formLoading } = useContext(StateContext)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
@@ -26,18 +26,18 @@ const Layout = ({ children }) => {
           }`}
         </title>
       </Head>
-      <div id="root" className="flex flex-col xl:flex-row xl:flex-wrap h-screen">
+      <div id='root' className='flex h-screen flex-col xl:flex-row xl:flex-wrap'>
         {mounted && (
           <>
-            <header className="relative w-full xl:w-fit xl:min-w-[288px] top-0 z-[25]">
+            <header className='relative top-0 z-[25] w-full xl:w-fit xl:min-w-[288px]'>
               <>
                 <TopNavbar />
                 <BurgerMenu />
                 <SideNavBar />
               </>
             </header>
-            <main className="lg:container lg:mx-auto flex-1 p-4">{children}</main>
-            <footer className="min-w-full flex items-end">{<NavBottom />}</footer>
+            <main className='flex-1 p-4 lg:container lg:mx-auto'>{children}</main>
+            <footer className='flex min-w-full items-end'>{<NavBottom />}</footer>
           </>
         )}
       </div>
