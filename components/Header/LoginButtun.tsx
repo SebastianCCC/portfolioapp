@@ -29,7 +29,7 @@ const LoginButtun = ({ onClick }: LoginButtunProps) => {
 
   return (
     <>
-      <ul className='mb-4 px-1'>
+      <ul className='mb-4 xl:px-1'>
         <div onClick={onClick}>
           <NavBarItems
             title={token ? 'Logout' : 'Login'}
