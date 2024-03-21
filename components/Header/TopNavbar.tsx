@@ -70,7 +70,7 @@ const SideNavBar = () => {
 
   return (
     <div className='fixed w-full xl:hidden'>
-      <div className='relative z-10 flex w-full cursor-pointer items-center justify-between border-b border-tertiary/25 bg-white/90 p-4 backdrop-blur-[8px] dark:bg-additional/95'>
+      <div className='relative z-10 flex w-full cursor-pointer items-center justify-between border-b bg-white/90 p-4 backdrop-blur-[8px] dark:border-tertiary/25 dark:bg-additional/95'>
         <div className='flex items-center'>
           <div onClick={() => setIsOpen(true)} className='mr-4 sm:mr-2'>
             <MenuIcon />
@@ -93,7 +93,7 @@ const SideNavBar = () => {
             animate='open'
             exit='closed'
             variants={variants}
-            className='no-scrollbar flex items-center overflow-auto border-b border-tertiary/25 bg-white/80 backdrop-blur-[8px] dark:bg-additional/90 sm:hidden'
+            className='no-scrollbar flex items-center overflow-auto border-b bg-white/80 backdrop-blur-[8px] dark:border-tertiary/25 dark:bg-additional/90 sm:hidden'
           >
             <ProjectLinks />
           </motion.div>
