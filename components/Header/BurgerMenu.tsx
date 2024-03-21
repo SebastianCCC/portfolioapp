@@ -29,26 +29,26 @@ const BurgerMenu = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
+            initial='closed'
+            animate='open'
+            exit='closed'
             variants={variants}
-            className="fixed w-full dark:bg-additional bg-projectview min-h-screen p-4 backdrop-blur-[8px] xl:hidden"
+            className='fixed min-h-screen w-full bg-projectview p-4 backdrop-blur-[8px] dark:bg-additional xl:hidden'
           >
-            <div className="w-full">
-              <div onClick={() => setIsOpen(false)} className="dark:text-secondary text-additional">
+            <div className='w-full'>
+              <div onClick={() => setIsOpen(false)} className='text-additional dark:text-secondary'>
                 <ExitIcon />
               </div>
             </div>
-            <div className="flex flex-col my-12 md:max-w-[600px] lg:max-w-[800px] mx-auto">
-              <div className="dark:text-secondary text-additional m-4">
+            <div className='mx-auto my-12 flex flex-col md:max-w-[600px] lg:max-w-[800px]'>
+              <div className='m-4 text-additional dark:text-secondary'>
                 <LogoIcon />
               </div>
               <ul>
                 {NavLinks.map(({ title, icon, link, handleEvent }) => {
                   return (
                     !handleEvent?.pcOnly && (
-                      <div key={title} className="px-4 border-t border-tertiary/25">
+                      <div key={title} className='border-t px-4 dark:border-tertiary/25'>
                         <div onClick={() => setIsOpen(false)}>
                           <NavBarItems title={title} link={link} icon={icon} />
                         </div>
@@ -57,7 +57,7 @@ const BurgerMenu = () => {
                   )
                 })}
               </ul>
-              <div className="px-4 border-t border-tertiary/25">
+              <div className='border-t px-4 dark:border-tertiary/25'>
                 <div>
                   <LoginButtun onClick={() => setIsOpen(false)} />
                 </div>
