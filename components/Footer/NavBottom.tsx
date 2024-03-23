@@ -10,7 +10,7 @@ const NavBottom = () => {
         <div className='flex flex-col-reverse items-center justify-evenly p-8 sm:flex-row sm:p-5'>
           <ul className='flex items-center px-2'>
             {SocialLinks.map(({ soclink, title }) => (
-              <div key={title} className='px-4 py-1 text-base uppercase dark:text-sec_addition'>
+              <div key={title} className='px-4 py-1 text-base dark:text-sec_addition'>
                 <a
                   href={soclink}
                   target='_blank'
