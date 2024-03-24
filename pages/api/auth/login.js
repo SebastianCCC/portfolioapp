@@ -1,5 +1,5 @@
 import { auth } from '../../../firebase'
-import { callUserLogin } from '../../../hooks/serverHooks/user/useAuth'
+import { callUserLogin } from '../../../hooks/react-server/user/useAuth'
 import { UserValidation } from '../../../schema/validation/UserValidation'
 
 const handler = async (req, res) => {

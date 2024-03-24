@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
-import { useContext, useState } from 'react'
-import { postContactForm, postContactReplyForm } from '../../services/contactService'
-import { StateContext } from '../../utils/StateContext'
-import { removeCookies } from '../../utils/cookies'
-import { replaceRoute } from '../../utils/navigateToRoute'
+import { useState } from 'react'
+import { postContactForm, postContactReplyForm } from '../../../services/contactService'
+import { removeCookies } from '../../../utils/cookies'
+import { replaceRoute } from '../../../utils/navigateToRoute'
+import { useContext } from '../../../utils/useContext'
 
 export const useContact = () => {
-  const { handleFormLoading } = useContext(StateContext)
+  const { handleFormLoading } = useContext()
   const [success, handleSuccess] = useState(false)
   const [error, handleError] = useState(false)
 
@@ -30,7 +30,7 @@ export const useContact = () => {
 }
 
 export const useContactReply = () => {
-  const { handleFormLoading } = useContext(StateContext)
+  const { handleFormLoading } = useContext()
   const [success, handleSuccess] = useState(false)
   const [error, handleError] = useState(false)
 

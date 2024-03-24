@@ -8,7 +8,7 @@ import { animation } from '../../components/Animation/AnimateInputs'
 import ContactForm from '../../components/Contact/ContactForm'
 import HandleFormMessages from '../../components/Contact/HandleFormMessages'
 import { contactReply } from '../../components/Contact/contactInputs'
-import { useContactReply } from '../../hooks/contact/useContact'
+import { useContactReply } from '../../hooks/react-client/contact/useContact'
 import { schema } from '../../schema/ContactReplySchema'
 
 const ContactReply = () => {

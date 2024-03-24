@@ -6,7 +6,7 @@ import GradientCard from '../components/GradientCard'
 import About from '../components/Main/About'
 import PreviewCard from '../components/Work/PreviewCard'
 import db from '../firebase'
-import { callApplications } from '../hooks/serverHooks/apps/useApplication'
+import { callApplications } from '../hooks/react-server/apps/useApplication'
 import { Firestore } from '../types/Firestore'
 
 type Schemas = Firestore['schemas']
