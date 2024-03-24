@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { useContext, useState } from 'react'
-import { StateContext } from '../../utils/StateContext'
+import { useState } from 'react'
 import NavBarItems from '../Header/NavbarItems'
 
 interface Project {
@@ -24,7 +23,6 @@ function AnimateProjectView({
   onHoverLeave,
   onClick,
 }: AnimateProjectViewProps) {
-  const { setProjectView } = useContext(StateContext)
   const [descriptionView, handleDescriptionView] = useState<string | undefined>(projects[0].name)
 
   const descriptionToggle = (name?: string) => {
@@ -52,19 +50,19 @@ function AnimateProjectView({
       animate='open'
       exit='closed'
       variants={variants}
-      className='fixed top-0 left-0 w-[328px] h-full bg-white dark:bg-additional -z-10 dark:border-tertiary/25 border-secondary/70 border-r'
+      className='fixed left-0 top-0 -z-10 h-full w-[328px] border-r border-secondary/70 bg-white dark:border-tertiary/25 dark:bg-additional'
       onMouseEnter={onHoverEnter}
       onMouseLeave={onHoverLeave}
     >
-      <div className='p-4 border-b dark:border-tertiary/25 border-secondary/70 mb-2'>
-        <h3 className='dark:text-sec_addition text-additional text-sm tracking-[1px]'>
+      <div className='mb-2 border-b border-secondary/70 p-4 dark:border-tertiary/25'>
+        <h3 className='text-sm tracking-[1px] text-additional dark:text-sec_addition'>
           Categories of Everything I&apos;ve Done
         </h3>
       </div>
-      <div className='flex flex-col items-center h-full px-4'>
+      <div className='flex h-full flex-col items-center px-4'>
         {projects.map(({ name, description, path, icon }) => {
           return (
-            <ul className='w-full h-fit my-2' key={name}>
+            <ul className='my-2 h-fit w-full' key={name}>
               <NavBarItems
                 style='bg-secondary/30 dark:bg-projectview_dark p-3 rounded-md'
                 icon={icon}

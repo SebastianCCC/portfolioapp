@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { postUserLogin } from '../../../services/userService'
-import { StateContext } from '../../../utils/StateContext'
 import { setCookies } from '../../../utils/cookies'
 import { replaceRoute } from '../../../utils/navigateToRoute'
+import { useContext } from '../../../utils/useContext'
 
 export const useUserLogin = () => {
-  const { handleFormLoading } = useContext(StateContext)
+  const { handleFormLoading } = useContext()
   const [error, handleError] = useState<string | boolean>(false)
 
   const router = useRouter()

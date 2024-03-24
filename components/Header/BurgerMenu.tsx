@@ -1,13 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useContext } from 'react'
-import { StateContext } from '../../utils/StateContext'
+import { useContext } from '../../utils/useContext'
 import { NavLinks } from '../Links'
 import LoginButtun from './LoginButtun'
 import NavBarItems from './NavbarItems'
 import { ExitIcon, LogoIcon } from './images'
 
 const BurgerMenu = () => {
-  const { isOpen, setIsOpen } = useContext(StateContext)
+  const { isOpen, setIsOpen } = useContext()
 
   const variants = {
     open: {

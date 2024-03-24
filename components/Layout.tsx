@@ -1,15 +1,15 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useContext, useEffect, useState } from 'react'
-import { StateContext } from '../utils/StateContext'
+import { useEffect, useState } from 'react'
 import ProgressBar from './Contact/ProgressBar'
 import NavBottom from './Footer/NavBottom'
 import BurgerMenu from './Header/BurgerMenu'
 import SideNavBar from './Header/SideNavBar'
 import TopNavbar from './Header/TopNavbar'
+import { useContext } from '../utils/useContext'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { formLoading } = useContext(StateContext)
+  const { formLoading } = useContext()
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const path = router.pathname
