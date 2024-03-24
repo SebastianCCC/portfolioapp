@@ -1,7 +1,7 @@
 import AnimatePreviewCard from '../../../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../../../components/Animate/Titles'
 import PreviewCard from '../../../components/Work/PreviewCard'
-import { callDribbbleShots } from '../../../hooks/serverHooks/artworks/useArtwork'
+import { callDribbbleShots } from '../../../hooks/react-server/artworks/useArtwork'
 import { Dribbble } from '../../../types/Dribbble'
 
 type Schemas = Dribbble['schemas']

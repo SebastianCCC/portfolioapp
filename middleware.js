@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { callRefreshIdToken } from './hooks/serverHooks/user/useAuth'
+import { callRefreshIdToken } from './hooks/react-server/user/useAuth'
 import { getCookieValue, removeCookies, setCookie } from './utils/cookies'
 import { expiredToken, protectedRoutes } from './utils/helper'
 

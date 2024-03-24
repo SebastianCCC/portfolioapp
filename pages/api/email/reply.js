@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import { transporter } from '../../../components/Contact/transporter'
-import { callUserData } from '../../../hooks/serverHooks/user/useUser'
+import { callUserData } from '../../../hooks/react-server/user/useUser'
 import { ContactReplyValidation } from '../../../schema/validation/ContactReplyValidation'
 import { getCookieValue } from '../../../utils/cookies'
 

@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
-import { postContactForm, postContactReplyForm } from '../../services/contactService'
-import { StateContext } from '../../utils/StateContext'
-import { removeCookies } from '../../utils/cookies'
-import { replaceRoute } from '../../utils/navigateToRoute'
+import { postContactForm, postContactReplyForm } from '../../../services/contactService'
+import { StateContext } from '../../../utils/StateContext'
+import { removeCookies } from '../../../utils/cookies'
+import { replaceRoute } from '../../../utils/navigateToRoute'
 
 export const useContact = () => {
   const { handleFormLoading } = useContext(StateContext)
