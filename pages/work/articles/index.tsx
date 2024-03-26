@@ -4,7 +4,7 @@ import PreviewCard from '../../../components/Work/PreviewCard'
 import {
   callArticlesByUsername,
   callArticlesReactionsById,
-} from '../../../hooks/serverHooks/articles/useArticle'
+} from '../../../hooks/react-server/articles/useArticle'
 import { Forum } from '../../../types/Forum'
 
 type Schemas = Forum['schemas']

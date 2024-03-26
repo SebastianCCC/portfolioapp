@@ -1,11 +1,11 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import { useContext, useEffect, useState } from 'react'
-import { StateContext } from '../../utils/StateContext'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useContext } from '../../utils/useContext'
+import { Projects } from '../Links'
 import ThemeSwitch from '../Theme'
 import { LogoIcon, MenuIcon } from './images'
-import { Projects } from '../Links'
-import { useRouter } from 'next/router'
-import { AnimatePresence, motion } from 'framer-motion'
 
 const ProjectLinks = () => {
   const router = useRouter()
@@ -27,7 +27,7 @@ const ProjectLinks = () => {
 }
 
 const SideNavBar = () => {
-  const { setIsOpen } = useContext(StateContext)
+  const { setIsOpen } = useContext()
   const [scrollPos, setScrollPos] = useState(0)
   const [isVisible, setIsVisible] = useState(true)
   const scrollThreshold = 60

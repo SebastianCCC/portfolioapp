@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import { useContext, useState } from 'react'
-import { StateContext } from '../../utils/StateContext'
+import { useState } from 'react'
+import { useContext } from '../../utils/useContext'
 import AnimateProjectView from '../Animate/AnimateProjectView'
 import { NavLinks, Projects } from '../Links'
 import ThemeSwitch from '../Theme'
@@ -12,7 +12,7 @@ import { LogoIconOutline } from './images'
 const SideNavBar = () => {
   const [delayHandler, setDelayHandler] = useState(null)
   const [delayHandlerEnter, setDelayHandlerEnter] = useState(null)
-  const { projectView, setProjectView } = useContext(StateContext)
+  const { projectView, setProjectView } = useContext()
 
   const PROJECT_VIEW_DELAY = 300
 

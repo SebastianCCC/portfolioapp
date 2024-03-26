@@ -8,7 +8,7 @@ import { animation } from '../../components/Animation/AnimateInputs'
 import ContactForm from '../../components/Contact/ContactForm'
 import HandleFormMessages from '../../components/Contact/HandleFormMessages'
 import Confetti from '../../components/Contact/Confetti'
-import { useContact } from '../../hooks/contact/useContact'
+import { useContact } from '../../hooks/react-client/contact/useContact'
 import { schema } from '../../schema/ContactSchema'
 import { contact } from '../../components/Contact/contactInputs'
 
