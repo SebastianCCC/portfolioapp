@@ -18,7 +18,7 @@ const HeaderTitles = ({ title, description }: HeaderTitlesProps) => {
       }}
       className='my-10 text-center'
     >
-      <h2 className='m-auto mb-2 max-w-screen-xSmall text-md tracking-[1px]'>{title}</h2>
+      <h2 className='m-auto mb-2 max-w-screen-xSmall text-md tracking-[1px] opacity-95'>{title}</h2>
       <p className='m-auto max-w-screen-md text-sm tracking-[2px] opacity-80'>{description}</p>
     </motion.header>
   )
