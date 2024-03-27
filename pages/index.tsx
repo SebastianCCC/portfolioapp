@@ -27,7 +27,7 @@ export async function getStaticProps() {
       work: apps,
       randomInt,
     },
-    revalidate: 10,
+    revalidate: 30,
   }
 }
 
