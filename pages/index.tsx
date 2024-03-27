@@ -80,7 +80,7 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
       <section className='relative flex'>
         {loaded && (
           <div
-            className='absolute h-[1000px] w-full opacity-10 dark:opacity-100 lg:opacity-40'
+            className='absolute h-[1000px] w-full opacity-10 dark:opacity-70 md:dark:opacity-100 lg:opacity-40'
             style={{
               backgroundImage: `radial-gradient(circle farthest-side, ${tintetColor} 5%, rgba(0,0,0,0) 95%)`,
             }}
@@ -94,7 +94,7 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
                   variants={containerTitle}
                   initial='hidden'
                   animate='show'
-                  className='mb-2 text-center text-md font-bold tracking-[1px] text-white md:text-lg'
+                  className='mb-2 text-center text-base font-bold tracking-[1px] text-white xSmall:text-md md:text-lg xl:mb-0'
                 >
                   {namearr.map((letter, i) => (
                     <motion.span variants={item} key={i}>
