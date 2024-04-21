@@ -135,7 +135,7 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
           </div>
         </div>
       </section>
-      <section id='projects' className='mx-4 my-11 pt-8 xl:p-4 2xl:my-44'>
+      <section id='projects' className='mx-4 my-11 pt-8 xl:p-4'>
         <HeaderTitles
           title='Latest Projects'
           description='Latest and greatest in the collection, so why not take a look?'

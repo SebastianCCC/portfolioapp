@@ -15,10 +15,10 @@ const ProjectLinks = () => {
         <Link href={path}>
           <div
             data-path={router.pathname === path || null}
-            className='flex min-w-fit items-center justify-center p-4 text-tertiary/70 data-[path]:text-black/100 dark:text-sec_addition data-[path]:dark:text-white sm:px-3'
+            className='flex min-w-fit items-center justify-center p-[14px] text-tertiary/70 data-[path]:text-black/100 dark:text-sec_addition data-[path]:dark:text-white sm:px-3'
           >
-            <div className='mr-2'>{icon}</div>
-            <p className='text-sm font-extrabold capitalize tracking-[1px]'>{name}</p>
+            <div className='mr-2 scale-90 sm:scale-100'>{icon}</div>
+            <p className='text-xs font-extrabold capitalize tracking-[1px] sm:text-sm'>{name}</p>
           </div>
         </Link>
       </ul>
@@ -93,7 +93,7 @@ const SideNavBar = () => {
             animate='open'
             exit='closed'
             variants={variants}
-            className='no-scrollbar flex items-center overflow-auto border-b bg-white/80 backdrop-blur-[8px] dark:border-tertiary/25 dark:bg-additional/90 sm:hidden'
+            className='no-scrollbar m-5 mt-3 flex items-center overflow-auto rounded-full border border-tertiary/15 bg-white/50 backdrop-blur-[8px] dark:border-tertiary/25 dark:bg-additional/50 sm:hidden'
           >
             <ProjectLinks />
           </motion.div>

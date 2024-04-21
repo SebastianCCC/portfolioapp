@@ -72,7 +72,7 @@ const PreviewCard = ({
       <motion.div
         variants={fadeIn}
         data-collapsed={collapsed || null}
-        className='h-[300px] w-full data-[collapsed]:h-[220px] data-[collapsed]:xSmall:h-[325px] data-[collapsed]:xSmall:@sm:h-[380px]'
+        className='h-[220px] w-full data-[collapsed]:h-[220px] data-[collapsed]:xSmall:h-[325px] data-[collapsed]:xSmall:@sm:h-[380px] lg:h-[325px]'
       >
         <SkeletonLoader
           loaded={loaded}
