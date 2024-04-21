@@ -3,13 +3,12 @@ import { motion, useMotionValue, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MouseEvent, useRef, useState } from 'react'
+import { Sendicon } from '../../assets'
 import { DATE_FORMAT_DA } from '../../config'
-import { getColorFromImage } from '../../utils/getColorFromImage'
-import { rgbToHex } from '../../utils/rgbToHex'
+import { getProjectColorMatch } from '../../utils/getProjectColorMatch'
 import { addOpacity } from '../../utils/setColorOpacity'
 import { GroupIcon, UserIcon } from '../Links/images'
 import SkeletonLoader from '../SkeletonLoader'
-import { Sendicon } from '../../assets'
 
 type PreviewCardProps = {
   name: string
@@ -36,9 +35,9 @@ const PreviewCard = ({
 }: PreviewCardProps) => {
   const [loaded, setLoaded] = useState(false)
 
-  let ref = useRef(null)
-  const color = getColorFromImage(ref)
-  const hexColor = rgbToHex(color?.[0], color?.[1], color?.[2])
+  let ref = useRef<HTMLImageElement>(null)
+  const ADJUST_BRIGHTNESS = 40
+  const ColorMatch = getProjectColorMatch(ref, ADJUST_BRIGHTNESS)
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -76,7 +75,7 @@ const PreviewCard = ({
       >
         <SkeletonLoader
           loaded={loaded}
-          projectColor={hexColor}
+          projectColor={ColorMatch}
           backgroundImage={
             <Image
               ref={ref}
@@ -106,7 +105,7 @@ const PreviewCard = ({
                 </div>
               </div>
               <div
-                style={{ backgroundColor: addOpacity(hexColor, 25) }}
+                style={{ backgroundColor: addOpacity(ColorMatch, 25) }}
                 data-collapsed={collapsed || null}
                 className='grid grid-cols-4 rounded-b-md px-4 py-3 text-white backdrop-blur-[8px]'
               >

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
-import tinycolor from 'tinycolor2'
 import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../components/Animate/Titles'
 import ComStack from '../components/ComStack'
@@ -10,10 +9,8 @@ import PreviewCard from '../components/Work/PreviewCard'
 import db from '../firebase'
 import { callApplications } from '../hooks/react-server/apps/useApplication'
 import { Firestore } from '../types/Firestore'
-import { LightenDarkenColor } from '../utils/changeColorTint'
-import { getColorFromImage } from '../utils/getColorFromImage'
+import { getProjectColorMatch } from '../utils/getProjectColorMatch'
 import { getRandomInt } from '../utils/helper'
-import { rgbToHex } from '../utils/rgbToHex'
 
 type Schemas = Firestore['schemas']
 type Work = Schemas['Work'][]
@@ -34,16 +31,9 @@ export async function getStaticProps() {
 export default function Home({ work, randomInt }: { work: Work; randomInt: number }) {
   const [loaded, setLoaded] = useState(false)
 
-  let ref = useRef(null)
-
+  let ref = useRef<HTMLImageElement>(null)
   const ADJUST_BRIGHTNESS = 40
-
-  const color = getColorFromImage(ref)
-  const hexColor = rgbToHex(color?.[0], color?.[1], color?.[2])
-  const tintetColor = LightenDarkenColor(
-    hexColor,
-    -tinycolor(hexColor).getBrightness() + ADJUST_BRIGHTNESS,
-  )
+  const ColorMatch = getProjectColorMatch(ref, ADJUST_BRIGHTNESS)
 
   const name = 'Software engineer with a passion.'
   const desc =
@@ -82,7 +72,7 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
           <div
             className='absolute h-[1000px] w-full opacity-10 dark:opacity-70 md:dark:opacity-100 lg:opacity-40'
             style={{
-              backgroundImage: `radial-gradient(circle farthest-side, ${tintetColor} 5%, rgba(0,0,0,0) 95%)`,
+              backgroundImage: `radial-gradient(circle farthest-side, ${ColorMatch} 5%, rgba(0,0,0,0) 95%)`,
             }}
           />
         )}
