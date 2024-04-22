@@ -9,6 +9,7 @@ import { getProjectColorMatch } from '../../utils/getProjectColorMatch'
 import { addOpacity } from '../../utils/setColorOpacity'
 import { GroupIcon, UserIcon } from '../Links/images'
 import SkeletonLoader from '../SkeletonLoader'
+import { isDifferenceInWeeks } from '../../utils/differenceInWeeks'
 
 type PreviewCardProps = {
   name: string
@@ -71,7 +72,7 @@ const PreviewCard = ({
       <motion.div
         variants={fadeIn}
         data-collapsed={collapsed || null}
-        className='h-[220px] w-full data-[collapsed]:h-[220px] data-[collapsed]:xSmall:h-[325px] data-[collapsed]:xSmall:@sm:h-[380px] lg:h-[325px]'
+        className='h-[220px] w-full data-[collapsed]:h-[220px] data-[collapsed]:xSmall:h-[325px] data-[collapsed]:xSmall:@sm:h-[380px] lg:h-[300px]'
       >
         <SkeletonLoader
           loaded={loaded}
@@ -95,6 +96,11 @@ const PreviewCard = ({
           >
             <div className='flex h-full w-full select-none flex-col justify-between'>
               <div className='flex items-center rounded-t-md px-4 py-3 text-white'>
+                {isDifferenceInWeeks(endDate) && (
+                  <p className='mr-2 w-fit rounded-md bg-projectview_dark p-2 text-xs leading-3'>
+                    New
+                  </p>
+                )}
                 {endDate ? (
                   <p className='mr-2 rounded-md bg-projectview_dark p-2 text-xs leading-3'>
                     {format(new Date(endDate), DATE_FORMAT_DA)}

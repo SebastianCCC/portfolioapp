@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
@@ -35,36 +34,6 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
   const ADJUST_BRIGHTNESS = 40
   const ColorMatch = getProjectColorMatch(ref, ADJUST_BRIGHTNESS)
 
-  const name = 'Software engineer with a passion.'
-  const desc =
-    "Hi, i'm Sebastian Christopher, a full time frontend developer that always gives it 100%"
-  const namearr = [...name]
-  const descarr = [...desc]
-  const containerTitle = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const containerDesc = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
-  }
-
   return (
     <div className='-m-4'>
       <section className='relative flex'>
@@ -77,35 +46,8 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
           />
         )}
         <div className='mt-28 flex w-full justify-end xl:mt-14'>
-          <div className='relative m-auto h-[300px] w-full overflow-hidden dark:drop-shadow-lg xSmall:h-[400px] sm:w-[95%] sm:rounded-md md:h-[600px] xl:m-0 xl:w-[85%] xl:rounded-l-md xl:rounded-r-none 2xl:m-auto 2xl:rounded-md'>
+          <div className='relative m-auto h-[300px] w-[95%] overflow-hidden rounded-md dark:drop-shadow-lg xSmall:h-[400px] md:h-[600px] xl:m-0 xl:w-[85%] xl:rounded-l-md xl:rounded-r-none 2xl:m-auto 2xl:rounded-md'>
             <div className='relative z-10 grid h-full'>
-              <div className='relative z-10 place-self-center'>
-                <motion.h1
-                  variants={containerTitle}
-                  initial='hidden'
-                  animate='show'
-                  className='mb-2 text-center text-base font-bold tracking-[1px] text-white xSmall:text-md md:text-lg xl:mb-0'
-                >
-                  {namearr.map((letter, i) => (
-                    <motion.span variants={item} key={i}>
-                      {letter}
-                    </motion.span>
-                  ))}
-                </motion.h1>
-                <motion.h2
-                  variants={containerDesc}
-                  initial='hidden'
-                  animate='show'
-                  className='m-auto w-[95%] text-center text-sm tracking-[1px] text-white xSmall:w-[90%] md:text-base'
-                >
-                  {descarr.map((letter, i) => (
-                    <motion.span variants={item} key={i}>
-                      {letter}
-                    </motion.span>
-                  ))}
-                </motion.h2>
-              </div>
-              <div className='absolute inset-0 bg-black/40' />
               <div className='absolute flex h-full w-full items-end sm:w-fit'>
                 <div className='w-full rounded-r-md bg-projectview_dark/25 p-2 sm:mb-4 sm:w-fit'>
                   <h3 className='text-base tracking-[1px] text-white sm:text-sm'>
