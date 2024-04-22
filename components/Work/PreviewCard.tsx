@@ -3,13 +3,13 @@ import { motion, useMotionValue, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MouseEvent, useRef, useState } from 'react'
+import { Sendicon } from '../../assets'
 import { DATE_FORMAT_DA } from '../../config'
-import { getColorFromImage } from '../../utils/getColorFromImage'
-import { rgbToHex } from '../../utils/rgbToHex'
+import { getProjectColorMatch } from '../../utils/getProjectColorMatch'
 import { addOpacity } from '../../utils/setColorOpacity'
 import { GroupIcon, UserIcon } from '../Links/images'
 import SkeletonLoader from '../SkeletonLoader'
-import { Sendicon } from '../../assets'
+import { isDifferenceInWeeks } from '../../utils/differenceInWeeks'
 
 type PreviewCardProps = {
   name: string
@@ -36,9 +36,9 @@ const PreviewCard = ({
 }: PreviewCardProps) => {
   const [loaded, setLoaded] = useState(false)
 
-  let ref = useRef(null)
-  const color = getColorFromImage(ref)
-  const hexColor = rgbToHex(color?.[0], color?.[1], color?.[2])
+  let ref = useRef<HTMLImageElement>(null)
+  const ADJUST_BRIGHTNESS = 40
+  const ColorMatch = getProjectColorMatch(ref, ADJUST_BRIGHTNESS)
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -72,11 +72,11 @@ const PreviewCard = ({
       <motion.div
         variants={fadeIn}
         data-collapsed={collapsed || null}
-        className='h-[300px] w-full data-[collapsed]:h-[220px] data-[collapsed]:xSmall:h-[325px] data-[collapsed]:xSmall:@sm:h-[380px]'
+        className='h-[220px] w-full data-[collapsed]:h-[220px] data-[collapsed]:xSmall:h-[325px] data-[collapsed]:xSmall:@sm:h-[380px] lg:h-[300px]'
       >
         <SkeletonLoader
           loaded={loaded}
-          projectColor={hexColor}
+          projectColor={ColorMatch}
           backgroundImage={
             <Image
               ref={ref}
@@ -96,6 +96,11 @@ const PreviewCard = ({
           >
             <div className='flex h-full w-full select-none flex-col justify-between'>
               <div className='flex items-center rounded-t-md px-4 py-3 text-white'>
+                {isDifferenceInWeeks(endDate) && (
+                  <p className='mr-2 w-fit rounded-md bg-projectview_dark p-2 text-xs leading-3'>
+                    New
+                  </p>
+                )}
                 {endDate ? (
                   <p className='mr-2 rounded-md bg-projectview_dark p-2 text-xs leading-3'>
                     {format(new Date(endDate), DATE_FORMAT_DA)}
@@ -106,7 +111,7 @@ const PreviewCard = ({
                 </div>
               </div>
               <div
-                style={{ backgroundColor: addOpacity(hexColor, 25) }}
+                style={{ backgroundColor: addOpacity(ColorMatch, 25) }}
                 data-collapsed={collapsed || null}
                 className='grid grid-cols-4 rounded-b-md px-4 py-3 text-white backdrop-blur-[8px]'
               >
