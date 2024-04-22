@@ -5,3 +5,5 @@ export const SECURE_GOOGLE_URL_API = 'https://securetoken.googleapis.com'
 export const IDENTITY_TOOLKIT_URL_API = 'https://identitytoolkit.googleapis.com'
 
 export const DATE_FORMAT_DA = 'dd.MM.yyyy'
+
+export const DIFFERENCE_IN_WEEKS_FOR_NEWS_LABEL = 3

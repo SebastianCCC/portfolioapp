@@ -1,7 +1,5 @@
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
-import tinycolor from 'tinycolor2'
 import AnimatePreviewCard from '../components/Animate/AnimatePreviewCard'
 import HeaderTitles from '../components/Animate/Titles'
 import ComStack from '../components/ComStack'
@@ -10,10 +8,8 @@ import PreviewCard from '../components/Work/PreviewCard'
 import db from '../firebase'
 import { callApplications } from '../hooks/react-server/apps/useApplication'
 import { Firestore } from '../types/Firestore'
-import { LightenDarkenColor } from '../utils/changeColorTint'
-import { getColorFromImage } from '../utils/getColorFromImage'
+import { getProjectColorMatch } from '../utils/getProjectColorMatch'
 import { getRandomInt } from '../utils/helper'
-import { rgbToHex } from '../utils/rgbToHex'
 
 type Schemas = Firestore['schemas']
 type Work = Schemas['Work'][]
@@ -34,46 +30,9 @@ export async function getStaticProps() {
 export default function Home({ work, randomInt }: { work: Work; randomInt: number }) {
   const [loaded, setLoaded] = useState(false)
 
-  let ref = useRef(null)
-
+  let ref = useRef<HTMLImageElement>(null)
   const ADJUST_BRIGHTNESS = 40
-
-  const color = getColorFromImage(ref)
-  const hexColor = rgbToHex(color?.[0], color?.[1], color?.[2])
-  const tintetColor = LightenDarkenColor(
-    hexColor,
-    -tinycolor(hexColor).getBrightness() + ADJUST_BRIGHTNESS,
-  )
-
-  const name = 'Software engineer with a passion.'
-  const desc =
-    "Hi, i'm Sebastian Christopher, a full time frontend developer that always gives it 100%"
-  const namearr = [...name]
-  const descarr = [...desc]
-  const containerTitle = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const containerDesc = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
-  }
+  const ColorMatch = getProjectColorMatch(ref, ADJUST_BRIGHTNESS)
 
   return (
     <div className='-m-4'>
@@ -82,40 +41,13 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
           <div
             className='absolute h-[1000px] w-full opacity-10 dark:opacity-70 md:dark:opacity-100 lg:opacity-40'
             style={{
-              backgroundImage: `radial-gradient(circle farthest-side, ${tintetColor} 5%, rgba(0,0,0,0) 95%)`,
+              backgroundImage: `radial-gradient(circle farthest-side, ${ColorMatch} 5%, rgba(0,0,0,0) 95%)`,
             }}
           />
         )}
         <div className='mt-28 flex w-full justify-end xl:mt-14'>
-          <div className='relative m-auto h-[300px] w-full overflow-hidden dark:drop-shadow-lg xSmall:h-[400px] sm:w-[95%] sm:rounded-md md:h-[600px] xl:m-0 xl:w-[85%] xl:rounded-l-md xl:rounded-r-none 2xl:m-auto 2xl:rounded-md'>
+          <div className='relative m-auto h-[300px] w-[95%] overflow-hidden rounded-md dark:drop-shadow-lg xSmall:h-[400px] md:h-[600px] xl:m-0 xl:w-[85%] xl:rounded-l-md xl:rounded-r-none 2xl:m-auto 2xl:rounded-md'>
             <div className='relative z-10 grid h-full'>
-              <div className='relative z-10 place-self-center'>
-                <motion.h1
-                  variants={containerTitle}
-                  initial='hidden'
-                  animate='show'
-                  className='mb-2 text-center text-base font-bold tracking-[1px] text-white xSmall:text-md md:text-lg xl:mb-0'
-                >
-                  {namearr.map((letter, i) => (
-                    <motion.span variants={item} key={i}>
-                      {letter}
-                    </motion.span>
-                  ))}
-                </motion.h1>
-                <motion.h2
-                  variants={containerDesc}
-                  initial='hidden'
-                  animate='show'
-                  className='m-auto w-[95%] text-center text-sm tracking-[1px] text-white xSmall:w-[90%] md:text-base'
-                >
-                  {descarr.map((letter, i) => (
-                    <motion.span variants={item} key={i}>
-                      {letter}
-                    </motion.span>
-                  ))}
-                </motion.h2>
-              </div>
-              <div className='absolute inset-0 bg-black/40' />
               <div className='absolute flex h-full w-full items-end sm:w-fit'>
                 <div className='w-full rounded-r-md bg-projectview_dark/25 p-2 sm:mb-4 sm:w-fit'>
                   <h3 className='text-base tracking-[1px] text-white sm:text-sm'>
@@ -135,7 +67,7 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
           </div>
         </div>
       </section>
-      <section id='projects' className='mx-4 my-11 pt-8 xl:p-4 2xl:my-44'>
+      <section id='projects' className='mx-4 my-11 pt-8 xl:p-4'>
         <HeaderTitles
           title='Latest Projects'
           description='Latest and greatest in the collection, so why not take a look?'
