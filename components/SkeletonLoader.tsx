@@ -14,7 +14,7 @@ function SkeletonLoader({ loaded, children, backgroundImage, projectColor }: Ske
           <div className='absolute bottom-14 z-10 mx-4 h-4 w-3/5 rounded-md bg-white dark:bg-additional' />
         </div>
       ) : (
-        <div className='relative z-10 h-full w-full rounded-md border-[0.5px] border-secondary/70 dark:border-tertiary/75'>
+        <div className='relative z-10 h-full w-full rounded-md'>
           <div
             className='h-full w-full rounded-md opacity-40'
             style={{
