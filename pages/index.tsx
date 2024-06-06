@@ -31,25 +31,25 @@ export default function Home({ work, randomInt }: { work: Work; randomInt: numbe
   const [loaded, setLoaded] = useState(false)
 
   let ref = useRef<HTMLImageElement>(null)
-  const ADJUST_BRIGHTNESS = 40
+  const ADJUST_BRIGHTNESS = 30
   const ColorMatch = getProjectColorMatch(ref, ADJUST_BRIGHTNESS)
 
   return (
-    <div className='-m-4'>
+    <div className='-m-4 pt-28 sm:pt-16 xl:p-0'>
       <section className='relative flex'>
         {loaded && (
           <div
-            className='absolute h-[1000px] w-full opacity-10 dark:opacity-70 md:dark:opacity-100 lg:opacity-40'
+            className='absolute h-[1000px] w-full opacity-40 dark:opacity-100 lg:opacity-40'
             style={{
               backgroundImage: `radial-gradient(circle farthest-side, ${ColorMatch} 5%, rgba(0,0,0,0) 95%)`,
             }}
           />
         )}
-        <div className='mt-28 flex w-full justify-end xl:mt-14'>
-          <div className='relative m-auto h-[300px] w-[95%] overflow-hidden rounded-md dark:drop-shadow-lg xSmall:h-[400px] md:h-[600px] xl:m-0 xl:w-[85%] xl:rounded-l-md xl:rounded-r-none 2xl:m-auto 2xl:rounded-md'>
+        <div className='mt-11 flex w-full justify-end p-4 xl:mt-14 xl:p-0'>
+          <div className='relative m-auto h-[300px] w-full overflow-hidden rounded-xl dark:drop-shadow-lg xSmall:h-[350px] sm:h-[400px] md:h-[550px] lg:h-[600px] xl:m-0 xl:w-[85%] xl:rounded-l-xl xl:rounded-r-none 2xl:m-auto 2xl:rounded-xl'>
             <div className='relative z-10 grid h-full'>
               <div className='absolute flex h-full w-full items-end sm:w-fit'>
-                <div className='w-full rounded-r-md bg-projectview_dark/25 p-2 sm:mb-4 sm:w-fit'>
+                <div className='w-full rounded-r-xl bg-projectview_dark/25 p-2 sm:mb-4 sm:w-fit'>
                   <h3 className='text-base tracking-[1px] text-white sm:text-sm'>
                     {work[randomInt].name}
                   </h3>

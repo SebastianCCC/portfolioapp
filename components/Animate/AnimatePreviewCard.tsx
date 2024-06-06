@@ -35,7 +35,7 @@ export default function AnimatePreviewCard({ children }: { children: React.React
       whileInView='show'
       variants={container}
       viewport={{ once: true }}
-      className={`grid gap-4 py-4 2xl:gap-8 ${projectPathStyles()}`}
+      className={`grid gap-4 py-4 ${projectPathStyles()}`}
     >
       {children}
     </motion.div>
