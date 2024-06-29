@@ -16,7 +16,7 @@ export async function getStaticProps({ params }) {
     props: {
       currentpage: JSON.parse(JSON.stringify(page)),
     },
-    revalidate: 10,
+    revalidate: 3600,
   }
 }
 
@@ -55,11 +55,11 @@ const WId = ({ currentpage }) => {
       <Head>
         <title>{`Seechris - ${path.slice(0).charAt(0).toUpperCase() + path.slice(1)}`}</title>
       </Head>
-      <div className="pt-28 xl:p-4 md:container md:m-auto">
+      <div className='pt-28 md:container md:m-auto xl:p-4'>
         <HeaderTitles
           title={`${name} ${format(new Date(endDate.seconds * 1000), DATE_FORMAT_DA)}`}
         />
-        <div className="flex flex-col-reverse lg:flex-row mt-3 lg:mt-[65px]">
+        <div className='mt-3 flex flex-col-reverse lg:mt-[65px] lg:flex-row'>
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -69,22 +69,22 @@ const WId = ({ currentpage }) => {
               delay: 0.2,
               duration: 2,
             }}
-            className="mt-9 lg:mt-0 lg:mr-4 w-[100%]"
+            className='mt-9 w-[100%] lg:mr-4 lg:mt-0'
           >
-            <h1 className="text-lg font-bold">{name}</h1>
-            <p className="xl:text-[16px] dark:text-tertiary capitalize">{role}</p>
-            <p className="mt-9 xl:text-[18px] dark:text-sec_addition leading-loose">
+            <h1 className='text-lg font-bold'>{name}</h1>
+            <p className='capitalize dark:text-tertiary xl:text-[16px]'>{role}</p>
+            <p className='mt-9 leading-loose dark:text-sec_addition xl:text-[18px]'>
               {decs ? decs : 'No description available for now!'}
             </p>
-            <p className="mt-1 dark:text-tertiary xl:text-[16px]">
+            <p className='mt-1 dark:text-tertiary xl:text-[16px]'>
               {isgroup ? 'Group' : 'Solo'} Project
             </p>
-            <div className="text-center sm:text-left mt-8">
-              <h2 className="dark:text-tertiary tracking-[2px] mb-1 capitalize">Tech Used</h2>
-              <div className="flex items-center overflow-auto -mx-4 pl-4">
+            <div className='mt-8 text-center sm:text-left'>
+              <h2 className='mb-1 capitalize tracking-[2px] dark:text-tertiary'>Tech Used</h2>
+              <div className='-mx-4 flex items-center overflow-auto pl-4'>
                 {stack.map((tech, i) => (
                   <p
-                    className="my-4 min-w-fit capitalize first:pl-0 px-4 even:border-x last:border-r-transparent border-sec_addition"
+                    className='my-4 min-w-fit border-sec_addition px-4 capitalize first:pl-0 last:border-r-transparent even:border-x'
                     key={i}
                   >
                     {tech}
@@ -92,32 +92,32 @@ const WId = ({ currentpage }) => {
                 ))}
               </div>
             </div>
-            <h2 className="text-center sm:text-left dark:text-tertiary tracking-[2px] mt-5 mb-1 capitalize">
+            <h2 className='mb-1 mt-5 text-center capitalize tracking-[2px] dark:text-tertiary sm:text-left'>
               Links
             </h2>
-            <div className="flex justify-center sm:justify-start py-4 dark:text-sec_addition uppercase">
+            <div className='flex justify-center py-4 uppercase dark:text-sec_addition sm:justify-start'>
               <a
-                className="dark:hover:text-white hover:underline underline-offset-1 mr-4"
+                className='mr-4 underline-offset-1 hover:underline dark:hover:text-white'
                 href={sorcecode}
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 {sorcecode ? 'sorcecode' : 'No Github Repo'}
               </a>
               <a
-                className="dark:hover:text-white hover:underline underline-offset-1"
+                className='underline-offset-1 hover:underline dark:hover:text-white'
                 href={deployed}
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 {deployed ? 'Demo' : 'Not Deployed'}
               </a>
             </div>
           </motion.div>
           {walkthrough && typeof window !== 'undefined' && window.innerWidth >= 1024 ? (
-            <div className="w-full lg:w-[70%] relative h-[300px] xl:h-[500px]">
+            <div className='relative h-[300px] w-full lg:w-[70%] xl:h-[500px]'>
               <video
-                className="absolute w-full h-[300px] lg:h-[450px] xl:h-[600px]"
+                className='absolute h-[300px] w-full lg:h-[450px] xl:h-[600px]'
                 loop
                 muted
                 autoPlay
@@ -140,14 +140,14 @@ const WId = ({ currentpage }) => {
                     delay: 0.2,
                     duration: 1.5,
                   }}
-                  className="relative select-none pointer-events-none w-full h-[300px] xl:h-[357px]"
+                  className='pointer-events-none relative h-[300px] w-full select-none xl:h-[357px]'
                 >
                   <Image
-                    sizes="100vw"
+                    sizes='100vw'
                     fill
                     src={previewImage}
                     alt={'A Photo of the project'}
-                    className="object-cover rounded-md"
+                    className='rounded-md object-cover'
                   />
                 </motion.div>
               )}
