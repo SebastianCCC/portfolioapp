@@ -23,7 +23,7 @@ export async function getStaticProps() {
       work: apps,
       randomInt,
     },
-    revalidate: 30,
+    revalidate: 86400,
   }
 }
 

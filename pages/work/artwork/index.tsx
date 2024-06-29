@@ -13,7 +13,7 @@ export async function getStaticProps() {
     props: {
       artwork: shots,
     },
-    revalidate: 10,
+    revalidate: 3600,
   }
 }
 
