@@ -16,7 +16,7 @@ export async function getStaticProps() {
     props: {
       work: apps,
     },
-    revalidate: 10,
+    revalidate: 3600,
   }
 }
 
