@@ -15,7 +15,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'media.dev.to',
         port: '',
-        pathname: '/cdn-cgi/image/**',
+        pathname: '/dynamic/image/**',
       },
       {
         protocol: 'https',
