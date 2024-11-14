@@ -13,7 +13,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'media.dev.to',
+        hostname: 'media2.dev.to',
         port: '',
         pathname: '/dynamic/image/**',
       },
